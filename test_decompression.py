@@ -9,12 +9,12 @@ datasets = {
 }
 
 
-algorithms = ["Lagarith"]
+algorithms = ["UTVIDEO"]
 
 # Cartella di output per la decompressione
-decompression_dir = "../Progetto_Compressione_Dati-master/decompression_test"
+decompression_dir = "./decompression_test"
 # Cartella di output
-compression_dir = "../Progetto_Compressione_Dati-master/compressione_test"
+compression_dir = "./compressione_test"
 os.makedirs(decompression_dir, exist_ok=True)
 
 for dataset, input_format in datasets.items():

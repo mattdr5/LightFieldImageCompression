@@ -4,15 +4,15 @@ import pathlib
 
 # Definizione dei dataset e degli algoritmi
 datasets = {
-    "ArtGallery2": "./ArtGallery2/Frame_%3d.png",
-    "Dragons": "./Dragons/dragons-%2d.png",
-    "11px_linear": "./11px_linear/%d.png"
+    "ArtGallery2": "./dataset/ArtGallery2/Frame_%3d.png",
+    "Dragons": "./dataset/Dragons/dragons-%2d.png",
+    "11px_linear": "./dataset/11px_linear/%d.png"
 }
 
-algorithms = ["Lagarith"]
+algorithms = ["UTVIDEO"]
 
 # Cartella di output
-output_dir = "../Progetto_Compressione_Dati-master/compressione_test"
+output_dir = "./compressione_test"
 os.makedirs(output_dir, exist_ok=True)
 
 def run_video_compression(algo, input_path, output_extension, output_path):
