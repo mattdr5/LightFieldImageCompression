@@ -42,6 +42,8 @@ for dataset, input_format in datasets.items():
             input_extension = "drc"
         elif algo in ["FLV1"]:
             input_extension = "flv"
+        elif algo in ["SNOW"]:
+            input_extension = "avi"
         else:
             input_extension = ""  # Estensione predefinita
 

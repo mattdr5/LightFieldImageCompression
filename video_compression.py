@@ -12,6 +12,7 @@ import VideoCompressionTheora
 import VideoCompressionMagicYUV
 import VideoCompressionDirac
 import VideoCompressionFLV1
+import VideoCompressionSNOW
 import pathlib
 import time
 
@@ -94,6 +95,11 @@ match algo:
             VideoCompressionFLV1.comp_FLV1(input_path, output_path)
         else:
             print("Estensione di output per FLV1 deve essere .flv")
+    case "SNOW":
+        if (pathlib.Path(output_path).suffix == ".avi"):
+            VideoCompressionSNOW.comp_Snow(input_path, output_path)
+        else:
+            print("Estensione di output per SNOW deve essere .avi")
 
 
 
