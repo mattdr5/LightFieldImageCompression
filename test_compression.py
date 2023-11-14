@@ -7,7 +7,10 @@ datasets = {
     "ArtGallery2": "./dataset/ArtGallery2/Frame_%3d.png",
     "Dragons": "./dataset/Dragons/dragons-%2d.png",
     "11px_linear": "./dataset/11px_linear/%d.png",
-    "Fish":"./dataset/Fish/fishi-%2d.png"
+    "Fish":"./dataset/Fish/fishi-%2d.png",
+    "Dice":"./dataset/Dice/dice-%2d.png",
+    "Messerschmitt":"./dataset/Messerschmitt/messerschmitt-%2d.png",
+    "Shrubbery":"./dataset/Shrubbery/shrubbery-%2d.png"
 }
 
 algorithms = ["HEVC"]
