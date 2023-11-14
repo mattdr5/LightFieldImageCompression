@@ -8,9 +8,6 @@ import VideoCompressionVP9
 import VideoCompressionHEVCvls
 import VideoCompressionVP9vls
 import VideoCompressionAV1vls
-import compLagarith
-import compMagicYUV
-import ComprTHEORA
 import pathlib
 import time
 

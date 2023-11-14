@@ -2,3 +2,5 @@
 ./compressione_test
 
 ./decompressione_test
+
+./ffmpeg
