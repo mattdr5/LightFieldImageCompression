@@ -34,6 +34,8 @@ for dataset, input_format in datasets.items():
             input_extension = "ogv"
         elif algo in ["MagicYUV"]:
             input_extension = "avi"
+        elif algo in ["Dirac"]:
+            input_extension = "drc"
         else:
             input_extension = ""  # Estensione predefinita
 

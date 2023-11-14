@@ -13,7 +13,7 @@ datasets = {
     "Shrubbery":"./dataset/Shrubbery/shrubbery-%2d.png"
 }
 
-algorithms = ["MagicYUV"]
+algorithms = ["Dirac"]
 
 # Cartella di output
 output_dir = "./compressione_test"
@@ -32,7 +32,8 @@ def run_video_compression(algo, input_path, output_extension, output_path):
         "VP9-VS": ".webm",
         "Theora": ".ogv",
         "MagicYUV": ".avi",
-        "Lagarith": ".avi"
+        "Lagarith": ".avi",
+        "Dirac": ".drc"
     }
 
     if algo not in valid_extensions:
@@ -63,6 +64,10 @@ for dataset, input_path in datasets.items():
             output_extension = ".webm"
         elif algo in ["Theora"]:
             output_extension = ".ogv"
+        elif algo in ["MagicYUV"]:
+            output_extension = ".avi"
+        elif algo in ["Dirac"]:
+            output_extension = ".drc"
         else:
             print(f"Algoritmo non supportato: {algo}")
             continue
