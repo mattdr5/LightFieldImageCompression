@@ -29,7 +29,7 @@ for frame in container.decode(stream):
 
 #DIFFERENZA PIXEL PER PIXEL A COLORI
 # Open both images
-image1 = Image.open("./ArtGallery2/Frame_000.png ")
+image1 = Image.open("./dataset/ArtGallery2/Frame_000.png ")
 image2 = Image.open(output_path.replace("%d","0"))
 
 

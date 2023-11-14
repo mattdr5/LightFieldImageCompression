@@ -57,7 +57,7 @@ match algo:
             print("Per HUFFYUV l'estensione del file in output deve essere .avi")
     case "UTVIDEO":
         if(pathlib.Path(output_path).suffix == ".avi"):
-            VideoCompressionUTVideo.comp_UTVIDEO(input_path,output_path)
+            VideoCompressionUTVideo.comp_UTVIDEO(input_path, output_path)
         else:
             print("Per UTVIDEO l'estensione del file in output deve essere .avi")
     case "VP9":
