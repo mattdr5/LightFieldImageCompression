@@ -1,7 +1,7 @@
 # Ignora i file di sistema Mac
-./compressione_test
+./compressione_test/
 
-./decompressione_test
+./decompressione_test/
 
 ./ffmpeg
 
