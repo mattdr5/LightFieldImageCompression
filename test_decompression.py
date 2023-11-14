@@ -13,7 +13,7 @@ datasets = {
 }
 
 
-algorithms = ["MagicYUV"]
+algorithms = ["FLV1"]
 
 # Cartella di output per la decompressione
 decompression_dir = "./decompression_test"
@@ -40,6 +40,8 @@ for dataset, input_format in datasets.items():
             input_extension = "avi"
         elif algo in ["Dirac"]:
             input_extension = "drc"
+        elif algo in ["FLV1"]:
+            input_extension = "flv"
         else:
             input_extension = ""  # Estensione predefinita
 

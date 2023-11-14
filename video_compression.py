@@ -11,6 +11,7 @@ import VideoCompressionAV1vls
 import VideoCompressionTheora
 import VideoCompressionMagicYUV
 import VideoCompressionDirac
+import VideoCompressionFLV1
 import pathlib
 import time
 
@@ -88,7 +89,12 @@ match algo:
             VideoCompressionDirac.comp_Dirac(input_path, output_path)
         else:
             print("Estensione di output per Dirac deve essere .drc")
+    case "FLV1":
+        if (pathlib.Path(output_path).suffix == ".flv"):
+            VideoCompressionFLV1.comp_FLV1(input_path, output_path)
+        else:
+            print("Estensione di output per FLV1 deve essere .flv")
 
 
 
-print("Tempo impegato: " + str(time.time() - startTime) + " secondi")
+print("Tempo impiegato: " + str(time.time() - startTime) + " secondi")
