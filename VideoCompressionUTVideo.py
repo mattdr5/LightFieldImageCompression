@@ -17,9 +17,10 @@ def comp_UTVIDEO(input_path, output_path):
 
     # Check the operating system and set the path to the FFmpeg executable accordingly
     if platform.system() == 'Windows':
-        ffmpeg_executable = "./ffmpeg/bin/ffmpeg.exe"
+        print("Windows")
+        ffmpeg_executable = "./ffmpeg/bin/ffmpeg.exe "
     else:
-        ffmpeg_executable = "ffmpeg"
+        ffmpeg_executable = "ffmpeg "
 
     # Call ffmpeg to compress the video
     subprocess.run([ffmpeg_executable, "-framerate", "120", "-i", input_file, "-c:v", "utvideo", output_file])
@@ -35,5 +36,3 @@ def comp_UTVIDEO(input_path, output_path):
     videoSize = os.stat(os.path.abspath(output_path)).st_size
     print("Compression Ratio:" + str(size / videoSize))
 
-# Example usage
-comp_UTVIDEO("input_video.mp4", "output_video.avi")
