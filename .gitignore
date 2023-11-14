@@ -4,3 +4,5 @@
 ./decompressione_test
 
 ./ffmpeg
+
+.\__pycache__
