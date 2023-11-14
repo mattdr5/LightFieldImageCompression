@@ -91,9 +91,9 @@ match algo:
             print("Estensione di output per Dirac deve essere .drc")
     case "Lagarith":
         if (pathlib.Path(output_path).suffix == ".avi"):
-            VideoCompressionDirac.comp_Dirac(input_path, output_path)
+            VideoCompressionLagarith.comp_Lagarith(input_path, output_path)
         else:
-            print("Estensione di output per Dirac deve essere .avi")
+            print("Estensione di output per Lagarith deve essere .avi")
 
 
 
