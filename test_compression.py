@@ -32,7 +32,6 @@ def run_video_compression(algo, input_path, output_extension, output_path):
         "VP9-VS": ".webm",
         "Theora": ".ogv",
         "MagicYUV": ".avi",
-        "Lagarith": ".avi",
         "Dirac": ".drc"
     }
 

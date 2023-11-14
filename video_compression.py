@@ -11,7 +11,6 @@ import VideoCompressionAV1vls
 import VideoCompressionTheora
 import VideoCompressionMagicYUV
 import VideoCompressionDirac
-import VideoCompressionLagarith
 import pathlib
 import time
 
@@ -89,11 +88,6 @@ match algo:
             VideoCompressionDirac.comp_Dirac(input_path, output_path)
         else:
             print("Estensione di output per Dirac deve essere .drc")
-    case "Lagarith":
-        if (pathlib.Path(output_path).suffix == ".avi"):
-            VideoCompressionLagarith.comp_Lagarith(input_path, output_path)
-        else:
-            print("Estensione di output per Lagarith deve essere .avi")
 
 
 
