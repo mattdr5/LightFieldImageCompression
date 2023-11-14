@@ -44,6 +44,8 @@ for dataset, input_format in datasets.items():
             input_extension = "flv"
         elif algo in ["SNOW"]:
             input_extension = "avi"
+        elif algo in ["HAP"]:
+            input_extension = "mov"
         else:
             input_extension = ""  # Estensione predefinita
 

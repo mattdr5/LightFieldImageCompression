@@ -13,6 +13,7 @@ import VideoCompressionMagicYUV
 import VideoCompressionDirac
 import VideoCompressionFLV1
 import VideoCompressionSNOW
+import VideoCompressionHAP
 import pathlib
 import time
 
@@ -84,7 +85,7 @@ match algo:
         if (pathlib.Path(output_path).suffix == ".avi"):
             VideoCompressionMagicYUV.comp_MagicYUV(input_path, output_path)
         else:
-            print("Estensione di output per MagixYUV deve essere .avi")
+            print("Estensione di output per MagicYUV deve essere .avi")
     case "Dirac":
         if (pathlib.Path(output_path).suffix == ".drc"):
             VideoCompressionDirac.comp_Dirac(input_path, output_path)
@@ -100,6 +101,11 @@ match algo:
             VideoCompressionSNOW.comp_Snow(input_path, output_path)
         else:
             print("Estensione di output per SNOW deve essere .avi")
+    case "HAP":
+        if (pathlib.Path(output_path).suffix == ".mov"):
+            VideoCompressionHAP.comp_Hap(input_path, output_path)
+        else:
+            print("Estensione di output per HAP deve essere .mov")
 
 
 
