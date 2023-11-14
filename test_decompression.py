@@ -9,7 +9,7 @@ datasets = {
 }
 
 
-algorithms = ["Theora"]
+algorithms = ["MagicYUV"]
 
 # Cartella di output per la decompressione
 decompression_dir = "./decompression_test"
@@ -32,6 +32,8 @@ for dataset, input_format in datasets.items():
             input_extension = "webm"
         elif algo in ["Theora"]:
             input_extension = "ogv"
+        elif algo in ["MagicYUV"]:
+            input_extension = "avi"
         else:
             input_extension = ""  # Estensione predefinita
 

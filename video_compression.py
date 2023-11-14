@@ -9,6 +9,7 @@ import VideoCompressionHEVCvls
 import VideoCompressionVP9vls
 import VideoCompressionAV1vls
 import VideoCompressionTheora
+import VideoCompressionMagicYUV
 import pathlib
 import time
 
@@ -78,7 +79,7 @@ match algo:
             print("Estensione di output per Theora deve essere .ogv")
     case "MagicYUV":
         if (pathlib.Path(output_path).suffix == ".avi"):
-            compMagicYUV.comp_MagicYUV(input_path, output_path)
+            VideoCompressionMagicYUV.comp_MagicYUV(input_path, output_path)
         else:
             print("Estensione di output per MagixYUV deve essere .avi")
     case "Lagarith":
