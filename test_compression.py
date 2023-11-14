@@ -13,7 +13,7 @@ datasets = {
     "Shrubbery":"./dataset/Shrubbery/shrubbery-%2d.png"
 }
 
-algorithms = ["HEVC"]
+algorithms = ["Theora"]
 
 # Cartella di output
 output_dir = "./compressione_test"

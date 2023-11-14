@@ -8,6 +8,7 @@ import VideoCompressionVP9
 import VideoCompressionHEVCvls
 import VideoCompressionVP9vls
 import VideoCompressionAV1vls
+import VideoCompressionTheora
 import pathlib
 import time
 
@@ -72,7 +73,7 @@ match algo:
             print("Per VP9-VS l'estensione del file in output deve essere .webm")
     case "Theora":
         if(pathlib.Path(output_path).suffix == ".ogv"):
-            ComprTHEORA.comp_Theora(input_path, output_path)
+            VideoCompressionTheora.comp_Theora(input_path, output_path)
         else:
             print("Estensione di output per Theora deve essere .ogv")
     case "MagicYUV":

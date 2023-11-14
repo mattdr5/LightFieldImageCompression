@@ -9,7 +9,7 @@ datasets = {
 }
 
 
-algorithms = ["HEVC"]
+algorithms = ["Theora"]
 
 # Cartella di output per la decompressione
 decompression_dir = "./decompression_test"
