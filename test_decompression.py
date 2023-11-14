@@ -36,6 +36,8 @@ for dataset, input_format in datasets.items():
             input_extension = "avi"
         elif algo in ["Dirac"]:
             input_extension = "drc"
+        elif algo in ["Lagarith"]:
+            input_extension = "avi"
         else:
             input_extension = ""  # Estensione predefinita
 

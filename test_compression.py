@@ -13,7 +13,7 @@ datasets = {
     "Shrubbery":"./dataset/Shrubbery/shrubbery-%2d.png"
 }
 
-algorithms = ["Dirac"]
+algorithms = ["Lagarith"]
 
 # Cartella di output
 output_dir = "./compressione_test"
@@ -68,6 +68,8 @@ for dataset, input_path in datasets.items():
             output_extension = ".avi"
         elif algo in ["Dirac"]:
             output_extension = ".drc"
+        elif algo in ["Lagarith"]:
+            output_extension = ".avi"
         else:
             print(f"Algoritmo non supportato: {algo}")
             continue
