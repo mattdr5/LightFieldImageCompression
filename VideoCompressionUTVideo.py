@@ -20,7 +20,7 @@ def comp_UTVIDEO(input_path, output_path):
         print("Windows")
         ffmpeg_executable = "./ffmpeg/bin/ffmpeg.exe "
     else:
-        ffmpeg_executable = "ffmpeg "
+        ffmpeg_executable = "ffmpeg"
 
     # Call ffmpeg to compress the video
     subprocess.run([ffmpeg_executable, "-framerate", "120", "-i", input_file, "-c:v", "utvideo", output_file])

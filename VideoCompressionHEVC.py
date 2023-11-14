@@ -8,6 +8,7 @@ from PIL import Image,ImageChops
 import numpy as np
 import os
 import subprocess
+import platform  # Import the platform module to check the operating system
 
 """
 c = 0
@@ -79,8 +80,15 @@ def comp_HEVC(input_path,output_path):
     input_file = input_path
     output_file = output_path
 
+    # Check the operating system and set the path to the FFmpeg executable accordingly
+    if platform.system() == 'Windows':
+        print("Windows")
+        ffmpeg_executable = "./ffmpeg/bin/ffmpeg.exe "
+    else:
+        ffmpeg_executable = "ffmpeg"
+
     # Call ffmpeg to compress the video
-    subprocess.run(["./ffmpeg/bin/ffmpeg","-framerate", "120","-i", input_file,"-c:v", "libx265","-x265-params","lossless=1",output_file])
+    subprocess.run([ffmpeg_executable,"-framerate", "120","-i", input_file,"-c:v", "libx265","-x265-params","lossless=1",output_file])
 
     #calcolo compress ratio
     size = 0

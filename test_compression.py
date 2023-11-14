@@ -9,7 +9,7 @@ datasets = {
     "11px_linear": "./dataset/11px_linear/%d.png"
 }
 
-algorithms = ["UTVIDEO"]
+algorithms = ["HEVC"]
 
 # Cartella di output
 output_dir = "./compressione_test"

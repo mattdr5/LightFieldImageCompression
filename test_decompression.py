@@ -9,7 +9,7 @@ datasets = {
 }
 
 
-algorithms = ["UTVIDEO"]
+algorithms = ["HEVC"]
 
 # Cartella di output per la decompressione
 decompression_dir = "./decompression_test"
