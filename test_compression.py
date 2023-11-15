@@ -106,7 +106,7 @@ datasets = {
 
 def random_datasets(datasets):
     for item in datasets:
-       
+        cartella_origine = './dataset/'+item
         cartella_destinazione = './dataset/'+item+'_random'
         res = datasets[item].split("/", 3)
         rest = res[3].split('%',1)
