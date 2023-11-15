@@ -14,7 +14,7 @@ def comp_MPEG4(input_path, output_path):
         ffmpeg_executable = "ffmpeg"
 
     # Call ffmpeg to compress the video with MPEG-4 Part 2 codec (libxvid)
-    subprocess.run([ffmpeg_executable, "-i", input_file, "-c:v", "mpeg4", output_file])
+    subprocess.run([ffmpeg_executable, "-framerate", "120","-i", input_file, "-c:v", "mpeg4", output_file])
 
     # Calculate compression ratio
     size = 0

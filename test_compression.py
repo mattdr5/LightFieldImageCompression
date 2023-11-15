@@ -13,7 +13,7 @@ datasets = {
     "Shrubbery":"./dataset/Shrubbery/shrubbery-%2d.png"
 }
 
-algorithms = ["MPEG4"]
+algorithms = ["Theora"]
 
 # Cartella di output
 output_dir = "./compressione_test"

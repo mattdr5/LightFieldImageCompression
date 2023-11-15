@@ -14,7 +14,7 @@ def comp_MagicYUV(input_path, output_path):
         ffmpeg_executable = "ffmpeg"
 
     # Call ffmpeg to compress the video with MagicYUV codec
-    subprocess.run([ffmpeg_executable, "-i", input_file, "-c:v", "magicyuv", output_file])
+    subprocess.run([ffmpeg_executable, "-framerate", "120","-i", input_file, "-c:v", "magicyuv", output_file])
 
     # Calculate compression ratio
     size = 0

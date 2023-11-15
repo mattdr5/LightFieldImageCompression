@@ -14,7 +14,7 @@ def comp_Cinepak(input_path, output_path):
         ffmpeg_executable = "ffmpeg"
 
     # Call ffmpeg to compress the video with Cinepak codec
-    subprocess.run([ffmpeg_executable, "-i", input_file, "-vf", "scale=840:592", "-c:v", "cinepak", output_file])
+    subprocess.run([ffmpeg_executable, "-framerate", "120","-i", input_file, "-vf", "scale=840:592", "-c:v", "cinepak", output_file])
 
     # Calculate compression ratio
     size = 0
