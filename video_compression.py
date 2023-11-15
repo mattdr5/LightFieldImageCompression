@@ -126,6 +126,4 @@ match algo:
             print("Estensione di output per CLJR deve essere .avi")
 
 
-
-
 print("Tempo impiegato: " + str(time.time() - startTime) + " secondi")
