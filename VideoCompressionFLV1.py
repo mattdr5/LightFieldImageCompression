@@ -44,7 +44,7 @@ def comp_FLV1(input_path, output_path):
     start_time = time.time()
 
     # Call ffmpeg to compress the video with FLV1 codec
-    subprocess.run([ffmpeg_executable, "-framerate", "120","-i", input_file, "-c:v", "flv", output_file])
+    subprocess.run([ffmpeg_executable, "-framerate", "120","-i", input_file, "-c:v", "flv1", output_file])
 
     # Registra il tempo di fine
     end_time = time.time()
