@@ -24,8 +24,11 @@ from VideoCompressionCinepak import comp_Cinepak
 from VideoCompressionMPEG4 import comp_MPEG4
 from VideoCompressionCirrusLogic import comp_cljr
 
+from random_dataset import randomizza_e_copia_files
+
 import csv
 import os
+
 
 def salva_risultati_compressione_csv(risultati, file_csv):
     """
@@ -86,13 +89,32 @@ def get_valid_extension(algo):
 #Inserire il dataset da utilizzare, in particolare specificare i nomi delle immagini
 datasets = {
     "ArtGallery2": "./dataset/ArtGallery2/Frame_%3d.png",
+    "ArtGallery2_random": "./dataset/ArtGallery2_random/Frame_%3d.png",
     "Dragons": "./dataset/Dragons/dragons-%2d.png",
+    "Dragons_random": "./dataset/Dragons_random/Frame_%3d.png",
     "OpEX": "./dataset/OpEx/%d.png",
+    "OpEX_random": "./dataset/OpEx_random/Frame_%3d.png",
     "Fish": "./dataset/Fish/fishi-%2d.png",
+    "Fish_random": "./dataset/Fish_random/Frame_%3d.png",
     "Dice": "./dataset/Dice/dice-%2d.png",
+    "Dice_random": "./dataset/Dice_random/Frame_%3d.png",
     "Messerschmitt": "./dataset/Messerschmitt/messerschmitt-%2d.png",
-    "Shrubbery": "./dataset/Shrubbery/shrubbery-%2d.png"
+    "Messerschmitt_random": "./dataset/Messerschmitt_random/Frame_%3d.png",
+    "Shrubbery": "./dataset/Shrubbery/shrubbery-%2d.png",
+    "Shrubbery_random": "./dataset/Shrubbery_random/Frame_%3d.png"
 }
+
+def random_datasets(datasets):
+    for item in datasets:
+       
+        cartella_destinazione = './dataset/'+item+'_random'
+        res = datasets[item].split("/", 3)
+        rest = res[3].split('%',1)
+        pattern = str(rest[0])+'*'
+        
+        randomizza_e_copia_files(cartella_origine, cartella_destinazione, pattern)
+
+random_datasets(datasets)
 
 #Inserire qui gli algoritmi di compressione video da analizzare
 algorithms = ["JPEG2000-LS", "SNOW-LS", "Dirac-LS"] #"JPEG2000", "Dirac", "FLV1", "SNOW", "Theora", "UTVIDEO", "Cinepak", "CLJR", "MagicYUV", "MPEG4"]
