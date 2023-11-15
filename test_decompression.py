@@ -34,8 +34,12 @@ for dataset, input_format in datasets.items():
             "Theora": "ogv",
             "MagicYUV": "avi",
             "Dirac": "drc",
+            "Dirac-LS": "drc",
             "FLV1": "flv",
-            "HAP": "mov",
+            "JPEG2000": "mp4",
+            "JPEG2000-LS": "mp4",
+            "SNOW": "avi",
+            "SNOW-LS": "avi",
             "Cinepak": "avi",
             "MPEG4": "avi",
             "CLJR": "avi"

@@ -16,10 +16,10 @@ from VideoCompressionVP9 import comp_VP9
 from VideoCompressionVP9vls import comp_VP9_visuallyLS
 from VideoCompressionTheora import comp_Theora
 from VideoCompressionMagicYUV import comp_MagicYUV
-from VideoCompressionDirac import comp_Dirac
+from VideoCompressionDirac import comp_Dirac, comp_Dirac_Lossless
 from VideoCompressionFLV1 import comp_FLV1
-from VideoCompressionSNOW import comp_Snow
-from VideoCompressionJPEG2000 import comp_jpeg2000
+from VideoCompressionSNOW import comp_Snow, comp_Snow_Lossless
+from VideoCompressionJPEG2000 import comp_jpeg2000, comp_JPEG2000_Lossless
 from VideoCompressionCinepak import comp_Cinepak
 from VideoCompressionMPEG4 import comp_MPEG4
 from VideoCompressionCirrusLogic import comp_cljr
@@ -69,12 +69,16 @@ def get_valid_extension(algo):
         "Theora": ".ogv",
         "MagicYUV": ".avi",
         "Dirac": ".drc",
+        "Dirac-LS": ".drc",
         "FLV1": ".flv",
         "SNOW": ".avi",
+        "SNOW-LS": ".avi",
         "JPEG2000": ".mp4",
+        "JPEG2000-LS": ".mp4",
         "Cinepak": ".avi",
         "MPEG4": ".avi",
-        "CLJR": ".avi"
+        "CLJR": ".avi",
+
     }
 
     return valid_extensions.get(algo)
@@ -91,7 +95,7 @@ datasets = {
 }
 
 #Inserire qui gli algoritmi di compressione video da analizzare
-algorithms = ["JPEG2000"] #, "Dirac", "FLV1", "SNOW", "Theora", "UTVIDEO", "Cinepak", "CLJR", "MagicYUV", "MPEG4"
+algorithms = ["JPEG2000-LS", "SNOW-LS", "Dirac-LS"] #"JPEG2000", "Dirac", "FLV1", "SNOW", "Theora", "UTVIDEO", "Cinepak", "CLJR", "MagicYUV", "MPEG4"]
 
 #Definire la cartella di output per la compressione
 output_dir = "./compressione_test"
@@ -163,6 +167,11 @@ def run_video_compression(algo, input_path, output_extension, output_path):
             return comp_Dirac(input_path, output_path)
         else:
             print("Estensione di output per Dirac deve essere .drc")
+    elif algo == "Dirac-LS":
+        if pathlib.Path(output_path).suffix == ".drc":
+            return comp_Dirac_Lossless(input_path, output_path)
+        else:
+            print("Estensione di output per Dirac-LS deve essere .drc")
     elif algo == "FLV1":
         if pathlib.Path(output_path).suffix == ".flv":
            return comp_FLV1(input_path, output_path)
@@ -173,11 +182,21 @@ def run_video_compression(algo, input_path, output_extension, output_path):
             return comp_Snow(input_path, output_path)
         else:
             print("Estensione di output per SNOW deve essere .avi")
+    elif algo == "SNOW-LS":
+        if pathlib.Path(output_path).suffix == ".avi":
+            return comp_Snow_Lossless(input_path, output_path)
+        else:
+            print("Estensione di output per SNOW-LS deve essere .avi")
     elif algo == "JPEG2000":
         if pathlib.Path(output_path).suffix == ".mp4":
             return comp_jpeg2000(input_path, output_path)
         else:
-            print("Estensione di output per HAP deve essere .mov")
+            print("Estensione di output per JPEG2000 deve essere .mp4")
+    elif algo == "JPEG2000-LS":
+        if pathlib.Path(output_path).suffix == ".mp4":
+            return comp_JPEG2000_Lossless(input_path, output_path)
+        else:
+            print("Estensione di output per JEPG2000-LS deve essere .mp4")
     elif algo == "Cinepak":
         if pathlib.Path(output_path).suffix == ".avi":
             return comp_Cinepak(input_path, output_path)
@@ -224,4 +243,4 @@ for dataset, input_path in datasets.items():
             "Tempo compressione": tempo_compressione
         })
 
-        #salva_risultati_compressione_csv(risultati=risultati, file_csv="risultati_compressione.csv")
+        salva_risultati_compressione_csv(risultati=risultati, file_csv="risultati_compressione.csv")

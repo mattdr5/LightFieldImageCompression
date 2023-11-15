@@ -57,3 +57,35 @@ def comp_Dirac(input_path, output_path):
     return rapporto_compressione, tempo_compressione
 
 
+def comp_Dirac_Lossless(input_path, output_path):
+    # Set the input and output file names
+    input_file = input_path
+    output_file = output_path
+
+    # Check the operating system and set the path to the FFmpeg executable accordingly
+    if platform.system() == 'Windows':
+        ffmpeg_executable = "./ffmpeg/bin/ffmpeg.exe "
+    else:
+        ffmpeg_executable = "ffmpeg"
+
+    # Registra il tempo di inizio
+    start_time = time.time()
+
+    # Call ffmpeg to compress the video with lossless Dirac codec
+    subprocess.run([ffmpeg_executable, "-framerate", "120", "-i", input_file, "-c:v", "dirac", "-qp", "0", output_file])
+
+    # Registra il tempo di fine
+    end_time = time.time()
+    
+    # Calcola il rapporto di compressione utilizzando la funzione creata
+    rapporto_compressione = calcola_rapporto_compressione(input_path, output_path)
+    tempo_compressione = end_time - start_time
+
+    return rapporto_compressione, tempo_compressione
+
+
+    
+
+
+
+

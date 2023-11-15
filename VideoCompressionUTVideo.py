@@ -30,7 +30,7 @@ def calcola_rapporto_compressione(input_path, output_path):
     # Calcola e restituisci il rapporto di compressione
     return size_before / size_after if size_after != 0 else 0
 
-def comp_UTVIDEO(input_path, output_path):
+def comp_UTVIDEO(input_path, output_path):     #Support only Lossless compression
     # Set the input and output file names
     input_file = input_path
     output_file = output_path
