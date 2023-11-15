@@ -16,6 +16,7 @@ import VideoCompressionSNOW
 import VideoCompressionHAP
 import VideoCompressionCinepak
 import VideoCompressionMPEG4
+import VideoCompressionCirrusLogic
 import pathlib
 import time
 
@@ -118,6 +119,12 @@ match algo:
             VideoCompressionMPEG4.comp_MPEG4(input_path, output_path)
         else:
             print("Estensione di output per MPEG4 deve essere .avi")
+    case "CLJR":
+          if (pathlib.Path(output_path).suffix == ".avi"):
+            VideoCompressionCirrusLogic.comp_cljr(input_path, output_path)
+          else:
+            print("Estensione di output per CLJR deve essere .avi")
+
 
 
 

@@ -1,35 +1,15 @@
 import os
 import subprocess
-import pathlib
 
-# Definizione dei dataset e degli algoritmi
-datasets = {
-    "ArtGallery2": "./dataset/ArtGallery2/Frame_%3d.png",
-    "Dragons": "./dataset/Dragons/dragons-%2d.png",
-    "11px_linear": "./dataset/11px_linear/%d.png",
-    "Fish":"./dataset/Fish/fishi-%2d.png",
-    "Dice":"./dataset/Dice/dice-%2d.png",
-    "Messerschmitt":"./dataset/Messerschmitt/messerschmitt-%2d.png",
-    "Shrubbery":"./dataset/Shrubbery/shrubbery-%2d.png"
-}
-
-algorithms = ["Theora"]
-
-# Cartella di output
-output_dir = "./compressione_test"
-os.makedirs(output_dir, exist_ok=True)
-
-def run_video_compression(algo, input_path, output_extension, output_path):
+def get_valid_extension(algo):
+    # Mapping degli algoritmi alle rispettive estensioni valide
     valid_extensions = {
         "HEVC": ".mp4",
-        "HEVC-VS": ".mp4",
         "AV1": ".mkv",
-        "AV1-VS": ".mkv",
         "FFV1": ".avi",
         "HUFFYUV": ".avi",
         "UTVIDEO": ".avi",
         "VP9": ".webm",
-        "VP9-VS": ".webm",
         "Theora": ".ogv",
         "MagicYUV": ".avi",
         "Dirac": ".drc",
@@ -37,19 +17,33 @@ def run_video_compression(algo, input_path, output_extension, output_path):
         "SNOW": ".avi",
         "HAP": ".mov",
         "Cinepak": ".avi",
-        "MPEG4": ".avi"
+        "MPEG4": ".avi",
+        "CLJR": ".avi"
     }
 
-    if algo not in valid_extensions:
+    return valid_extensions.get(algo)
+
+datasets = {
+    "ArtGallery2": "./dataset/ArtGallery2/Frame_%3d.png",
+    "Dragons": "./dataset/Dragons/dragons-%2d.png",
+    "11px_linear": "./dataset/11px_linear/%d.png",
+    "Fish": "./dataset/Fish/fishi-%2d.png",
+    "Dice": "./dataset/Dice/dice-%2d.png",
+    "Messerschmitt": "./dataset/Messerschmitt/messerschmitt-%2d.png",
+    "Shrubbery": "./dataset/Shrubbery/shrubbery-%2d.png"
+}
+
+algorithms = ["CLJR"]
+
+output_dir = "./compressione_test"
+os.makedirs(output_dir, exist_ok=True)
+
+def run_video_compression(algo, input_path, output_extension, output_path):
+    if output_extension is None:
         print(f"Algoritmo non supportato: {algo}")
         return
 
-    expected_extension = valid_extensions[algo]
-
-    if output_extension != expected_extension:
-        print(f"Per {algo} l'estensione del file in output deve essere {expected_extension}")
-        return
-
+    # Comando per eseguire la compressione video
     cmd = f"python video_compression.py {algo} {input_path} {output_path}"
     subprocess.run(cmd, shell=True)
 
@@ -58,25 +52,11 @@ for dataset, input_path in datasets.items():
     os.makedirs(dataset_output_dir, exist_ok=True)
 
     for algo in algorithms:
-        if algo in ["HEVC", "HEVC-VS"]:
-            output_extension = ".mp4"
-        elif algo in ["AV1", "AV1-VS"]:
-            output_extension = ".mkv"
-        elif algo in ["FFV1", "HUFFYUV", "UTVIDEO", "MagicYUV", "SNOW", "Cinepak", "MPEG4"]:
-            output_extension = ".avi"
-        elif algo in ["VP9", "VP9-VS"]:
-            output_extension = ".webm"
-        elif algo in ["Theora"]:
-            output_extension = ".ogv"
-        elif algo in ["Dirac"]:
-            output_extension = ".drc"
-        elif algo in ["FLV1"]:
-            output_extension = ".flv"
-        elif algo in ["HAP"]:
-            output_extension = ".mov"
-        else:
-            print(f"Algoritmo non supportato: {algo}")
-            continue
+        # Ottenere l'estensione valida per l'algoritmo corrente
+        output_extension = get_valid_extension(algo)
 
+        # Creare il percorso completo per il file di output
         output_path = os.path.join(dataset_output_dir, f"{algo}_output{output_extension}")
+
+        # Eseguire la compressione video
         run_video_compression(algo, input_path, output_extension, output_path)
