@@ -46,6 +46,8 @@ for dataset, input_format in datasets.items():
             input_extension = "avi"
         elif algo in ["HAP"]:
             input_extension = "mov"
+        elif algo in ["Cinepak"]:
+            input_extension = "avi"
         else:
             input_extension = ""  # Estensione predefinita
 

@@ -14,6 +14,7 @@ import VideoCompressionDirac
 import VideoCompressionFLV1
 import VideoCompressionSNOW
 import VideoCompressionHAP
+import VideoCompressionCinepak
 import pathlib
 import time
 
@@ -106,6 +107,11 @@ match algo:
             VideoCompressionHAP.comp_Hap(input_path, output_path)
         else:
             print("Estensione di output per HAP deve essere .mov")
+    case "Cinepak":
+        if (pathlib.Path(output_path).suffix == ".avi"):
+            VideoCompressionCinepak.comp_Cinepak(input_path, output_path)
+        else:
+            print("Estensione di output per Cinepak deve essere .avi")
 
 
 
