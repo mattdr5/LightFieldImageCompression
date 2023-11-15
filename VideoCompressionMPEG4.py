@@ -29,7 +29,7 @@ def calcola_rapporto_compressione(input_path, output_path):
     # Calcola e restituisci il rapporto di compressione
     return size_before / size_after if size_after != 0 else 0
 
-def comp_MPEG4(input_path, output_path):
+def comp_MPEG4(input_path, output_path):          #Support only Lossy compression
     # Set the input and output file names
     input_file = input_path
     output_file = output_path

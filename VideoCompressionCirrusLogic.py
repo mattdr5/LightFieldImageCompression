@@ -29,7 +29,7 @@ def calcola_rapporto_compressione(input_path, output_path):
     # Calcola e restituisci il rapporto di compressione
     return size_before / size_after if size_after != 0 else 0
 
-def comp_cljr(input_path, output_path):
+def comp_cljr(input_path, output_path):          #Support only Lossy compression
     # Imposta i nomi dei file di input e output
     input_file = input_path
     output_file = output_path
