@@ -15,6 +15,7 @@ import VideoCompressionFLV1
 import VideoCompressionSNOW
 import VideoCompressionHAP
 import VideoCompressionCinepak
+import VideoCompressionMPEG4
 import pathlib
 import time
 
@@ -112,6 +113,11 @@ match algo:
             VideoCompressionCinepak.comp_Cinepak(input_path, output_path)
         else:
             print("Estensione di output per Cinepak deve essere .avi")
+    case "MPEG4":
+        if (pathlib.Path(output_path).suffix == ".avi"):
+            VideoCompressionMPEG4.comp_MPEG4(input_path, output_path)
+        else:
+            print("Estensione di output per MPEG4 deve essere .avi")
 
 
 

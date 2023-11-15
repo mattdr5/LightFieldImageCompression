@@ -13,7 +13,7 @@ datasets = {
     "Shrubbery":"./dataset/Shrubbery/shrubbery-%2d.png"
 }
 
-algorithms = ["Cinepak"]
+algorithms = ["MPEG4"]
 
 # Cartella di output
 output_dir = "./compressione_test"
@@ -36,7 +36,8 @@ def run_video_compression(algo, input_path, output_extension, output_path):
         "FLV1": ".flv",
         "SNOW": ".avi",
         "HAP": ".mov",
-        "Cinepak": ".avi"
+        "Cinepak": ".avi",
+        "MPEG4": ".avi"
     }
 
     if algo not in valid_extensions:
@@ -61,24 +62,18 @@ for dataset, input_path in datasets.items():
             output_extension = ".mp4"
         elif algo in ["AV1", "AV1-VS"]:
             output_extension = ".mkv"
-        elif algo in ["FFV1", "HUFFYUV", "UTVIDEO", "MagicYUV", "Lagarith"]:
+        elif algo in ["FFV1", "HUFFYUV", "UTVIDEO", "MagicYUV", "SNOW", "Cinepak", "MPEG4"]:
             output_extension = ".avi"
         elif algo in ["VP9", "VP9-VS"]:
             output_extension = ".webm"
         elif algo in ["Theora"]:
             output_extension = ".ogv"
-        elif algo in ["MagicYUV"]:
-            output_extension = ".avi"
         elif algo in ["Dirac"]:
             output_extension = ".drc"
         elif algo in ["FLV1"]:
             output_extension = ".flv"
-        elif algo in ["SNOW"]:
-            output_extension = ".avi"
         elif algo in ["HAP"]:
             output_extension = ".mov"
-        elif algo in ["Cinepak"]:
-            output_extension = ".avi"
         else:
             print(f"Algoritmo non supportato: {algo}")
             continue

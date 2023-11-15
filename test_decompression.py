@@ -30,24 +30,18 @@ for dataset, input_format in datasets.items():
             input_extension = "mp4"
         elif algo in ["AV1", "AV1-VS"]:
             input_extension = "mkv"
-        elif algo in ["FFV1", "HUFFYUV", "UTVIDEO"]:
+        elif algo in ["FFV1", "HUFFYUV", "UTVIDEO", "MagicYUV", "SNOW", "Cinepak", "MPEG4"]:
             input_extension = "avi"
         elif algo in ["VP9", "VP9-VS"]:
             input_extension = "webm"
         elif algo in ["Theora"]:
             input_extension = "ogv"
-        elif algo in ["MagicYUV"]:
-            input_extension = "avi"
         elif algo in ["Dirac"]:
             input_extension = "drc"
         elif algo in ["FLV1"]:
             input_extension = "flv"
-        elif algo in ["SNOW"]:
-            input_extension = "avi"
         elif algo in ["HAP"]:
             input_extension = "mov"
-        elif algo in ["Cinepak"]:
-            input_extension = "avi"
         else:
             input_extension = ""  # Estensione predefinita
 
