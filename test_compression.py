@@ -83,7 +83,7 @@ def get_valid_extension(algo):
 datasets = {
     "ArtGallery2": "./dataset/ArtGallery2/Frame_%3d.png",
     "Dragons": "./dataset/Dragons/dragons-%2d.png",
-    "11px_linear": "./dataset/11px_linear/%d.png",
+    "OpEX": "./dataset/OpEx/%d.png",
     "Fish": "./dataset/Fish/fishi-%2d.png",
     "Dice": "./dataset/Dice/dice-%2d.png",
     "Messerschmitt": "./dataset/Messerschmitt/messerschmitt-%2d.png",
@@ -91,7 +91,7 @@ datasets = {
 }
 
 #Inserire qui gli algoritmi di compressione video da analizzare
-algorithms = ["JPEG2000", "Dirac", "FLV1", "SNOW", "Theora", "UTVIDEO", "Cinepak", "CLJR", "MagicYUV", "MPEG4"]
+algorithms = ["JPEG2000"] #, "Dirac", "FLV1", "SNOW", "Theora", "UTVIDEO", "Cinepak", "CLJR", "MagicYUV", "MPEG4"
 
 #Definire la cartella di output per la compressione
 output_dir = "./compressione_test"
@@ -224,4 +224,4 @@ for dataset, input_path in datasets.items():
             "Tempo compressione": tempo_compressione
         })
 
-        salva_risultati_compressione_csv(risultati=risultati, file_csv="risultati_compressione.csv")
+        #salva_risultati_compressione_csv(risultati=risultati, file_csv="risultati_compressione.csv")
