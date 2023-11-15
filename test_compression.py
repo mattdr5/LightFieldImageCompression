@@ -44,7 +44,7 @@ def salva_risultati_compressione_csv(risultati, file_csv):
     try:
         with open(file_csv, 'w', newline='') as csvfile:
             # Definisci i nomi delle colonne
-            fieldnames = ['Dataset', 'Algoritmo', 'Rapporto compressione', 'Tempo compressione']
+            fieldnames = ['Dataset', 'Algoritmo', 'Rapporto compressione', 'Tempo compressione', 'Dimensione iniziale', 'Dimensione finale']
 
             # Crea un writer CSV
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
@@ -104,20 +104,9 @@ datasets = {
     "Shrubbery_random": "./dataset/Shrubbery_random/Frame_%3d.png"
 }
 
-def random_datasets(datasets):
-    for item in datasets:
-        cartella_origine = './dataset/'+item
-        cartella_destinazione = './dataset/'+item+'_random'
-        res = datasets[item].split("/", 3)
-        rest = res[3].split('%',1)
-        pattern = str(rest[0])+'*'
-        
-        randomizza_e_copia_files(cartella_origine, cartella_destinazione, pattern)
-
-random_datasets(datasets)
-
 #Inserire qui gli algoritmi di compressione video da analizzare
-algorithms = ["JPEG2000-LS", "SNOW-LS", "Dirac-LS"] #"JPEG2000", "Dirac", "FLV1", "SNOW", "Theora", "UTVIDEO", "Cinepak", "CLJR", "MagicYUV", "MPEG4"]
+algorithms = ["JPEG2000-LS", "SNOW-LS", "Dirac-LS", "JPEG2000", "Dirac", "FLV1", "SNOW", "Theora", "UTVIDEO", "Cinepak", "CLJR", "MagicYUV", "MPEG4"]
+algorithms = ["SNOW", "SNOW-LS"]
 
 #Definire la cartella di output per la compressione
 output_dir = "./compressione_test"
@@ -253,7 +242,7 @@ for dataset, input_path in datasets.items():
         output_path = os.path.join(dataset_output_dir, f"{algo}_output{output_extension}")
 
     
-        rapporto_compressione, tempo_compressione = run_video_compression(algo, input_path, output_extension, output_path)
+        dimensione_iniziale, dimensione_finale, rapporto_compressione, tempo_compressione = run_video_compression(algo, input_path, output_extension, output_path)
         print(f"Rapporto compressione {algo} su dataset {dataset}: {rapporto_compressione}")
         print(f"Tempo impiegato da {algo} per la compressione sul dataset {dataset}: {tempo_compressione} secondi")
 
@@ -262,7 +251,9 @@ for dataset, input_path in datasets.items():
             "Dataset": dataset,
             "Algoritmo": algo,
             "Rapporto compressione": rapporto_compressione,
-            "Tempo compressione": tempo_compressione
+            "Tempo compressione": tempo_compressione,
+            "Dimensione iniziale": dimensione_iniziale,
+            "Dimensione finale": dimensione_finale
         })
 
         salva_risultati_compressione_csv(risultati=risultati, file_csv="risultati_compressione.csv")

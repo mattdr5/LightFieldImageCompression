@@ -26,8 +26,8 @@ def calcola_rapporto_compressione(input_path, output_path):
     # Calcola la dimensione del file compresso
     size_after = os.stat(os.path.abspath(output_path)).st_size
 
-    # Calcola e restituisci il rapporto di compressione
-    return size_before / size_after if size_after != 0 else 0
+    # Calcola e restituisci il rapporto di compressione e altri dettagli
+    return size_before, size_after, size_before / size_after if size_after != 0 else 0
 
 def comp_Snow(input_path, output_path):
     # Set the input and output file names
@@ -50,10 +50,10 @@ def comp_Snow(input_path, output_path):
     end_time = time.time()
     
     # Calcola il rapporto di compressione utilizzando la funzione creata
-    rapporto_compressione = calcola_rapporto_compressione(input_path, output_path)
+    dimensione_iniziale, dimensione_finale, rapporto_compressione = calcola_rapporto_compressione(input_path, output_path)
     tempo_compressione = end_time - start_time
 
-    return rapporto_compressione, tempo_compressione
+    return dimensione_iniziale, dimensione_finale, rapporto_compressione, tempo_compressione
 
 
 def comp_Snow_Lossless(input_path, output_path):
@@ -77,7 +77,7 @@ def comp_Snow_Lossless(input_path, output_path):
     end_time = time.time()
     
     # Calcola il rapporto di compressione utilizzando la funzione creata
-    rapporto_compressione = calcola_rapporto_compressione(input_path, output_path)
+    dimensione_iniziale, dimensione_finale, rapporto_compressione = calcola_rapporto_compressione(input_path, output_path)
     tempo_compressione = end_time - start_time
 
-    return rapporto_compressione, tempo_compressione
+    return dimensione_iniziale, dimensione_finale, rapporto_compressione, tempo_compressione
