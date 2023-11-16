@@ -106,7 +106,6 @@ datasets = {
 
 #Inserire qui gli algoritmi di compressione video da analizzare
 algorithms = ["JPEG2000-LS", "SNOW-LS", "Dirac-LS", "JPEG2000", "Dirac", "FLV1", "SNOW", "Theora", "UTVIDEO", "Cinepak", "CLJR", "MagicYUV", "MPEG4"]
-algorithms = ["SNOW", "SNOW-LS"]
 
 #Definire la cartella di output per la compressione
 output_dir = "./compressione_test"

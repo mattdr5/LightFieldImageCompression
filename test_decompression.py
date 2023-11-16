@@ -19,7 +19,7 @@ datasets = {
 }
 
 
-algorithms = ["SNOW", "SNOW-LS"]
+algorithms = ["JPEG2000-LS", "SNOW-LS", "Dirac-LS", "JPEG2000", "Dirac", "FLV1", "SNOW", "Theora", "UTVIDEO", "Cinepak", "CLJR", "MagicYUV", "MPEG4"]
 
 # Cartella di output per la decompressione
 decompression_dir = "./decompressione_test"

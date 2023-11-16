@@ -51,10 +51,10 @@ def comp_Dirac(input_path, output_path):
     end_time = time.time()
     
     # Calcola il rapporto di compressione utilizzando la funzione creata
-    rapporto_compressione = calcola_rapporto_compressione(input_path, output_path)
+    dimensione_iniziale, dimensione_finale, rapporto_compressione = calcola_rapporto_compressione(input_path, output_path)
     tempo_compressione = end_time - start_time
 
-    return rapporto_compressione, tempo_compressione
+    return dimensione_iniziale, dimensione_finale, rapporto_compressione, tempo_compressione
 
 
 def comp_Dirac_Lossless(input_path, output_path):
@@ -78,10 +78,10 @@ def comp_Dirac_Lossless(input_path, output_path):
     end_time = time.time()
     
     # Calcola il rapporto di compressione utilizzando la funzione creata
-    rapporto_compressione = calcola_rapporto_compressione(input_path, output_path)
+    dimensione_iniziale, dimensione_finale, rapporto_compressione = calcola_rapporto_compressione(input_path, output_path)
     tempo_compressione = end_time - start_time
 
-    return rapporto_compressione, tempo_compressione
+    return dimensione_iniziale, dimensione_finale, rapporto_compressione, tempo_compressione
 
 
     
