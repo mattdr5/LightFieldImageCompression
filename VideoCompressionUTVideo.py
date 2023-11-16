@@ -52,8 +52,8 @@ def comp_UTVIDEO(input_path, output_path):     #Support only Lossless compressio
     end_time = time.time()
     
     # Calcola il rapporto di compressione utilizzando la funzione creata
-    rapporto_compressione = calcola_rapporto_compressione(input_path, output_path)
+    dimensione_iniziale, dimensione_finale, rapporto_compressione = calcola_rapporto_compressione(input_path, output_path)
     tempo_compressione = end_time - start_time
 
-    return rapporto_compressione, tempo_compressione
+    return dimensione_iniziale, dimensione_finale, rapporto_compressione, tempo_compressione
     
