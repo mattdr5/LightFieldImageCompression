@@ -38,16 +38,3 @@ def randomizza_e_copia_files(cartella_origine, cartella_destinazione, pattern):
         i+=1
         
     return lista_files
-
-# Specifica il percorso della tua cartella origine, cartella destinazione e il pattern dei file
-cartella_origine = './dataset/ArtGallery2'
-cartella_destinazione = './dataset/ArtGallery2_random'
-pattern = 'Frame_*.png'
-
-# Ottieni la lista randomizzata dei file e copiali nella nuova cartella
-lista_randomizzata = randomizza_e_copia_files(cartella_origine, cartella_destinazione, pattern)
-
-# Stampa la lista randomizzata
-print("Lista randomizzata dei file copiati nella nuova cartella:")
-for file in lista_randomizzata:
-    print(file)
