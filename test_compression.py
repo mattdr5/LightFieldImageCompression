@@ -94,8 +94,8 @@ datasets = {
     "ArtGallery2_random": "./dataset/ArtGallery2_random/Frame_%3d.png",
     "Dragons": "./dataset/Dragons/dragons-%2d.png",
     "Dragons_random": "./dataset/Dragons_random/Frame_%3d.png",
-    "OpEX": "./dataset/OpEx/%d.png",
-    "OpEX_random": "./dataset/OpEx_random/Frame_%3d.png",
+    #"OpEX": "./dataset/OpEx/%d.png",
+    #"OpEX_random": "./dataset/OpEx_random/Frame_%3d.png",
     "Fish": "./dataset/Fish/fishi-%2d.png",
     "Fish_random": "./dataset/Fish_random/Frame_%3d.png",
     "Dice": "./dataset/Dice/dice-%2d.png",
@@ -106,11 +106,12 @@ datasets = {
     "Shrubbery_random": "./dataset/Shrubbery_random/Frame_%3d.png",
     "bicycle": "./dataset/bicycle/input_Cam%3d.png",
     "herbs": "./dataset/herbs/input_Cam%3d.png",
-    "bicycle_random": "/dataset/bicycle_random/Frame_%3d.png",
-    "herbs_random": "/dataset/herbs_random/Frame_%3d.png"
+    "bicycle_random": "./dataset/bicycle_random/Frame_%3d.png",
+    "herbs_random": "./dataset/herbs_random/Frame_%3d.png"
 }
 
 #Inserire qui gli algoritmi di compressione video da analizzare
+
 algorithms = ["JPEG2000-LS", "SNOW-LS", "Dirac-LS", "JPEG2000", "Dirac", "FLV1", "SNOW", "Theora", "UTVIDEO", "Cinepak", "CLJR", "MagicYUV", "MPEG4", "ProRes"]
 
 #Definire la cartella di output per la compressione
