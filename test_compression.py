@@ -23,6 +23,7 @@ from VideoCompressionJPEG2000 import comp_jpeg2000, comp_JPEG2000_Lossless
 from VideoCompressionCinepak import comp_Cinepak
 from VideoCompressionMPEG4 import comp_MPEG4
 from VideoCompressionCirrusLogic import comp_cljr
+from VideoCompressionProres import comp_ProRes
 
 from random_dataset import randomizza_e_copia_files
 
@@ -81,6 +82,7 @@ def get_valid_extension(algo):
         "Cinepak": ".avi",
         "MPEG4": ".avi",
         "CLJR": ".avi",
+        "ProRes": ".mov"
 
     }
 
@@ -109,7 +111,7 @@ datasets = {
 }
 
 #Inserire qui gli algoritmi di compressione video da analizzare
-algorithms = ["JPEG2000-LS", "SNOW-LS", "Dirac-LS", "JPEG2000", "Dirac", "FLV1", "SNOW", "Theora", "UTVIDEO", "Cinepak", "CLJR", "MagicYUV", "MPEG4"]
+algorithms = ["JPEG2000-LS", "SNOW-LS", "Dirac-LS", "JPEG2000", "Dirac", "FLV1", "SNOW", "Theora", "UTVIDEO", "Cinepak", "CLJR", "MagicYUV", "MPEG4", "ProRes"]
 
 #Definire la cartella di output per la compressione
 output_dir = "./compressione_test"
@@ -226,6 +228,11 @@ def run_video_compression(algo, input_path, output_extension, output_path):
             return comp_cljr(input_path, output_path)
         else:
             print("Estensione di output per CLJR deve essere .avi")
+    elif algo == "ProRes":
+        if pathlib.Path(output_path).suffix == ".mov":
+            return comp_ProRes(input_path, output_path)
+        else:
+            print("Estensione di output per ProRes deve essere .mov")
     else:
         print(f"Algoritmo non riconosciuto: {algo}")
 

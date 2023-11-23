@@ -18,8 +18,7 @@ datasets = {
     "Shrubbery_random": "./dataset/Shrubbery_random/Frame_%3d.png"
 }
 
-
-algorithms = ["JPEG2000-LS", "SNOW-LS", "Dirac-LS", "JPEG2000", "Dirac", "FLV1", "SNOW", "Theora", "UTVIDEO", "Cinepak", "CLJR", "MagicYUV", "MPEG4"]
+algorithms = ["JPEG2000-LS", "SNOW-LS", "Dirac-LS", "JPEG2000", "Dirac", "FLV1", "SNOW", "Theora", "UTVIDEO", "Cinepak", "CLJR", "MagicYUV", "MPEG4", "ProRes"]
 
 # Cartella di output per la decompressione
 decompression_dir = "./decompressione_test"
@@ -50,7 +49,8 @@ for dataset, input_format in datasets.items():
             "SNOW-LS": "avi",
             "Cinepak": "avi",
             "MPEG4": "avi",
-            "CLJR": "avi"
+            "CLJR": "avi",
+            "ProRes": "mov"
         }.get(algo, "")
 
         if not input_extension:
