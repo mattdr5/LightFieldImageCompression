@@ -14,13 +14,11 @@ from VideoCompressionHUFFYUV import comp_HUFFYUV
 from VideoCompressionUTVideo import comp_UTVIDEO
 from VideoCompressionVP9 import comp_VP9
 from VideoCompressionVP9vls import comp_VP9_visuallyLS
-from VideoCompressionTheora import comp_Theora
 from VideoCompressionMagicYUV import comp_MagicYUV
 from VideoCompressionDirac import comp_Dirac, comp_Dirac_Lossless
 from VideoCompressionFLV1 import comp_FLV1
 from VideoCompressionSNOW import comp_Snow, comp_Snow_Lossless
 from VideoCompressionJPEG2000 import comp_jpeg2000, comp_JPEG2000_Lossless
-from VideoCompressionCinepak import comp_Cinepak
 from VideoCompressionMPEG4 import comp_MPEG4
 from VideoCompressionCirrusLogic import comp_cljr
 from VideoCompressionProres import comp_ProRes
@@ -73,7 +71,6 @@ def get_valid_extension(algo):
         "HUFFYUV": ".avi",
         "UTVIDEO": ".avi",
         "VP9": ".webm",
-        "Theora": ".ogv",
         "MagicYUV": ".avi",
         "Dirac": ".drc",
         "Dirac-LS": ".drc",
@@ -82,7 +79,6 @@ def get_valid_extension(algo):
         "SNOW-LS": ".avi",
         "JPEG2000": ".mp4",
         "JPEG2000-LS": ".mp4",
-        "Cinepak": ".avi",
         "MPEG4": ".avi",
         "CLJR": ".avi",
         "ProRes": ".mov",
@@ -100,8 +96,6 @@ datasets = {
     "ArtGallery2_random": "./dataset/ArtGallery2_random/Frame_%3d.png",
     "Dragons": "./dataset/Dragons/dragons-%2d.png",
     "Dragons_random": "./dataset/Dragons_random/Frame_%3d.png",
-    #"OpEX": "./dataset/OpEx/%d.png",
-    #"OpEX_random": "./dataset/OpEx_random/Frame_%3d.png",
     "Fish": "./dataset/Fish/fishi-%2d.png",
     "Fish_random": "./dataset/Fish_random/Frame_%3d.png",
     "Dice": "./dataset/Dice/dice-%2d.png",
@@ -118,7 +112,7 @@ datasets = {
 
 #Inserire qui gli algoritmi di compressione video da analizzare
 
-algorithms = ["FLV1", "CLJR", "MPEG4", "MJPEG", "ProRes", "MagicYUV", "FFVHUFF", "LCL"]  
+algorithms = ["FLV1", "CLJR", "MPEG4", "MJPEG", "ProRes", "MagicYUV", "FFVHUFF", "LCL"]     #FUNZIONANTI
 
 #Definire la cartella di output per la compressione
 output_dir = "./compressione_test"
@@ -175,11 +169,6 @@ def run_video_compression(algo, input_path, output_extension, output_path):
             return comp_VP9_visuallyLS(input_path, output_path)
         else:
             print("Per VP9-VS l'estensione del file in output deve essere .webm")
-    elif algo == "Theora":
-        if pathlib.Path(output_path).suffix == ".ogv":
-            return comp_Theora(input_path, output_path)
-        else:
-            print("Estensione di output per Theora deve essere .ogv")
     elif algo == "MagicYUV":
         if pathlib.Path(output_path).suffix == ".avi":
            return comp_MagicYUV(input_path, output_path)
@@ -220,11 +209,6 @@ def run_video_compression(algo, input_path, output_extension, output_path):
             return comp_JPEG2000_Lossless(input_path, output_path)
         else:
             print("Estensione di output per JEPG2000-LS deve essere .mp4")
-    elif algo == "Cinepak":
-        if pathlib.Path(output_path).suffix == ".avi":
-            return comp_Cinepak(input_path, output_path)
-        else:
-            print("Estensione di output per Cinepak deve essere .avi")
     elif algo == "MPEG4":
         if pathlib.Path(output_path).suffix == ".avi":
             return comp_MPEG4(input_path, output_path)
@@ -249,7 +233,7 @@ def run_video_compression(algo, input_path, output_extension, output_path):
         if pathlib.Path(output_path).suffix == ".avi":
             return comp_FFVHUFF(input_path, output_path)
         else:
-            print("Per HUFFYUV l'estensione del file in output deve essere .avi")
+            print("Per FFVHUFF l'estensione del file in output deve essere .avi")
     elif algo == "LCL":
         if pathlib.Path(output_path).suffix == ".avi":
             return comp_LCL(input_path, output_path)

@@ -6,8 +6,6 @@ datasets = {
     "ArtGallery2_random": "./dataset/ArtGallery2_random/Frame_%3d.png",
     "Dragons": "./dataset/Dragons/dragons-%2d.png",
     "Dragons_random": "./dataset/Dragons_random/Frame_%3d.png",
-    #"OpEX": "./dataset/OpEx/%d.png",
-    #"OpEX_random": "./dataset/OpEx_random/Frame_%3d.png",
     "Fish": "./dataset/Fish/fishi-%2d.png",
     "Fish_random": "./dataset/Fish_random/Frame_%3d.png",
     "Dice": "./dataset/Dice/dice-%2d.png",
@@ -22,7 +20,7 @@ datasets = {
     "herbs_random": "./dataset/herbs_random/Frame_%3d.png"
 }
 
-algorithms = ["FLV1", "CLJR", "MPEG4", "MJPEG", "ProRes", "MagicYUV", "FFVHUFF", "LCL"]  
+algorithms = ["FLV1", "CLJR", "MPEG4", "MJPEG", "ProRes", "MagicYUV", "FFVHUFF", "LCL"]     #FUNZIONANTI
 
 # Cartella di output per la decompressione
 decompression_dir = "./decompressione_test"
@@ -42,7 +40,6 @@ for dataset, input_format in datasets.items():
             "HUFFYUV": "avi",
             "UTVIDEO": "avi",
             "VP9": "webm",
-            "Theora": "ogv",
             "MagicYUV": "avi",
             "Dirac": "drc",
             "Dirac-LS": "drc",
@@ -51,7 +48,6 @@ for dataset, input_format in datasets.items():
             "JPEG2000-LS": "mp4",
             "SNOW": "avi",
             "SNOW-LS": "avi",
-            "Cinepak": "avi",
             "MPEG4": "avi",
             "CLJR": "avi",
             "ProRes": "mov",
