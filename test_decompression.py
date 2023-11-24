@@ -22,7 +22,7 @@ datasets = {
     "herbs_random": "./dataset/herbs_random/Frame_%3d.png"
 }
 
-algorithms = ["JPEG2000-LS", "SNOW-LS", "Dirac-LS", "JPEG2000", "Dirac", "FLV1", "SNOW", "Theora", "UTVIDEO", "Cinepak", "CLJR", "MagicYUV", "MPEG4", "ProRes", "MJPEG"]
+algorithms = ["JPEG2000-LS", "SNOW-LS", "Dirac-LS", "JPEG2000", "Dirac", "FLV1", "SNOW", "Theora", "UTVIDEO", "Cinepak", "CLJR", "MagicYUV", "MPEG4", "ProRes", "MJPEG", "FFVHUFF"]
 
 # Cartella di output per la decompressione
 decompression_dir = "./decompressione_test"
@@ -55,7 +55,8 @@ for dataset, input_format in datasets.items():
             "MPEG4": "avi",
             "CLJR": "avi",
             "ProRes": "mov",
-            "MJPEG": "avi"
+            "MJPEG": "avi",
+            "FFVHUFF": "avi"
         }.get(algo, "")
 
         if not input_extension:

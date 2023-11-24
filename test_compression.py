@@ -25,6 +25,7 @@ from VideoCompressionMPEG4 import comp_MPEG4
 from VideoCompressionCirrusLogic import comp_cljr
 from VideoCompressionProres import comp_ProRes
 from VideoCompressionMJPEG import comp_MJPEG
+from VideoCompressionFFVHUFF import comp_FFVHUFF
 
 from random_dataset import randomizza_e_copia_files
 
@@ -84,7 +85,8 @@ def get_valid_extension(algo):
         "MPEG4": ".avi",
         "CLJR": ".avi",
         "ProRes": ".mov",
-        "MJPEG": ".avi"
+        "MJPEG": ".avi",
+        "FFVHUFF": ".avi"
 
     }
 
@@ -114,7 +116,7 @@ datasets = {
 
 #Inserire qui gli algoritmi di compressione video da analizzare
 
-algorithms = ["JPEG2000-LS", "SNOW-LS", "Dirac-LS", "JPEG2000", "Dirac", "FLV1", "SNOW", "Theora", "UTVIDEO", "Cinepak", "CLJR", "MagicYUV", "MPEG4", "ProRes", "MJPEG"]
+algorithms = ["JPEG2000-LS", "SNOW-LS", "Dirac-LS", "JPEG2000", "Dirac", "FLV1", "SNOW", "Theora", "UTVIDEO", "Cinepak", "CLJR", "MagicYUV", "MPEG4", "ProRes", "MJPEG", "FFVHUFF"]
 
 #Definire la cartella di output per la compressione
 output_dir = "./compressione_test"
@@ -241,6 +243,11 @@ def run_video_compression(algo, input_path, output_extension, output_path):
             return comp_MJPEG(input_path, output_path)
         else:
             print("Estensione di output per MJPEG deve essere .avi")
+    elif algo == "FFVHUFF":
+        if pathlib.Path(output_path).suffix == ".avi":
+            return comp_FFVHUFF(input_path, output_path)
+        else:
+            print("Per HUFFYUV l'estensione del file in output deve essere .avi")
     else:
         print(f"Algoritmo non riconosciuto: {algo}")
 
