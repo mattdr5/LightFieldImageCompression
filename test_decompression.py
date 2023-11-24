@@ -22,7 +22,7 @@ datasets = {
     "herbs_random": "./dataset/herbs_random/Frame_%3d.png"
 }
 
-algorithms = ["FLV1", "CLJR", "MPEG4", "ProRes", "MagicYUV", "MJPEG", "FFVHUFF"]   #FUNZIONANTI
+algorithms = ["FLV1", "CLJR", "MPEG4", "MJPEG", "ProRes", "MagicYUV", "FFVHUFF", "LCL"]  
 
 # Cartella di output per la decompressione
 decompression_dir = "./decompressione_test"
@@ -56,7 +56,8 @@ for dataset, input_format in datasets.items():
             "CLJR": "avi",
             "ProRes": "mov",
             "MJPEG": "avi",
-            "FFVHUFF": "avi"
+            "FFVHUFF": "avi",
+            "LCL": "avi"
         }.get(algo, "")
 
         if not input_extension:
