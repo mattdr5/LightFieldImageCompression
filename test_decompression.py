@@ -22,7 +22,7 @@ datasets = {
     "herbs_random": "./dataset/herbs_random/Frame_%3d.png"
 }
 
-algorithms = ["JPEG2000-LS", "SNOW-LS", "Dirac-LS", "JPEG2000", "Dirac", "FLV1", "SNOW", "Theora", "UTVIDEO", "Cinepak", "CLJR", "MagicYUV", "MPEG4", "ProRes", "MJPEG", "FFVHUFF"]
+algorithms = ["FLV1", "CLJR", "MPEG4", "ProRes", "MagicYUV", "MJPEG", "FFVHUFF"]   #FUNZIONANTI
 
 # Cartella di output per la decompressione
 decompression_dir = "./decompressione_test"
