@@ -15,8 +15,6 @@ datasets = {
     "ArtGallery2_random": "./dataset/ArtGallery2_random/Frame_%3d.png",
     "Dragons": "./dataset/Dragons/dragons-%2d.png",
     "Dragons_random": "./dataset/Dragons_random/Frame_%3d.png",
-    #"OpEX": "./dataset/OpEx/%d.png",
-    #"OpEX_random": "./dataset/OpEx_random/Frame_%3d.png",
     "Fish": "./dataset/Fish/fishi-%2d.png",
     "Fish_random": "./dataset/Fish_random/Frame_%3d.png",
     "Dice": "./dataset/Dice/dice-%2d.png",

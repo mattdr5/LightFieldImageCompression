@@ -111,8 +111,10 @@ datasets = {
 }
 
 #Inserire qui gli algoritmi di compressione video da analizzare
+#FUNZIONANTI
+algorithms = ["FFV1", "HEVC", "HUFFYUV", "UTVIDEO", "VP9", "AV1", "FLV1", "CLJR", "MPEG4", "MJPEG", "ProRes", "MagicYUV", "FFVHUFF", "LCL"]     
 
-algorithms = ["FLV1", "CLJR", "MPEG4", "MJPEG", "ProRes", "MagicYUV", "FFVHUFF", "LCL"]     #FUNZIONANTI
+#algorithms = ["Dirac", "SNOW", "JPEG2000"]
 
 #Definire la cartella di output per la compressione
 output_dir = "./compressione_test"

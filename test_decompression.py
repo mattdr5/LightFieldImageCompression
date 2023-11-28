@@ -20,7 +20,11 @@ datasets = {
     "herbs_random": "./dataset/herbs_random/Frame_%3d.png"
 }
 
-algorithms = ["FLV1", "CLJR", "MPEG4", "MJPEG", "ProRes", "MagicYUV", "FFVHUFF", "LCL"]     #FUNZIONANTI
+#Inserire qui gli algoritmi di compressione video da analizzare
+#FUNZIONANTI
+algorithms = ["FFV1", "HEVC", "HUFFYUV", "UTVIDEO", "VP9", "AV1", "FLV1", "CLJR", "MPEG4", "MJPEG", "ProRes", "MagicYUV", "FFVHUFF", "LCL"]     
+
+#algorithms = ["Dirac", "SNOW", "JPEG2000"]
 
 # Cartella di output per la decompressione
 decompression_dir = "./decompressione_test"
