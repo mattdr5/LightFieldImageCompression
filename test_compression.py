@@ -66,11 +66,14 @@ def salva_risultati_compressione_csv(risultati, file_csv):
 def get_valid_extension(algo):
     valid_extensions = {
         "HEVC": ".mp4",
+        "HEVC-VS": ".mp4",
         "AV1": ".mkv",
+        "AV1-VS": ".mkv",
         "FFV1": ".avi",
         "HUFFYUV": ".avi",
         "UTVIDEO": ".avi",
         "VP9": ".webm",
+        "VP9-VS": ".webm",
         "MagicYUV": ".avi",
         "Dirac": ".drc",
         "Dirac-LS": ".drc",
@@ -111,10 +114,9 @@ datasets = {
 }
 
 #Inserire qui gli algoritmi di compressione video da analizzare
-#FUNZIONANTI
-algorithms = ["FFV1", "HEVC", "HUFFYUV", "UTVIDEO", "VP9", "AV1", "FLV1", "CLJR", "MPEG4", "MJPEG", "ProRes", "MagicYUV", "FFVHUFF", "LCL"]     
 
-#algorithms = ["Dirac", "SNOW", "JPEG2000"]
+algorithms = ["FFV1", "HEVC", "HUFFYUV", "UTVIDEO", "VP9", "AV1", "HEVC-VS", "VP9-VS", "FLV1", "CLJR", "MPEG4", "MJPEG", "ProRes", "MagicYUV", "FFVHUFF", "LCL"] 
+
 
 #Definire la cartella di output per la compressione
 output_dir = "./compressione_test"
