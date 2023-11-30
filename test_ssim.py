@@ -1,7 +1,6 @@
 from skimage.metrics import structural_similarity as ssim
 import cv2
 import numpy as np
-import av
 import imageio
 
 def calculate_ssim(img1, img2):
@@ -34,7 +33,7 @@ for i in range(0, 101):
     print(img2_path)
 
     img1 = imageio.imread(img1_path)
-    img2= imageio.imread(img2_path)
+    img2 = imageio.imread(img2_path)
 
     # Calcola l'indice SSIM tra due immagini
     ssim_score, _ = calculate_ssim(img1, img2)
