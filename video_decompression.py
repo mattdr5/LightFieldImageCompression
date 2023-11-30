@@ -50,7 +50,7 @@ def decompress_video(input_path, output_path):
     try:
         container = av.open(input_path, mode="r")
     except av.AVError as e:
-        print("Error opening the video file:", e)
+        print("Errore nell'apertura del video:", e)
         return None
 
     stream = container.streams.video[0]
@@ -64,41 +64,10 @@ def decompress_video(input_path, output_path):
             frame.to_image().save(output_path % count)
             count += 1
     except av.AVError as e:
-        print("Error decoding the video:", e)
+        print("Errore nella decodifica del video:", e)
         return None
 
     return img_dec
-
-def decompress_video_cv2(input_path, output_template):
-    cap = cv2.VideoCapture(input_path)
-    count = 0
-
-    if not cap.isOpened():
-        print("Error opening the video file.")
-        return None
-
-    try:
-        while True:
-            ret, frame = cap.read()
-
-            if not ret:
-                break
-
-            if count == 0:
-                img_dec = frame
-
-            # Salva l'immagine utilizzando OpenCV
-            cv2.imwrite(output_template % count)
-
-            count += 1
-    except Exception as e:
-        print("Error decoding the video:", e)
-        return None
-    finally:
-        cap.release()
-
-    return img_dec
-
 
 
 def calculate_ssim(img1, img2):
@@ -131,7 +100,7 @@ def calculate_ssim_between_datasets(dataset1_path, dataset2_path):
 
     # Calcola l'indice SSIM per ogni coppia di immagini
     for file1, file2 in zip(dataset1_files, dataset2_files):
-        print("confronto FILE 1: ", file1, " con FILE2: ", file2)
+        print("--->confronto FILE 1: ", file1, " con FILE2: ", file2)
         img1 = io.imread(os.path.join(dataset1_path, file1))
         img2 = io.imread(os.path.join(dataset2_path, file2))
 
@@ -176,7 +145,7 @@ def calculate_metrics(dataset_path, output_path):
     path_reference_dataset = datasets[dataset_name]
 
     # Calcola SSIM
-    print("Differenza tra ", os.path.dirname(path_reference_dataset) , " e ", os.path.dirname(output_path))
+    print("---> Differenza tra ", os.path.dirname(path_reference_dataset) , " e ", os.path.dirname(output_path))
     ssim_values = calculate_ssim_between_datasets(os.path.dirname(path_reference_dataset), os.path.dirname(output_path))
     print(ssim_values)
     average_ssim = np.mean(ssim_values)
@@ -221,12 +190,11 @@ else:
 print("Input path: ", input_path)
 print("Output path: ", output_path)
 
-decompress_video_cv2(input_path , output_path)
+decompress_video(input_path , output_path)
 
 # Trova il nome del dataset nel percorso dell'input
 dataset_name = get_dataset_path(input_path)
 
-time.sleep(10)
 # Se il nome del dataset è valido, calcola le metriche e salva i risultati in un dizionario
 if dataset_name:
     metrics_results = calculate_metrics(input_path, output_path)
