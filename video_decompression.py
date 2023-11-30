@@ -1,5 +1,6 @@
 import av
 from PIL import Image
+import time
 import os
 import sys
 from skimage.metrics import structural_similarity as ssim
@@ -12,21 +13,6 @@ import csv
 # Definizione dei dataset e degli algoritmi
 datasets = {
     "ArtGallery2": "./dataset/ArtGallery2/Frame_%3d.png",
-    "ArtGallery2_random": "./dataset/ArtGallery2_random/Frame_%3d.png",
-    "Dragons": "./dataset/Dragons/dragons-%2d.png",
-    "Dragons_random": "./dataset/Dragons_random/Frame_%3d.png",
-    "Fish": "./dataset/Fish/fishi-%2d.png",
-    "Fish_random": "./dataset/Fish_random/Frame_%3d.png",
-    "Dice": "./dataset/Dice/dice-%2d.png",
-    "Dice_random": "./dataset/Dice_random/Frame_%3d.png",
-    "Messerschmitt": "./dataset/Messerschmitt/messerschmitt-%2d.png",
-    "Messerschmitt_random": "./dataset/Messerschmitt_random/Frame_%3d.png",
-    "Shrubbery": "./dataset/Shrubbery/shrubbery-%2d.png",
-    "Shrubbery_random": "./dataset/Shrubbery_random/Frame_%3d.png",
-    "bicycle": "./dataset/bicycle/input_Cam%3d.png",
-    "herbs": "./dataset/herbs/input_Cam%3d.png",
-    "bicycle_random": "./dataset/bicycle_random/Frame_%3d.png",
-    "herbs_random": "./dataset/herbs_random/Frame_%3d.png"
 }
 
 
@@ -83,6 +69,36 @@ def decompress_video(input_path, output_path):
 
     return img_dec
 
+def decompress_video_cv2(input_path, output_template):
+    cap = cv2.VideoCapture(input_path)
+    count = 0
+
+    if not cap.isOpened():
+        print("Error opening the video file.")
+        return None
+
+    try:
+        while True:
+            ret, frame = cap.read()
+
+            if not ret:
+                break
+
+            if count == 0:
+                img_dec = frame
+
+            # Salva l'immagine utilizzando OpenCV
+            cv2.imwrite(output_template % count)
+
+            count += 1
+    except Exception as e:
+        print("Error decoding the video:", e)
+        return None
+    finally:
+        cap.release()
+
+    return img_dec
+
 
 
 def calculate_ssim(img1, img2):
@@ -92,30 +108,37 @@ def calculate_ssim(img1, img2):
         img2 = cv2.cvtColor(img2, cv2.COLOR_BGR2GRAY)
 
     # Calcola l'indice SSIM
-    index, _ = ssim(img1, img2, full=True)
-    return index
+    index, diff = ssim(img1, img2, full=True)
+    return index, diff
+
+def numerical_sort(value):
+    # Estrai il numero dalla stringa del file
+    return int(''.join(filter(str.isdigit, value)))
 
 def calculate_ssim_between_datasets(dataset1_path, dataset2_path):
     print("-> Apro: ", dataset1_path)
     # Ottieni la lista di file nelle directory dei dataset
-    dataset1_files = os.listdir(dataset1_path)
+    dataset1_files = sorted(os.listdir(dataset1_path), key=numerical_sort)
     
     print("-> Apro: ", dataset2_path)
-    dataset2_files = os.listdir(dataset2_path)
+    dataset2_files = sorted(os.listdir(dataset2_path), key=numerical_sort)
 
     # Assicurati che entrambi i dataset abbiano lo stesso numero di immagini
     assert len(dataset1_files) == len(dataset2_files), "I dataset devono avere lo stesso numero di immagini"
+    
 
     ssim_values = []
 
     # Calcola l'indice SSIM per ogni coppia di immagini
     for file1, file2 in zip(dataset1_files, dataset2_files):
+        print("confronto FILE 1: ", file1, " con FILE2: ", file2)
         img1 = io.imread(os.path.join(dataset1_path, file1))
         img2 = io.imread(os.path.join(dataset2_path, file2))
 
         assert img1.shape == img2.shape, f"Le dimensioni delle immagini {file1} e {file2} devono essere uguali"
 
-        ssim_index = calculate_ssim(img1, img2)
+        ssim_index, _ = calculate_ssim(img1, img2)
+        print(ssim_index)
         ssim_values.append(ssim_index)
 
     return ssim_values
@@ -125,12 +148,11 @@ def calculate_psnr(img1, img2):
     return psnr(img1, img2)
 
 def calculate_psnr_between_datasets(dataset1_path, dataset2_path):
-    print("-> Apro: ", dataset1_path)
     # Ottieni la lista di file nelle directory dei dataset
-    dataset1_files = os.listdir(dataset1_path)
+    dataset1_files = sorted(os.listdir(dataset1_path), key=numerical_sort)
     
     print("-> Apro: ", dataset2_path)
-    dataset2_files = os.listdir(dataset2_path)
+    dataset2_files = sorted(os.listdir(dataset2_path), key=numerical_sort)
 
     # Assicurati che entrambi i dataset abbiano lo stesso numero di immagini
     assert len(dataset1_files) == len(dataset2_files), "I dataset devono avere lo stesso numero di immagini"
@@ -139,6 +161,7 @@ def calculate_psnr_between_datasets(dataset1_path, dataset2_path):
 
     # Calcola l'indice PSNR per ogni coppia di immagini
     for file1, file2 in zip(dataset1_files, dataset2_files):
+        print("confronto FILE 1: ", file1, " con FILE2: ", file2)
         img1 = io.imread(os.path.join(dataset1_path, file1))
         img2 = io.imread(os.path.join(dataset2_path, file2))
 
@@ -153,11 +176,14 @@ def calculate_metrics(dataset_path, output_path):
     path_reference_dataset = datasets[dataset_name]
 
     # Calcola SSIM
+    print("Differenza tra ", os.path.dirname(path_reference_dataset) , " e ", os.path.dirname(output_path))
     ssim_values = calculate_ssim_between_datasets(os.path.dirname(path_reference_dataset), os.path.dirname(output_path))
+    print(ssim_values)
     average_ssim = np.mean(ssim_values)
 
     # Calcola PSNR
     psnr_values = calculate_psnr_between_datasets(os.path.dirname(path_reference_dataset), os.path.dirname(output_path))
+    print(psnr_values)
     average_psnr = np.mean(psnr_values)
 
     return {
@@ -195,11 +221,12 @@ else:
 print("Input path: ", input_path)
 print("Output path: ", output_path)
 
-decompress_video(input_path , output_path)
+decompress_video_cv2(input_path , output_path)
 
 # Trova il nome del dataset nel percorso dell'input
 dataset_name = get_dataset_path(input_path)
 
+time.sleep(10)
 # Se il nome del dataset è valido, calcola le metriche e salva i risultati in un dizionario
 if dataset_name:
     metrics_results = calculate_metrics(input_path, output_path)
