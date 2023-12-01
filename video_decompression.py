@@ -179,10 +179,15 @@ def calculate_metrics(dataset_path, output_path):
     }
 
 def save_results_to_csv(results, csv_file_path):
+    file_exists = os.path.isfile(csv_file_path)
 
-    with open(csv_file_path, mode='w', newline='') as file:
+    with open(csv_file_path, mode='a' if file_exists else 'w', newline='') as file:
         writer = csv.DictWriter(file, fieldnames=["Dataset", "Algoritmo", "Average SSIM", "Average PSNR"])
-        writer.writeheader()
+
+        if not file_exists:
+            # Scrivi l'intestazione solo se il file non esiste
+            writer.writeheader()
+
         writer.writerow(results)
 
     print(f"I risultati sono stati aggiunti a {csv_file_path}")
