@@ -179,16 +179,13 @@ def calculate_metrics(dataset_path, output_path):
     }
 
 def save_results_to_csv(results, csv_file_path):
-    file_exists = os.path.isfile(csv_file_path)
 
-    with open(csv_file_path, mode='a' if file_exists else 'w', newline='') as file:
+    with open(csv_file_path, mode='w', newline='') as file:
         writer = csv.DictWriter(file, fieldnames=["Dataset", "Algoritmo", "Average SSIM", "Average PSNR"])
+        writer.writeheader()
 
-        if not file_exists:
-            # Scrivi l'intestazione solo se il file non esiste
-            writer.writeheader()
-
-        writer.writerow(results)
+        for riga in results:
+            writer.writerow(riga)
 
     print(f"I risultati sono stati aggiunti a {csv_file_path}")
 
@@ -211,14 +208,15 @@ decompress_video(input_path , output_path)
 # Trova il nome del dataset nel percorso dell'input
 dataset_name = get_dataset_path(input_path)
 
+# Lista per archiviare i risultati
+risultati = []
 # Se il nome del dataset è valido, calcola le metriche e salva i risultati in un dizionario
 if dataset_name:
     metrics_results = calculate_metrics(input_path, output_path)
-    
+    risultati.append(metrics_results) 
     print(f"Valori SSIM e PSNR:\n{metrics_results}")
-
-    # Salvataggio dei risultati in un file CSV
-    csv_file_path = "risultati_decompressione.csv"
-    save_results_to_csv(metrics_results, csv_file_path)
 else:
     print("Nome del dataset non riconosciuto nel percorso dell'input.")
+
+
+

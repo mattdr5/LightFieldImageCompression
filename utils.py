@@ -26,12 +26,12 @@ def get_valid_extension(algo):
         "MJPEG": ".avi",
         "FFVHUFF": ".avi",
         "LCL": ".avi"
-
     }
 
-    return valid_extensions.get(algo)
+    return valid_extensions.get(algo, "")
 
 #Inserire il dataset da utilizzare, in particolare specificare i nomi delle immagini
+# Definizione dei dataset e degli algoritmi
 datasets = {
     "ArtGallery2": "./dataset/ArtGallery2/Frame_%3d.png",
     "ArtGallery2_random": "./dataset/ArtGallery2_random/Frame_%3d.png",
@@ -50,3 +50,6 @@ datasets = {
     "bicycle_random": "./dataset/bicycle_random/Frame_%3d.png",
     "herbs_random": "./dataset/herbs_random/Frame_%3d.png"
 }
+
+decompression_dir = "./decompressione_test"
+compression_dir = "./compressione_test"

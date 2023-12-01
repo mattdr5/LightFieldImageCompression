@@ -23,12 +23,8 @@ from VideoCompressionProres import comp_ProRes
 from VideoCompressionMJPEG import comp_MJPEG
 from VideoCompressionFFVHUFF import comp_FFVHUFF
 from VideoCompressionLCL import comp_LCL
-from utils import datasets, get_valid_extension
+from utils import datasets, get_valid_extension, compression_dir
 
-
-#Definire la cartella di output per la compressione
-output_dir = "./compressione_test"
-os.makedirs(output_dir, exist_ok=True)
 
 def salva_risultati_compressione_csv(risultati, file_csv):
     """
@@ -169,33 +165,37 @@ def run_video_compression(algo, input_path, output_extension, output_path):
         print(f"Algoritmo non riconosciuto: {algo}")
 
 
-# Lista per archiviare i risultati
-risultati = []
-# Itera sui dataset e algoritmi
-for dataset, input_path in datasets.items():
-    dataset_output_dir = os.path.join(output_dir, dataset)
-    os.makedirs(dataset_output_dir, exist_ok=True)
+def main():
+    algorithms = ["FLV1", "CLJR", "MPEG4", "MJPEG", "ProRes", "MagicYUV", "FFVHUFF", "LCL"]
 
-    for algo in algorithms:
-        # Ottenere l'estensione valida per l'algoritmo corrente
-        output_extension = get_valid_extension(algo)
+    output_dir = compression_dir
+    print(output_dir)
 
-        # Creare il percorso completo per il file di output
-        output_path = os.path.join(dataset_output_dir, f"{algo}_output{output_extension}")
+    risultati = []
 
-    
-        dimensione_iniziale, dimensione_finale, rapporto_compressione, tempo_compressione = run_video_compression(algo, input_path, output_extension, output_path)
-        print(f"Rapporto compressione {algo} su dataset {dataset}: {rapporto_compressione}")
-        print(f"Tempo impiegato da {algo} per la compressione sul dataset {dataset}: {tempo_compressione} secondi")
+    for dataset, input_path in datasets.items():
+        dataset_output_dir = os.path.join(output_dir, dataset)
+        os.makedirs(dataset_output_dir, exist_ok=True)
 
-         # Salvare i risultati nella lista
-        risultati.append({
-            "Dataset": dataset,
-            "Algoritmo": algo,
-            "Rapporto compressione": rapporto_compressione,
-            "Tempo compressione": tempo_compressione,
-            "Dimensione iniziale": dimensione_iniziale,
-            "Dimensione finale": dimensione_finale
-        })
+        for algo in algorithms:
+            output_extension = get_valid_extension(algo)
+            output_path = os.path.join(dataset_output_dir, f"{algo}_output{output_extension}")
 
-        salva_risultati_compressione_csv(risultati=risultati, file_csv="risultati_compressione.csv")
+            dimensione_iniziale, dimensione_finale, rapporto_compressione, tempo_compressione = run_video_compression(algo, input_path, output_extension, output_path)
+
+            print(f"Rapporto compressione {algo} su dataset {dataset}: {rapporto_compressione}")
+            print(f"Tempo impiegato da {algo} per la compressione sul dataset {dataset}: {tempo_compressione} secondi")
+
+            risultati.append({
+                "Dataset": dataset,
+                "Algoritmo": algo,
+                "Rapporto compressione": rapporto_compressione,
+                "Tempo compressione": tempo_compressione,
+                "Dimensione iniziale": dimensione_iniziale,
+                "Dimensione finale": dimensione_finale
+            })
+
+    salva_risultati_compressione_csv(risultati=risultati, file_csv="risultati_compressione.csv")
+
+if __name__ == "__main__":
+    main()
