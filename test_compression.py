@@ -13,10 +13,16 @@ from VideoCompressionUTVideo import comp_UTVIDEO
 from VideoCompressionVP9 import comp_VP9
 from VideoCompressionVP9vls import comp_VP9_visuallyLS
 from VideoCompressionMagicYUV import comp_MagicYUV
+from VideoCompressionDirac import comp_Dirac, comp_Dirac_Lossless
 from VideoCompressionFLV1 import comp_FLV1
+from VideoCompressionSNOW import comp_Snow, comp_Snow_Lossless
 from VideoCompressionJPEG2000 import comp_jpeg2000, comp_JPEG2000_Lossless
 from VideoCompressionMPEG4 import comp_MPEG4
 from VideoCompressionCirrusLogic import comp_cljr
+from VideoCompressionProres import comp_ProRes
+from VideoCompressionMJPEG import comp_MJPEG
+from VideoCompressionFFVHUFF import comp_FFVHUFF
+from VideoCompressionLCL import comp_LCL
 from utils import datasets, get_valid_extension
 
 
@@ -55,7 +61,8 @@ def salva_risultati_compressione_csv(risultati, file_csv):
         raise Exception(f"Errore durante la scrittura del file CSV: {str(e)}")
 
 #Inserire qui gli algoritmi di compressione video da analizzare
-algorithms = ["HEVC", "HEVC-VS", "AV1", "AV1-VS", "FFV1", "HUFFYUV", "UTVIDEO", "VP9", "VP9-VS"]
+#algorithms = ["AV1", "FFV1", "HEVC", "HUFFYUV", "UTVIDEO", "VP9"]
+algorithms = ["FLV1", "CLJR", "MPEG4", "MJPEG", "ProRes", "MagicYUV", "FFVHUFF", "LCL"] 
 
 def run_video_compression(algo, input_path, output_extension, output_path):
     if output_extension is None:
@@ -138,6 +145,26 @@ def run_video_compression(algo, input_path, output_extension, output_path):
             return comp_cljr(input_path, output_path)
         else:
             print("Estensione di output per CLJR deve essere .avi")
+    elif algo == "ProRes":
+        if pathlib.Path(output_path).suffix == ".mov":
+            return comp_ProRes(input_path, output_path)
+        else:
+            print("Estensione di output per ProRes deve essere .mov")
+    elif algo == "MJPEG":
+        if pathlib.Path(output_path).suffix == ".avi":
+            return comp_MJPEG(input_path, output_path)
+        else:
+            print("Estensione di output per MJPEG deve essere .avi")
+    elif algo == "FFVHUFF":
+        if pathlib.Path(output_path).suffix == ".avi":
+            return comp_FFVHUFF(input_path, output_path)
+        else:
+            print("Per FFVHUFF l'estensione del file in output deve essere .avi")
+    elif algo == "LCL":
+        if pathlib.Path(output_path).suffix == ".avi":
+            return comp_LCL(input_path, output_path)
+        else:
+            print("Per LCL l'estensione del file in output deve essere .avi")
     else:
         print(f"Algoritmo non riconosciuto: {algo}")
 

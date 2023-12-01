@@ -21,8 +21,8 @@ datasets = {
 }
 
 #Inserire qui gli algoritmi di compressione video da analizzare
-
-algorithms = ["FFV1", "HEVC", "HUFFYUV", "UTVIDEO", "VP9", "HEVC-VS", "VP9-VS", "FLV1", "CLJR", "MPEG4", "MJPEG", "ProRes", "MagicYUV", "FFVHUFF", "LCL"] 
+#algorithms = ["AV1", "FFV1", "HEVC", "HUFFYUV", "UTVIDEO", "VP9"]
+algorithms = ["FLV1", "CLJR", "MPEG4", "MJPEG", "ProRes", "MagicYUV", "FFVHUFF", "LCL"] 
 
 # Cartella di output per la decompressione
 decompression_dir = "./decompressione_test"
