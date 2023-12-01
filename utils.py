@@ -1,4 +1,7 @@
-
+#File che contiene tutti i codec e i dataset disponibili per la comparazione
+#
+#Per inserire nuovi codec e dataset basta inserirli qui di seguito
+#
 
 def get_valid_extension(algo):
     valid_extensions = {
@@ -11,16 +14,12 @@ def get_valid_extension(algo):
         "UTVIDEO": ".avi",
         "VP9": ".webm",
         "VP9-VSy": ".webm",
-        "Theora": ".ogv",
         "MagicYUV": ".avi",
         "Dirac": ".drc",
         "Dirac-LS": ".drc",
         "FLV1": ".flv",
-        "SNOW": ".avi",
-        "SNOW-LS": ".avi",
         "JPEG2000": ".mp4",
         "JPEG2000-LS": ".mp4",
-        "Cinepak": ".avi",
         "MPEG4": ".avi",
         "CLJR": ".avi",
 
