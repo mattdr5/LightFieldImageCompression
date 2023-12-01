@@ -10,10 +10,6 @@ def calculate_ssim(img1, img2):
         img1 = cv2.cvtColor(img1, cv2.COLOR_BGR2GRAY)
         img2 = cv2.cvtColor(img2, cv2.COLOR_BGR2GRAY)
 
-    # Assicurati che le immagini abbiano le stesse dimensioni
-    if img1.shape != img2.shape:
-        img2 = cv2.resize(img2, (img1.shape[1], img1.shape[0]))
-
     # Calcola l'indice SSIM
     index, _ = ssim(img1, img2, full=True)
     return index

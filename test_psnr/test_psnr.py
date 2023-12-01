@@ -5,6 +5,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def calculate_psnr(img1, img2):
+      # Converte le immagini in scala di grigi se necessario
+    if img1.shape[-1] == 3:
+        img1 = cv2.cvtColor(img1, cv2.COLOR_BGR2GRAY)
+        img2 = cv2.cvtColor(img2, cv2.COLOR_BGR2GRAY)
+        
     return psnr(img1, img2)
     
 

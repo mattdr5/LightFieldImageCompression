@@ -122,13 +122,16 @@ def calculate_ssim_between_datasets(dataset1_path, dataset2_path):
         assert img1.shape == img2.shape, f"Le dimensioni delle immagini {file1} e {file2} devono essere uguali"
 
         ssim_index, _ = calculate_ssim(img1, img2)
-        print(ssim_index)
         ssim_values.append(ssim_index)
 
     return ssim_values
 
 def calculate_psnr(img1, img2):
-    # The function is already provided by skimage.metrics
+      # Converte le immagini in scala di grigi se necessario
+    if img1.shape[-1] == 3:
+        img1 = cv2.cvtColor(img1, cv2.COLOR_BGR2GRAY)
+        img2 = cv2.cvtColor(img2, cv2.COLOR_BGR2GRAY)
+        
     return psnr(img1, img2)
 
 def calculate_psnr_between_datasets(dataset1_path, dataset2_path):
@@ -162,12 +165,10 @@ def calculate_metrics(dataset_path, output_path):
     # Calcola SSIM
     print("---> Differenza tra ", os.path.dirname(path_reference_dataset) , " e ", os.path.dirname(output_path))
     ssim_values = calculate_ssim_between_datasets(os.path.dirname(path_reference_dataset), os.path.dirname(output_path))
-    print(ssim_values)
     average_ssim = np.mean(ssim_values)
 
     # Calcola PSNR
     psnr_values = calculate_psnr_between_datasets(os.path.dirname(path_reference_dataset), os.path.dirname(output_path))
-    print(psnr_values)
     average_psnr = np.mean(psnr_values)
 
     return {
