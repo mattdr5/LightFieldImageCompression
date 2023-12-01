@@ -1,3 +1,4 @@
+Dataset, Algoritmo, Average SSIM, Average PSNR
 ArtGallery2,FFV1,1.0,inf
 ArtGallery2,HEVC,1.0,inf
 ArtGallery2,HUFFYUV,1.0,inf

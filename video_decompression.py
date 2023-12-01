@@ -180,7 +180,7 @@ def calculate_metrics(dataset_path, output_path):
 def save_results_to_csv(results, csv_file_path):
     file_exists = os.path.isfile(csv_file_path)
 
-    with open(csv_file_path, mode='a', newline='') as file:
+    with open(csv_file_path, mode='2', newline='') as file:
         writer = csv.DictWriter(file, fieldnames=results.keys())
 
         if not file_exists:
