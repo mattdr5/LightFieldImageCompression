@@ -3,26 +3,26 @@ import pathlib
 import csv
 
 # Importa tutte le funzioni specifiche di compressione video
-from VideoCompressionHEVC import comp_HEVC
-from VideoCompressionHEVCvls import comp_HEVC_visuallyLS
-from VideoCompressionAV1 import comp_AV1
-from VideoCompressionAV1vls import comp_AV1_visuallyLS
-from VideoCompressionFFV1 import comp_FFV1
-from VideoCompressionHUFFYUV import comp_HUFFYUV
-from VideoCompressionUTVideo import comp_UTVIDEO
-from VideoCompressionVP9 import comp_VP9
-from VideoCompressionVP9vls import comp_VP9_visuallyLS
-from VideoCompressionMagicYUV import comp_MagicYUV
-from VideoCompressionDirac import comp_Dirac, comp_Dirac_Lossless
-from VideoCompressionFLV1 import comp_FLV1
-from VideoCompressionSNOW import comp_Snow, comp_Snow_Lossless
-from VideoCompressionJPEG2000 import comp_jpeg2000, comp_JPEG2000_Lossless
-from VideoCompressionMPEG4 import comp_MPEG4
-from VideoCompressionCirrusLogic import comp_cljr
-from VideoCompressionProres import comp_ProRes
-from VideoCompressionMJPEG import comp_MJPEG
-from VideoCompressionFFVHUFF import comp_FFVHUFF
-from VideoCompressionLCL import comp_LCL
+from codec.VideoCompressionHEVC import comp_HEVC
+from codec.VideoCompressionHEVCvls import comp_HEVC_visuallyLS
+from codec.VideoCompressionAV1 import comp_AV1
+from codec.VideoCompressionAV1vls import comp_AV1_visuallyLS
+from codec.VideoCompressionFFV1 import comp_FFV1
+from codec.VideoCompressionHUFFYUV import comp_HUFFYUV
+from codec.VideoCompressionUTVideo import comp_UTVIDEO
+from codec.VideoCompressionVP9 import comp_VP9
+from codec.VideoCompressionVP9vls import comp_VP9_visuallyLS
+from codec.VideoCompressionMagicYUV import comp_MagicYUV
+from codec.VideoCompressionDirac import comp_Dirac, comp_Dirac_Lossless
+from codec.VideoCompressionFLV1 import comp_FLV1
+from codec.VideoCompressionSNOW import comp_Snow, comp_Snow_Lossless
+from codec.VideoCompressionJPEG2000 import comp_jpeg2000, comp_JPEG2000_Lossless
+from codec.VideoCompressionMPEG4 import comp_MPEG4
+from codec.VideoCompressionCirrusLogic import comp_cljr
+from codec.VideoCompressionProres import comp_ProRes
+from codec.VideoCompressionMJPEG import comp_MJPEG
+from codec.VideoCompressionFFVHUFF import comp_FFVHUFF
+from codec.VideoCompressionLCL import comp_LCL
 from utils import datasets, get_valid_extension, compression_dir
 
 
