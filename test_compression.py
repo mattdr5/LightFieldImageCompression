@@ -164,14 +164,12 @@ def run_video_compression(algo, input_path, output_extension, output_path):
 
 def main():
 
-    algorithms = ["FFV1", "HEVC", "HUFFYUV", "UTVIDEO", "VP9", "AV1"]
-    #algorithms = ["FLV1", "CLJR", "MPEG4", "MJPEG", "ProRes", "MagicYUV", "FFVHUFF", "LCL"] 
+    #algorithms = ["FFV1", "HEVC", "HUFFYUV", "UTVIDEO", "VP9", "AV1"]
+    algorithms = ["FLV1", "CLJR", "MPEG4", "MJPEG", "ProRes", "MagicYUV", "FFVHUFF", "LCL"] 
 
     output_dir = compression_dir
-    print(output_dir)
 
     risultati = []
-
     for dataset, input_path in datasets.items():
         dataset_output_dir = os.path.join(output_dir, dataset)
         os.makedirs(dataset_output_dir, exist_ok=True)
