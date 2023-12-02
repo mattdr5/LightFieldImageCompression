@@ -65,12 +65,15 @@ def decompress_video(input_path, output_path):
 
     return img_dec
 
-
 def calculate_ssim(img1, img2):
     # Converte le immagini in scala di grigi se necessario
     if img1.shape[-1] == 3:
         img1 = cv2.cvtColor(img1, cv2.COLOR_BGR2GRAY)
         img2 = cv2.cvtColor(img2, cv2.COLOR_BGR2GRAY)
+
+    # Assicurati che le immagini abbiano le stesse dimensioni
+    if img1.shape != img2.shape:
+        img2 = cv2.resize(img2, (img1.shape[1], img1.shape[0]))
 
     # Calcola l'indice SSIM
     index, diff = ssim(img1, img2, full=True)
@@ -108,11 +111,15 @@ def calculate_ssim_between_datasets(dataset1_path, dataset2_path):
     return ssim_values
 
 def calculate_psnr(img1, img2):
-      # Converte le immagini in scala di grigi se necessario
+    # Converte le immagini in scala di grigi se necessario
     if img1.shape[-1] == 3:
         img1 = cv2.cvtColor(img1, cv2.COLOR_BGR2GRAY)
         img2 = cv2.cvtColor(img2, cv2.COLOR_BGR2GRAY)
-        
+
+    # Assicurati che le immagini abbiano le stesse dimensioni
+    if img1.shape != img2.shape:
+        img2 = cv2.resize(img2, (img1.shape[1], img1.shape[0]))
+
     return psnr(img1, img2)
 
 def calculate_psnr_between_datasets(dataset1_path, dataset2_path):
