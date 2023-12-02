@@ -33,8 +33,6 @@ def get_valid_extension(algo):
 #Inserire il dataset da utilizzare, in particolare specificare i nomi delle immagini
 # Definizione dei dataset e degli algoritmi
 datasets = {
-    "OpEx": "./dataset/OpEx/%d.png",
-    "OpEx_random": "./dataset/OpEx_random/Frame_%3d.png",
     "ArtGallery2": "./dataset/ArtGallery2/Frame_%3d.png",
     "ArtGallery2_random": "./dataset/ArtGallery2_random/Frame_%3d.png",
     "Dragons": "./dataset/Dragons/dragons-%2d.png",
@@ -47,10 +45,12 @@ datasets = {
     "Messerschmitt_random": "./dataset/Messerschmitt_random/Frame_%3d.png",
     "Shrubbery": "./dataset/Shrubbery/shrubbery-%2d.png",
     "Shrubbery_random": "./dataset/Shrubbery_random/Frame_%3d.png",
-    "bicycle": "./dataset/bicycle/input_Cam%3d.png",
-    "herbs": "./dataset/herbs/input_Cam%3d.png",
-    "bicycle_random": "./dataset/bicycle_random/Frame_%3d.png",
-    "herbs_random": "./dataset/herbs_random/Frame_%3d.png"
+    "Car": "./dataset/Car/Frame_%3d.png",
+    "Car_random": "./dataset/Car_random/Frame_%3d.png",
+    "Cobblestone": "./dataset/Cobblestone/Frame_%3d.png",
+    "Cobblestone_random": "./dataset/Cobblestone_random/Frame_%3d.png",
+    "Mannequin": "./dataset/Mannequin/Frame_%3d.png",
+    "Mannequin_random": "./dataset/Mannequin_random/Frame_%3d.png",
 }
 
 decompression_dir = "./decompressione_test"
