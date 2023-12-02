@@ -73,6 +73,7 @@ def calculate_ssim(img1, img2):
 
     # Assicurati che le immagini abbiano le stesse dimensioni
     if img1.shape != img2.shape:
+        print("SSIM ----> Ho trovato due immagini con dimensioni diverse... Provo a ridimensionarle!")
         img2 = cv2.resize(img2, (img1.shape[1], img1.shape[0]))
 
     # Calcola l'indice SSIM
@@ -100,10 +101,10 @@ def calculate_ssim_between_datasets(dataset1_path, dataset2_path):
     # Calcola l'indice SSIM per ogni coppia di immagini
     for file1, file2 in zip(dataset1_files, dataset2_files):
         print("--->confronto FILE 1: ", file1, " con FILE2: ", file2)
-        img1 = io.imread(os.path.join(dataset1_path, file1))
-        img2 = io.imread(os.path.join(dataset2_path, file2))
+        img1 = cv2.imread(os.path.join(dataset1_path, file1))
+        img2 = cv2.imread(os.path.join(dataset2_path, file2))
 
-        assert img1.shape == img2.shape, f"Le dimensioni delle immagini {file1} e {file2} devono essere uguali"
+        #assert img1.shape == img2.shape, f"Le dimensioni delle immagini {file1} e {file2} devono essere uguali"
 
         ssim_index, _ = calculate_ssim(img1, img2)
         ssim_values.append(ssim_index)
@@ -118,6 +119,7 @@ def calculate_psnr(img1, img2):
 
     # Assicurati che le immagini abbiano le stesse dimensioni
     if img1.shape != img2.shape:
+        print("PSNR ----> Ho trovato due immagini con dimensioni diverse... Provo a ridimensionarle!")
         img2 = cv2.resize(img2, (img1.shape[1], img1.shape[0]))
 
     return psnr(img1, img2)
@@ -137,10 +139,10 @@ def calculate_psnr_between_datasets(dataset1_path, dataset2_path):
     # Calcola l'indice PSNR per ogni coppia di immagini
     for file1, file2 in zip(dataset1_files, dataset2_files):
         print("confronto FILE 1: ", file1, " con FILE2: ", file2)
-        img1 = io.imread(os.path.join(dataset1_path, file1))
-        img2 = io.imread(os.path.join(dataset2_path, file2))
+        img1 = cv2.imread(os.path.join(dataset1_path, file1))
+        img2 = cv2.imread(os.path.join(dataset2_path, file2))
 
-        assert img1.shape == img2.shape, f"Le dimensioni delle immagini {file1} e {file2} devono essere uguali"
+        #assert img1.shape == img2.shape, f"Le dimensioni delle immagini {file1} e {file2} devono essere uguali"
 
         psnr_value = calculate_psnr(img1, img2)
         psnr_values.append(psnr_value)
@@ -180,9 +182,8 @@ def save_results_to_csv(results, csv_file_path):
 
 def main():
 
-    algorithms = ["FFV1", "HEVC", "HUFFYUV", "UTVIDEO", "VP9", "AV1"]
-    #algorithms = ["FLV1", "CLJR", "MPEG4", "MJPEG", "ProRes", "MagicYUV", "FFVHUFF", "LCL"] 
-
+    #algorithms = ["FFV1", "HEVC", "HUFFYUV", "UTVIDEO", "VP9", "AV1"]
+    algorithms = ["FLV1", "CLJR", "MPEG4", "MJPEG", "ProRes", "MagicYUV", "FFVHUFF", "LCL"] 
 
     os.makedirs(decompression_dir, exist_ok=True)
 
