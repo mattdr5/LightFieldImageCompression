@@ -13,7 +13,7 @@ def get_valid_extension(algo):
         "HUFFYUV": ".avi",
         "UTVIDEO": ".avi",
         "VP9": ".webm",
-        "VP9-VSy": ".webm",
+        "VP9-VS": ".webm",
         "MagicYUV": ".avi",
         "Dirac": ".drc",
         "Dirac-LS": ".drc",
@@ -33,6 +33,8 @@ def get_valid_extension(algo):
 #Inserire il dataset da utilizzare, in particolare specificare i nomi delle immagini
 # Definizione dei dataset e degli algoritmi
 datasets = {
+    "OpEx": "./dataset/OpEx/%d.png",
+    "OpEx_random": "./dataset/OpEx_random/Frame_%3d.png",
     "ArtGallery2": "./dataset/ArtGallery2/Frame_%3d.png",
     "ArtGallery2_random": "./dataset/ArtGallery2_random/Frame_%3d.png",
     "Dragons": "./dataset/Dragons/dragons-%2d.png",

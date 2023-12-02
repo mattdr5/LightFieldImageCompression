@@ -56,9 +56,6 @@ def salva_risultati_compressione_csv(risultati, file_csv):
     except Exception as e:
         raise Exception(f"Errore durante la scrittura del file CSV: {str(e)}")
 
-#Inserire qui gli algoritmi di compressione video da analizzare
-#algorithms = ["AV1", "FFV1", "HEVC", "HUFFYUV", "UTVIDEO", "VP9"]
-algorithms = ["FLV1", "CLJR", "MPEG4", "MJPEG", "ProRes", "MagicYUV", "FFVHUFF", "LCL"] 
 
 def run_video_compression(algo, input_path, output_extension, output_path):
     if output_extension is None:
@@ -166,7 +163,9 @@ def run_video_compression(algo, input_path, output_extension, output_path):
 
 
 def main():
-    algorithms = ["FLV1", "CLJR", "MPEG4", "MJPEG", "ProRes", "MagicYUV", "FFVHUFF", "LCL"]
+
+    algorithms = ["FFV1", "HEVC", "HUFFYUV", "UTVIDEO", "VP9", "AV1"]
+    #algorithms = ["FLV1", "CLJR", "MPEG4", "MJPEG", "ProRes", "MagicYUV", "FFVHUFF", "LCL"] 
 
     output_dir = compression_dir
     print(output_dir)
