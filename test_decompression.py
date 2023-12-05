@@ -182,8 +182,8 @@ def save_results_to_csv(results, csv_file_path):
 
 def main():
 
-    #algorithms = ["FFV1", "HEVC", "HUFFYUV", "UTVIDEO", "VP9", "AV1"]
-    algorithms = ["FLV1", "CLJR", "MPEG4", "MJPEG", "ProRes", "MagicYUV", "FFVHUFF", "LCL"] 
+    #CODEC
+    algorithms = []
 
     os.makedirs(decompression_dir, exist_ok=True)
 

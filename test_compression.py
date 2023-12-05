@@ -13,10 +13,7 @@ from codec.VideoCompressionUTVideo import comp_UTVIDEO
 from codec.VideoCompressionVP9 import comp_VP9
 from codec.VideoCompressionVP9vls import comp_VP9_visuallyLS
 from codec.VideoCompressionMagicYUV import comp_MagicYUV
-from codec.VideoCompressionDirac import comp_Dirac, comp_Dirac_Lossless
 from codec.VideoCompressionFLV1 import comp_FLV1
-from codec.VideoCompressionSNOW import comp_Snow, comp_Snow_Lossless
-from codec.VideoCompressionJPEG2000 import comp_jpeg2000, comp_JPEG2000_Lossless
 from codec.VideoCompressionMPEG4 import comp_MPEG4
 from codec.VideoCompressionCirrusLogic import comp_cljr
 from codec.VideoCompressionProres import comp_ProRes
@@ -118,16 +115,6 @@ def run_video_compression(algo, input_path, output_extension, output_path):
            return comp_FLV1(input_path, output_path)
         else:
             print("Estensione di output per FLV1 deve essere .flv")
-    elif algo == "JPEG2000":
-        if pathlib.Path(output_path).suffix == ".mp4":
-            return comp_jpeg2000(input_path, output_path)
-        else:
-            print("Estensione di output per JPEG2000 deve essere .mp4")
-    elif algo == "JPEG2000-LS":
-        if pathlib.Path(output_path).suffix == ".mp4":
-            return comp_JPEG2000_Lossless(input_path, output_path)
-        else:
-            print("Estensione di output per JEPG2000-LS deve essere .mp4")
     elif algo == "MPEG4":
         if pathlib.Path(output_path).suffix == ".avi":
             return comp_MPEG4(input_path, output_path)
@@ -164,8 +151,9 @@ def run_video_compression(algo, input_path, output_extension, output_path):
 
 def main():
 
-    #algorithms = ["FFV1", "HEVC", "HUFFYUV", "UTVIDEO", "VP9", "AV1"]
-    algorithms = ["FLV1", "CLJR", "MPEG4", "MJPEG", "ProRes", "MagicYUV", "FFVHUFF", "LCL"] 
+    #CODEC
+    algorithms = []
+
 
     output_dir = compression_dir
 
