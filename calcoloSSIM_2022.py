@@ -17,7 +17,7 @@ def run_ffmpeg_command(dataset, codec, output_folder):
 
 def main():
     datasets = ['OpEx', 'ArtGallery2', 'Dragons']
-    codecs = ['HEVC-VS', 'AV1-VS', 'VP9-VS']
+    codecs = ['CLJR', 'FLV1', 'MJPEG', 'MPEG4', 'ProRes', 'HEVC-VS', 'AV1-VS', 'VP9-VS']
     output_folder = 'ssim_2022'
 
     # Create the output folder if it doesn't exist
