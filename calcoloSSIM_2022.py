@@ -20,7 +20,7 @@ def main():
     codecs = ['CLJR', 'FLV1', 'MJPEG', 'MPEG4', 'ProRes', 'HEVC-VS', 'AV1-VS', 'VP9-VS']
     output_folder = 'ssim_2022'
 
-    # Create the output folder if it doesn't exist
+    # Crea la cartella se non esiste
     os.makedirs(output_folder, exist_ok=True)
 
     for dataset in datasets:
