@@ -13,13 +13,30 @@ def run_ffmpeg_command(dataset, codec, output_folder, get_naming_patterns):
 def generate_dataset_naming_patterns():
     return {
         'ArtGallery2': 'Frame_%3d.png',
+        'ArtGallery2_random': 'Frame_%3d.png',
+        'Blob': 'Frame_%3d.png',
+        'Blob_random': 'Frame_%3d.png',
+        'Car': 'Frame_%3d.png',
+        'Car_random': 'Frame_%3d.png',
+        'Cobblestone': 'Frame_%3d.png',
+        'Cobblestone_random': 'Frame_%3d.png',
+        'Dice': 'dice-%2d.png',
+        'Dice_random': 'Frame_%3d.png',
         "Dragons": "dragons-%2d.png",
+        "Dragons_random": 'Frame_%3d.png',
+        "Fish": 'fishi-%2d.png',
+        "Fish_random": 'Frame_%3d.png',
+        "Mannequin": 'Frame_%3d.png',
+        "Mannequin_random": 'Frame_%3d.png',
+        "Messerschmitt": 'messerschmitt-%2d.png',
+        "Messerschmitt_random": 'Frame_%3d.png',
         #"OpEx": '%d.png',
+        #"OpEx_random": 'Frame_%3d.png',
     }
 
 def main():
-    codecs = ['HEVC-VS', 'AV1-VS', 'VP9-VS']
-    output_folder = 'ssim_2022'
+    codecs = ['CLJR', 'FLV1', 'MJPEG', 'MPEG4', 'ProRes']
+    output_folder = 'ssim_2023'
 
     os.makedirs(output_folder, exist_ok=True)
 
