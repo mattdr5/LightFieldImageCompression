@@ -15,20 +15,21 @@ I risultati ottenuti includono metriche di qualità della compressione, tempi di
 
 Siete invitati a contribuire a questo progetto aprendo issue, inviando pull request o fornendo feedback sulla valutazione comparativa degli algoritmi di compressione video per Light Field. Le vostre contribuzioni sono preziose per migliorare la comprensione e l'efficacia di tali algoritmi.
 
-## Avvio dell'Esperimento
-
-Per avviare l'esperimento, segui i seguenti passaggi:
-
-1. Assicurati di avere Python installato sul tuo sistema (Versione usata - 3.11.6).
-2. Assicurati di avere le librerie necessarie installate eseguendo il comando seguente:
+## Requisiti
+Assicurati di avere Python installato sul tuo sistema (Versione usata - 3.11.6).
+Assicurati di avere le librerie necessarie installate eseguendo il comando seguente:
 ```sh
 pip install -r requirements.txt
 ```
-Questo comando installerà tutte le librerie elencate nel file `requirements.txt`, assicurando che il tuo ambiente sia correttamente configurato per eseguire l'esperimento.
-3. Apri un terminale o prompt dei comandi nella directory del progetto.
-4. Esegui il comando `python test_compression.py` per avviare la prima fase dell'esperimento (la compressione). Lo script utilizzerà gli algoritmi di compressione specificati nella lista `algorithms` nel file `utils.py`. Assicurati che questa lista includa tutti gli algoritmi utilizzati durante la fase di compressione.
-5. Al termine (e unicamente al termine di questa fase) della fase di compressione, esegui il comando `python test_decompression.py` per avviare la seconda fase dell'esperimento (la decompressione).
-Durante questa fase, lo script decomprimerà i video compressi utilizzando gli stessi algoritmi e dataset utilizzati nella fase di compressione. I risultati della decompressione saranno registrati e comparati con i video originali per valutare la qualità della decompressione. Per eseguire la decompressione, lo script utilizzerà gli algoritmi di compressione specificati nella lista `algorithms` nel file `utils.py`. Assicurati che questa lista includa tutti gli algoritmi utilizzati durante la fase di compressione. Dopo aver eseguito lo script, troverai i risultati della decompressione nella directory specificata dal parametro `decompression_dir`. Ogni dataset avrà una directory separata all'interno della directory di decompressione, contenente i video decompressi utilizzando gli algoritmi specificati.
+
+## Avvio dell'Esperimento
+
+Per avviare l'esperimento, segui i seguenti passaggi:
+1. Apri un terminale o prompt dei comandi nella directory del progetto.
+2. Esegui il comando `python test_compression.py` per avviare la prima fase dell'esperimento (la compressione). Lo script utilizzerà gli algoritmi di compressione specificati nella lista `algorithms` nel file `utils.py`. Assicurati che questa lista includa tutti gli algoritmi utilizzati durante la fase di compressione.
+3. Al termine (e unicamente al termine di questa fase) della fase di compressione, esegui il comando `python test_decompression.py` per avviare la seconda fase dell'esperimento (la decompressione).
+Durante questa fase, lo script decomprimerà i video compressi utilizzando gli stessi algoritmi e dataset utilizzati nella fase di compressione. 
+4. I risultati della decompressione saranno registrati e comparati con i video originali per valutare la qualità della decompressione. Per eseguire la decompressione, lo script utilizzerà gli algoritmi di compressione specificati nella lista `algorithms` nel file `utils.py`. Assicurati che questa lista includa tutti gli algoritmi utilizzati durante la fase di compressione. Dopo aver eseguito lo script, troverai i risultati della decompressione nella directory specificata dal parametro `decompression_dir`. Ogni dataset avrà una directory separata all'interno della directory di decompressione, contenente i video decompressi utilizzando gli algoritmi specificati.
 
 ## Espansione del Progetto
 
