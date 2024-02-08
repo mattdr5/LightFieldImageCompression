@@ -21,7 +21,7 @@ Per avviare l'esperimento, segui i seguenti passaggi:
 
 1. Assicurati di avere Python installato sul tuo sistema (Versione usata - 3.11.6).
 2. Assicurati di avere le librerie necessarie installate eseguendo il comando seguente:
-```
+```sh
 pip install -r requirements.txt
 ```
 Questo comando installerà tutte le librerie elencate nel file `requirements.txt`, assicurando che il tuo ambiente sia correttamente configurato per eseguire l'esperimento.
