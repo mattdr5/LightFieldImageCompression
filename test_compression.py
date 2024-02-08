@@ -20,7 +20,7 @@ from codec.VideoCompressionProres import comp_ProRes
 from codec.VideoCompressionMJPEG import comp_MJPEG
 from codec.VideoCompressionFFVHUFF import comp_FFVHUFF
 from codec.VideoCompressionLCL import comp_LCL
-from utils import datasets, get_valid_extension, compression_dir
+from utils import datasets, get_valid_extension, compression_dir, algorithms
 
 
 def salva_risultati_compressione_csv(risultati, file_csv):
@@ -152,7 +152,7 @@ def run_video_compression(algo, input_path, output_extension, output_path):
 def main():
 
     #CODEC
-    algorithms = []
+    algorithms = ["HEVC", "HEVC-VS", "AV1", "AV1-VS", "FFV1", "HUFFYUV", "UTVIDEO", "VP9", "VP9-VS", "MagicYUV", "FLV1", "MPEG4", "CLJR", "ProRes", "MJPEG", "FFVHUFF", "LCL"]
 
 
     output_dir = compression_dir

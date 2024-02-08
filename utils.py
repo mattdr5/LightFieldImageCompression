@@ -53,3 +53,4 @@ datasets = {
 
 decompression_dir = "./decompressione_test"
 compression_dir = "./compressione_test"
+algorithms = ["HEVC", "HEVC-VS", "AV1", "AV1-VS", "FFV1", "HUFFYUV", "UTVIDEO", "VP9", "VP9-VS", "MagicYUV", "FLV1", "MPEG4", "CLJR", "ProRes", "MJPEG", "FFVHUFF", "LCL"]

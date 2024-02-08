@@ -9,7 +9,7 @@ from skimage import io
 import numpy as np
 import cv2
 import csv
-from utils import get_valid_extension, datasets, compression_dir, decompression_dir
+from utils import get_valid_extension, datasets, compression_dir, decompression_dir, algorithms
 
 
 def get_dataset_path(input_path):
@@ -181,9 +181,6 @@ def save_results_to_csv(results, csv_file_path):
 
 
 def main():
-
-    #CODEC
-    algorithms = []
 
     os.makedirs(decompression_dir, exist_ok=True)
 
