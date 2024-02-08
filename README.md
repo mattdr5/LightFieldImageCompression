@@ -50,6 +50,12 @@ Se vuoi aggiungere nuovi codec per la comparazione, segui questi passaggi:
    }
    ```
 3. Assicurati di specificare correttamente il formato dell'estensione del nuovo codec.
+4. Aggiungere il nuovo codec alla lista `algorithms`. 
+   ```python
+   algorithms = [..., ..., "NUOVO_CODEC"]
+   ```
+5. Implementare la logica (vedi cartella codecs) con ffmpeg o altri strumenti.
+6. Modificare i file appositamente `test_decompression.py`, `test_compression.py` per adattarli al nuovo studio
 
 ### Aggiunta di Nuovi Dataset
 Se vuoi aggiungere nuovi dataset per la comparazione, segui questi passaggi:
@@ -61,8 +67,9 @@ Se vuoi aggiungere nuovi dataset per la comparazione, segui questi passaggi:
 ```python
 datasets = {
     ...
-    "NUOVO_DATASET": "./percorso/
-
+    "NUOVO_DATASET": "./percorso/nome-dataset/nome-file%placeholder
+    ...
+}
 ```
 ## Formato dei nomi dei file delle immagini nei Dataset
 
