@@ -21,7 +21,7 @@ Siete invitati a contribuire a questo progetto aprendo issue, inviando pull requ
 ```sh
 pip install -r requirements.txt
 ```
-3. Installare ffmpeg :
+3. Installare ffmpeg (FFmpeg 6.0.1 release):
 - Per Windows: scaricare ffmpeg dal sito ufficiale e inserire la cartella ffmpeg contenente gli eseguibili nella root del progetto
 - Per macOS/Linux: scaricare il pacchetto e installarlo.
 
