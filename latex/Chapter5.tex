@@ -1,0 +1,15 @@
+\chapter{Sistema proposto}
+Il nostro sistema ha come scopo principale quello di fornire un confronto tra vari algoritimi di compressione video e analizzare le loro prestazioni nella compressione di light field.
+\\
+Sostanzialmente, il nostro sistema è progettato per migliorare ed espandere uno studio precedente.
+\\
+\\
+Come detto nel capitolo 3, le light field image hanno una forte componente di similarità tra frame della stessa scena. Si è deciso di sfruttare l’alta inter-dipendenza tra le varie immagini proprio come si fa per i video. 
+\\
+A tal fine abbiamo ri-implementato due script Python diversi, uno per la compressione dei light field in video e l’altro per la decompressione del video nelle sue componenti. Per la compressione usiamo diversi codec video, tutti di tipo lossless e lossy.
+
+Per la decompressione invece usiamo il video creato nelle fasi precedenti e ne estraiamo i singoli frame. I frame estratti vengono poi salvati nello stesso formato delle immagini originali per monitorare così eventuali perdite di dati. Per ogni algoritmo di compressione effettuiamo un’analisi dello spazio risparmiato tramite il confronto della dimensione totale del dataset non compresso e del video compresso. Confrontiamo ogni frame decompresso con il suo corrispettivo originale, usando la structural similarity index measure (SSIM), per verificare che tra le due versioni non ci sia stata una perdita di informazioni nel caso di algoritmi lossless e che la perdita sia ”accettabile” per gli algoritmi lossy.
+\\
+\\
+I vari processi verranno spiegati nel dettaglio al capitolo 6.
+ 

@@ -1,0 +1,43 @@
+\chapter{Introduzione}
+
+\section{Gli ologrammi}
+Gli ologrammi sono definiti come figure o pattern d’onda interferenti, ottenute tramite l’uso di un laser, aventi la specificità di creare un effetto fotografico tridimensionale: essi, a differenza delle normali fotografie, ci mostrano una rappresentazione tridimensionale dell'oggetto proiettato. Poiché le statistiche e le proprietà dei segnali olografici differiscono notevolmente dalle immagini naturali come le fotografie, le soluzioni di codifica convenzionali non sono ottime. Ad oggi si hanno problemi nel salvataggio e trasmissione degli ologrammi dovuti alla loro dimensione. Pertanto, sono necessarie nuove soluzioni di codifica e trasformazioni per comprimere gli ologrammi in modo più efficace.
+
+\section{Un pò di storia}
+Gli ologrammi nascono intorno alla prima metà degli anni ’40. Dennis Gabor, famoso scienziato ungherese, sviluppò la teoria dell’olografia mentre lavorava per migliorare la risoluzione di un microscopio elettronico. Fu egli stesso a coniare il termine “ologramma”, derivante dall’unione delle due parole greche \textbf{holos} (intero) e \textbf{gramma} (messaggio). Purtroppo, negli anni a seguire gli ologrammi non suscitarono grande successo, date le sorgenti luminose ancora poco sviluppate ai tempi.
+\\
+\\
+Finalmente, negli anni ’60, fu inventato il laser che, grazie al suo potente lampo di luce, dalla durata di pochi nanosecondi, si rilevò perfetto per creare ologrammi. Il laser, infatti, riesce a bloccare il movimento efficacemente, creando in tal modo ologrammi di eventi o persone ad alta velocità. In particolare, il primo ologramma di una persona è stato creato nel 1967. Da qui nasce la ritrattistica olografica pulsata.
+\\
+\\
+Nel 1962 due studiosi americani decisero di superare la teoria di Gabor e utilizzare, oltre al laser, anche una tecnica messa in atto già nel loro lavoro (studiavano un modo per realizzare un radar a lettura laterale). Il risultato di tutto ciò fu la creazione dei primi ologrammi 3D in movimento: un trenino e un uccello.
+\\
+\\
+Un ulteriore sviluppo nel mondo degli ologrammi è stato raggiunto nel ’68 da Stephen A. Benton che ha inventato l’olografia a trasmissione di luce bianca, la quale permette di creare un’immagine “arcobaleno” dai sette colori che compongono la luce bianca. L’invenzione di Benton è importante in quanto ha reso possibile la produzione in serie di ologrammi attraverso una tecnica di goffratura. 
+\\
+\\
+Oggi gli strumenti necessari a creare ologrammi 3D (un laser a onda continua, dispositivi ottici come lenti o specchi per dirigere la luce laser, un supporto per pellicola e un tavolo isolante su cui vengono effettuate le esposizioni) sono posseduti da moltissimi laboratori e studi.\cite{PMFRESEARCH}
+
+\section{Obiettivi dello studio}
+Questo studio rappresenta un'estensione di una ricerca precedente nel campo della compressione delle immagini Light Field, mantenendo lo stesso approccio metodologico. L'obiettivo principale è di confermare o smentire le conclusioni raggiunte nel precedente studio e di arricchire la ricerca mediante l'introduzione di nuovi codec, dataset e criteri di valutazione.
+\\
+\\
+Le immagini Light Field sono particolari tipologie di immagini utilizzate per rappresentare gli ologrammi attraverso dispositivi di visualizzazione appositi. La loro compressione richiede particolare attenzione per mantenere la qualità dell'immagine e ridurre lo spazio di archiviazione necessario.
+\\
+\\
+Per questo studio, sono stati selezionati algoritmi di compressione lossy e lossless applicati ai dataset delle immagini Light Field. La valutazione delle prestazioni di tali algoritmi si basa su criteri oggettivi come il rapporto di compressione e il tempo impiegato durante la compressione. Durante la decompressione, l'attenzione è focalizzata sull'accuratezza della ricostruzione dell'immagine, valutata tramite l'indice SSIM (Structural Similarity Index) e un nuovo indice, il PSNR (Peak Signal-to-Noise Ratio), specifico per i codec lossy.
+\\
+\\
+L'inclusione di nuovi codec e dataset amplia la portata dello studio, consentendo di esplorare una gamma più ampia di opzioni di compressione e di valutare il loro impatto sulle prestazioni complessive degli algoritmi. Inoltre, è stato condotto un esperimento sulle relazioni inter-frame nelle immagini light field per comprendere meglio il loro effetto sull'efficacia dei codec durante le fasi di compressione e decompressione.
+\section{Organizzazione del paper}
+La struttura del paper rispecchia gli argomenti affrontati per lo studio, la progettazione e l’implementazione della soluzione proposta:
+\begin{itemize}
+    \item LIGHT FIELD IMAGE: raccolta dei dati relativi ai light field image e l'importanza della compressione di questi ultimi.
+    \item LAVORI CORRELATI: studio dei paper precedentemente realizzati per la compressione dei light field.
+    \item FASE DI RICERCA: approfondimento delle tecnologie e dei linguaggi necessari al progetto, nonché la ricerca degli algoritmi di compressione disponibili sul mercato allo stato dell'arte.
+    \item SISTEMA PROPOSTO: nella quale viene spiegata la nostra idea di soluzione.
+    \item IMPLEMENTAZIONE: nella quale si è messo in atto quanto definito in fase di progettazione.
+     \item ESPERIMENTI SVOLTI: esperimenti condotti al fine di valutare l'efficacia del sistema proposto nella compressione video applicata alle light field images.
+    \item ANALISI DEI RISULTATI: esposizione degli esempi di compressione con gli algoritmi implementati e confronto tra i risultati ottenuti.
+    \item CONCLUSIONE E SVILUPPI FUTURI: analisi del lavoro svolto nel complesso e i possibili sviluppi futuri.
+\end{itemize}

@@ -1,0 +1,151 @@
+\documentclass[a4paper, 12pt, oneside]{book}
+\usepackage[a-2b,mathxmp]{pdfx}
+\usepackage{filecontents}
+
+% Metadati del documento
+\begin{filecontents*}{\jobname.xmpdata}
+\Title{Light Field Image Compression}
+\Author{Matteo Della Rocca, Luca Boffa, Vincenzo Di Leo}
+\Subject{Analisi delle prestazioni dei codec di compressione su immagini light field}
+\Keywords{codec di compressione, immagini light field, rapporto di compressione}
+\end{filecontents*}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=2.1cm, bindingoffset=1cm]{geometry}
+\linespread{1.2}
+\usepackage[backend=biber, sorting=none]{biblatex}
+\addbibresource{bib.bib}
+\usepackage{float}
+\usepackage{csquotes}
+\usepackage{enumitem}
+\usepackage{subfig}
+\usepackage{graphicx}
+\usepackage{indentfirst}
+\usepackage{fancyhdr}
+\setlength{\parindent}{1cm}
+
+\usepackage{pgfplots}
+\pgfplotsset{width=14cm,compat=1.18}
+\usepgfplotslibrary{statistics}
+\usepackage{tikz}
+
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ 
+\uppercase{#1}}{}}
+\usepackage[italian]{babel}
+\fancyhf{}
+\fancyhead[C]{\textbf{\leftmark}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+\usepackage[Conny]{fncychap}
+\setlength{\headheight}{14.5pt}
+
+\title{Progetto di Compressione dei Dati 2023/24}
+\author{Matteo Della Rocca, Luca Boffa, Vincenzo Di Leo}
+\date{Dicembre 2023}
+
+\newenvironment{dedication}
+  {\clearpage           % we want a new page
+   \thispagestyle{empty}% no header and footer
+   \vspace*{\stretch{1}}% some space at the top 
+   \itshape             % the text is in italics
+   \raggedleft          % flush to the right margin
+  }
+  {\par % end the paragraph
+   \vspace{\stretch{3}} % space at bottom is three times that at the top
+   \clearpage           % finish off the page
+  }
+  
+\begin{document}
+%Frontespizio
+\begin{titlepage}
+    \begin{center}
+        \LARGE{\uppercase{Università degli Studi di Salerno}}\\
+        \vspace{5mm}
+        %Dipartimento
+    	\uppercase{\normalsize Dipartimento di Informatica}\\
+    \end{center}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.35\textwidth]{logo_unisa}
+    \end{figure}
+    
+    \begin{center}
+        %Corso di Laurea
+    	\normalsize{ Corso di Laurea Magistrale in Informatica \\ Compressione Dati}\\
+            
+    	\vspace{15mm}
+    	%Titolo
+        {\LARGE{\bf Light Field Image Compression}}\\
+    	\vspace{3mm}
+    \end{center}
+    
+    \vspace{15mm}
+    \noindent
+    \begin{minipage}[t]{0.47\textwidth}
+        %Relatore
+    	{\large{ Relatore:\\\bf Prof. \\Bruno CARPENTIERI}}
+    	\vspace{12mm}\\
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.4\textwidth}\raggedleft
+        %Candidato
+    	{\large{Team: \\ \bf Matteo Della Rocca\\ Mat. 0522501500}}
+     {\large{\\ \bf Luca Boffa\\ Mat. 0522501521}}
+     {\large{\\ \bf Vincenzo Di Leo\\ Mat. 0522501408}}
+            
+    \end{minipage}
+    
+    \vspace{20mm}
+    
+    %Anno Accademico
+    \centering{\large \uppercase{ Anno Accademico 2023/2024 }}
+
+\end{titlepage}
+
+%Corpo della Tesi
+\tableofcontents
+\clearpage
+\sloppy
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+
+\input{Chapter1}
+
+
+\input{Chapter2}
+
+
+\input{Chapter3}
+
+
+\input{Chapter4}
+
+
+\input{Chapter5}
+
+
+\input{Chapter6}
+
+
+\input{Chapter7}
+
+
+\input{Chapter8}
+
+
+\input{Chapter9}
+
+
+\printbibliography[
+heading=bibintoc,
+title={Riferimenti}
+]
+\clearpage
+\listoffigures
+\addcontentsline{toc}{chapter}{\listfigurename}
+\clearpage
+\listoftables
+\addcontentsline{toc}{chapter}{\listtablename}
+\clearpage
+\end{document}

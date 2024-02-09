@@ -1,0 +1,1131 @@
+\chapter{Analisi dei risultati}
+\section{Configurazione Hardware}
+Gli esperimento sono stati condotti utilizzando una configurazione hardware di questo tipo:
+\begin{itemize}
+    \item processore Ryzen 5 2600;
+    \item scheda grafica GTX 1660;
+    \item  16 GB di RAM
+\end{itemize}
+Questa combinazione di componenti è stata scelta per garantire prestazioni affidabili e rappresentative nell'ambito delle attività di compressione.
+
+\section{Nomenclatura esperimenti svolti}
+Nel corso delle nostre ricerche e dei vari esperimenti condotti, abbiamo adottato diversi nomi per distinguere e identificare in modo chiaro i diversi aspetti delle nostre indagini. Per riferirci ai codec video e ai dataset forniti dai nostri stimati colleghi, abbiamo deciso di utilizzare l'anno 2022 come riferimento nei nomi degli esperimenti. 
+\\
+\\
+Per quanto riguarda i dataset e i codec video scelti e utilizzati nei nostri studi, abbiamo adottato l'anno 2023 come punto di riferimento nei nomi assegnati a tali risorse. 
+\clearpage
+\section{Risultati ottenuti}
+Di seguito riportiamo i vari esperimenti da noi proposti. Abbiamo scelto di dividere i risultati in vari esperimenti per avere una visione più completa sia sul lavoro sia dei nostri predecessori che sulle nostre proposte.
+\\
+Per ogni studio riportiamo una tabella che riassume tutti i dati dell'esperimento  che rappresenta visivamente l'andamento dei vari codec sui vari dataset.
+
+\subsection{Codec 2022 sui dataset 2022}
+Questo studio è stato svolto per testare nuovamente i risultati dei nostri predecessori per riconfermare i risultati dopo aver apportato modifiche al codice sorgente.
+\\
+\\
+Di seguito riportiamo le tabelle (una per dataset) su questo studio:
+
+\begin{table}[ht]
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+Dataset     & Algoritmo & \begin{tabular}[c]{@{}c@{}}Rapporto \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tempo \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Dimensione \\ finale\end{tabular} \\ \hline
+ArtGallery2 & HEVC      & 1.943                                               & 20.48s                                                        & 45927441                                                     \\ \hline
+ArtGallery2 & VP9       & 1.645                                                & 33.54s                                                        & 54234262                                                     \\ \hline
+ArtGallery2 & AV1       & 1.772                                               & 1791.34s                                                      & 50358098                                                     \\ \hline
+ArtGallery2 & FFV1      & 1.365                                               & 1.96s                                                         & 65351370                                                     \\ \hline
+ArtGallery2 & HUFFYUV   & 1.057                                               & 0.28s                                                         & 84401008                                                     \\ \hline
+ArtGallery2 & UTVIDEO   & 1.089                                                & 0.36s                                                         & 81902122                                                     \\ \hline
+
+\end{tabular}
+\caption{Studio codec 2022 sul dataset "ArtGallery"}
+\end{table}
+
+\begin{table}[ht]
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+Dataset     & Algoritmo & \begin{tabular}[c]{@{}c@{}}Rapporto \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tempo \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Dimensione \\ finale\end{tabular} \\ \hline
+Dragons     & HEVC      & 1.804                                                & 3.55s                                                         & 6538887                                                      \\ \hline
+Dragons     & VP9       & 1.450                                               & 10.27s                                                        & 8132950                                                      \\ \hline
+Dragons     & AV1       & 1.514                                               & 251.60s                                                       & 7789378                                                      \\ \hline
+Dragons     & FFV1      & 1.329                                               & 0.44s                                                         & 8875630                                                      \\ \hline
+Dragons     & HUFFYUV   & 0.747                                               & 0.12s                                                         & 15779892                                                     \\ \hline
+Dragons     & UTVIDEO   & 0.882                                               & 0.14s                                                         & 13369862                                                     \\ \hline
+\end{tabular}
+\caption{Studio codec 2022 sul dataset "Dragons and bunnies"}
+\end{table}
+
+\begin{table}[ht]
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+Dataset     & Algoritmo & \begin{tabular}[c]{@{}c@{}}Rapporto \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tempo \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Dimensione \\ finale\end{tabular} \\ \hline
+OpEx        & HEVC      & 1.130                                               & 47.13s                                                        & 65274281                                                     \\ \hline
+OpEx        & VP9       & 1.094                                             & 56.67s                                                        & 67410595                                                     \\ \hline
+OpEx        & AV1       & 1.240                                                & 2519.93s                                                      & 59501300                                                     \\ \hline
+OpEx        & FFV1      & 1.596                                               & 7.92s                                                         & 46216186                                                     \\ \hline
+OpEx        & HUFFYUV   & 0.424                                               & 5.35s                                                         & 173654640                                                    \\ \hline
+OpEx        & UTVIDEO   & 0.676                                               & 5.19s                                                         & 109078914                                                    \\ \hline
+\end{tabular}
+\caption{Studio codec 2022 sul dataset "OpEx Room"}
+\end{table}
+
+
+\clearpage
+\subsection{Codec 2022 sui dataset 2022 (random)}
+Questo studio è stato svolto per testare i codec 2022 sui dataset 2022, però con i frame disposti in maniera casuale (random).
+\\
+\\
+Di seguito riportiamo le tabelle (una per dataset)  su questo studio:
+
+\begin{table}[ht]
+\begin{tabular}{|l|l|c|c|c|}
+\hline
+Dataset             & Algoritmo & \begin{tabular}[c]{@{}c@{}}Rapporto \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tempo \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Dimensione \\ finale\end{tabular} \\ \hline
+ArtGallery2\_random & HEVC      & 1.385                                               & 24.83s                                                        & 64408395                                                     \\ \hline
+ArtGallery2\_random & VP9       & 1.142                                               & 37.77s                                                        & 78145982                                                     \\ \hline
+ArtGallery2\_random & AV1       & 1.457                                               & 1477.19s                                                      & 61221006                                                     \\ \hline
+ArtGallery2\_random & FFV1      & 1.365                                               & 1.93s                                                         & 65370246                                                     \\ \hline
+ArtGallery2\_random & HUFFYUV   & 1.057                                               & 0.27s                                                         & 84401008                                                     \\ \hline
+ArtGallery2\_random & UTVIDEO   & 1.089                                                & 0.35s                                                         & 81902122                                                     \\ \hline
+\end{tabular}
+\caption{Studio codec 2022 sul dataset \textbf{random} "ArtGallery"}
+\end{table}
+
+\begin{table}[ht]
+\begin{tabular}{|l|l|c|c|c|}
+\hline
+Dataset             & Algoritmo & \begin{tabular}[c]{@{}c@{}}Rapporto \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tempo \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Dimensione \\ finale\end{tabular} \\ \hline
+Dragons\_random     & HEVC      & 1.553                                              & 3.51s                                                         & 7595776                                                      \\ \hline
+Dragons\_random     & VP9       & 1.310                                               & 11.40s                                                        & 9006578                                                      \\ \hline
+Dragons\_random     & AV1       & 1.432                                               & 244.98s                                                       & 8234601                                                      \\ \hline
+Dragons\_random     & FFV1      & 1.329                                               & 0.44s                                                         & 8878232                                                      \\ \hline
+Dragons\_random     & HUFFYUV   & 0.747                                               & 0.11s                                                         & 15779892                                                     \\ \hline
+Dragons\_random     & UTVIDEO   & 0.882                                               & 0.13s                                                         & 13369862                                                     \\ \hline
+\end{tabular}
+
+\caption{Studio codec 2022 sul dataset \textbf{random} "Dragons and bunnies"}
+\end{table}
+
+\begin{table}[ht]
+\begin{tabular}{|l|l|c|c|c|}
+\hline
+Dataset             & Algoritmo & \begin{tabular}[c]{@{}c@{}}Rapporto \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tempo \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Dimensione \\ finale\end{tabular} \\ \hline
+OpEx\_random       & HEVC      & 1.001                                               & 54.78s                                                        & 73701921                                                     \\ \hline
+OpEx\_random       & VP9       & 1.037                                               & 69.50s                                                        & 71118193                                                     \\ \hline
+OpEx\_random       & AV1       & 1.161                                               & 2797.33s                                                      & 63524638                                                     \\ \hline
+OpEx\_random       & FFV1      & 1.507                                               & 7.95s                                                         & 48967364                                                     \\ \hline
+OpEx\_random        & HUFFYUV   & 0.393                                               & 5.64s                                                         & 187652124                                                    \\ \hline
+OpEx\_random        & UTVIDEO   & 0.628                                               & 4.99s                                                         & 117380518                                                    \\ \hline
+\end{tabular}
+\caption{Studio codec 2022 sul dataset \textbf{random} "OpEx Room"}
+\end{table}
+
+\clearpage
+\subsection{Codec 2022 sui dataset 2023}
+Questo studio è stato svolto per testare i codec 2022 sui nuovi dataset 2023 implementati da noi. L'obiettivo dietro a questo esperimento è di ottenere una quantità maggiore di dati per avere un idea più completa sui codec 2022.
+\\
+\\
+Di seguito riportiamo le tabelle (una per dataset) su questo studio:
+
+\begin{table}[ht]
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Dataset       & Algoritmo & \begin{tabular}[c]{@{}c@{}}Rapporto \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tempo \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Dimensione \\ finale\end{tabular} \\ \hline
+Blob          & HEVC      & 2.644                                               & 16.23s                                                        & 20286094                                                     \\ \hline
+Blob          & VP9       & 1.123                                                & 46.23s                                                        & 47745505                                                     \\ \hline
+Blob          & AV1       & 2.312                                                & 1425.33s                                                      & 23199679                                                     \\ \hline
+Blob          & FFV1      & 1.642                                                & 1.46s                                                         & 32667866                                                     \\ \hline
+Blob          & HUFFYUV   & 0.823                                               & 0.28s                                                         & 65166640                                                     \\ \hline
+Blob          & UTVIDEO   & 1.002                                               & 0.36s                                                         & 53500422                                                     \\ \hline
+\end{tabular}
+\caption{Studio codec 2022 sul dataset "Blob"}
+\end{table}
+
+\begin{table}[ht]
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Dataset       & Algoritmo & \begin{tabular}[c]{@{}c@{}}Rapporto \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tempo \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Dimensione \\ finale\end{tabular} \\ \hline
+Car           & HEVC      & 2.149                                               & 15.36s                                                        & 29547917                                                     \\ \hline
+Car           & VP9       & 1.408                                               & 32.35s                                                        & 45082057                                                     \\ \hline
+Car           & AV1       & 1.753                                               & 2647.55s                                                      & 36207643                                                     \\ \hline
+Car           & FFV1      & 1.756                                                & 2.33s                                                         & 36146340                                                     \\ \hline
+Car           & HUFFYUV   & 0.970                                               & 0.33s                                                         & 65438568                                                     \\ \hline
+Car           & UTVIDEO   & 1.194                                               & 0.51s                                                         & 53141066                                                     \\ \hline
+\end{tabular}
+\caption{Studio codec 2022 sul dataset "Car"}
+\end{table}
+
+\begin{table}[ht]
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Dataset       & Algoritmo & \begin{tabular}[c]{@{}c@{}}Rapporto \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tempo \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Dimensione \\ finale\end{tabular} \\ \hline
+Cobblestone   & HEVC      & 2.044                                               & 21.64s                                                        & 50287099                                                     \\ \hline
+Cobblestone   & VP9       & 1.232                                               & 39.56s                                                        & 83437410                                                     \\ \hline
+Cobblestone   & AV1       & 2.006                                             & 1597.50s                                                      & 51230047                                                     \\ \hline
+Cobblestone   & FFV1      & 1.365                                                & 2.54s                                                         & 75263866                                                     \\ \hline
+Cobblestone   & HUFFYUV   & 1.028                                               & 0.26s                                                         & 99919324                                                     \\ \hline
+Cobblestone   & UTVIDEO   & 1.052                                                & 0.34s                                                         & 97681582                                                     \\ \hline
+\end{tabular}
+\caption{Studio codec 2022 sul dataset "Cobblestone"}
+\end{table}
+
+\begin{table}[ht]
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Dataset       & Algoritmo & \begin{tabular}[c]{@{}c@{}}Rapporto \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tempo \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Dimensione \\ finale\end{tabular} \\ \hline
+Dice          & HEVC      & 1.007                                               & 2.93s                                                         & 3108647                                                      \\ \hline
+Dice          & VP9       & 0.927                                               & 8.07s                                                         & 3376922                                                      \\ \hline
+Dice          & AV1       & 0.990                                                & 95.82s                                                        & 3161975                                                      \\ \hline
+Dice          & FFV1      & 1.447                                                & 0.22s                                                         & 2163376                                                      \\ \hline
+Dice          & HUFFYUV   & 0.289                                               & 0.09s                                                         & 10826588                                                     \\ \hline
+Dice          & UTVIDEO   & 0.469                                               & 0.11s                                                         & 6663838                                                      \\ \hline
+\end{tabular}
+\caption{Studio codec 2022 sul dataset "Dice"}
+\end{table}
+
+\begin{table}[ht]
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Dataset       & Algoritmo & \begin{tabular}[c]{@{}c@{}}Rapporto \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tempo \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Dimensione \\ finale\end{tabular} \\ \hline
+Fish          & HEVC      & 2.109                                                 & 2.46s                                                         & 3487710                                                      \\ \hline
+Fish          & VP9       & 1.726                                               & 5.93s                                                         & 4261923                                                      \\ \hline
+Fish          & AV1       & 1.946                                               & 125.60s                                                       & 3780963                                                      \\ \hline
+Fish          & FFV1      & 1.227                                               & 0.36s                                                         & 5992874                                                      \\ \hline
+Fish          & HUFFYUV   & 0.518                                               & 0.12s                                                         & 14194972                                                     \\ \hline
+Fish          & UTVIDEO   & 0.658                                               & 0.13s                                                         & 11167262                                                     \\ \hline
+\end{tabular}
+\caption{Studio codec 2022 sul dataset "Fish"}
+\end{table}
+
+\begin{table}[ht]
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Dataset       & Algoritmo & \begin{tabular}[c]{@{}c@{}}Rapporto \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tempo \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Dimensione \\ finale\end{tabular} \\ \hline
+Mannequin     & HEVC      & 1.099                                                & 25.17s                                                        & 72752630                                                     \\ \hline
+Mannequin     & VP9       & 1.085                                               & 40.57s                                                        & 73663937                                                     \\ \hline
+Mannequin     & AV1       & 1.263                                               & 1962.75s                                                      & 63306464                                                     \\ \hline
+Mannequin     & FFV1      & 1.561                                               & 1.70s                                                         & 51220344                                                     \\ \hline
+Mannequin     & HUFFYUV   & 0.921                                               & 0.28s                                                         & 86783324                                                     \\ \hline
+Mannequin     & UTVIDEO   & 0.996                                               & 0.41s                                                         & 80218574                                                     \\ \hline
+\end{tabular}
+\caption{Studio codec 2022 sul dataset "Mannequin"}
+\end{table}
+
+\begin{table}[ht]
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Dataset       & Algoritmo & \begin{tabular}[c]{@{}c@{}}Rapporto \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tempo \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Dimensione \\ finale\end{tabular} \\ \hline
+Messerschmitt & HEVC      & 1.370                                               & 4.02s                                                         & 6462662                                                      \\ \hline
+Messerschmitt & VP9       & 0.973                                              & 11.24s                                                        & 9101952                                                      \\ \hline
+Messerschmitt & AV1       & 1.089                                                & 201.96s                                                       & 8127707                                                      \\ \hline
+Messerschmitt & FFV1      & 1.720                                               & 0.37s                                                         & 5149332                                                      \\ \hline
+Messerschmitt & HUFFYUV   & 0.753                                               & 0.11s                                                         & 11756164                                                     \\ \hline
+Messerschmitt & UTVIDEO   & 1.027                                               & 0.13s                                                         & 8617930                                                      \\ \hline
+\end{tabular}
+\caption{Studio codec 2022 sul dataset "Messerschmitt"}
+\end{table}
+
+\clearpage
+\subsection{Codec 2022 sui dataset 2023 (random)}
+Questo studio è stato svolto per testare i codec 2022 sui nuovi dataset 2023 implementati da noi andando a randomizzare i frames dei dataset scelti da noi per testare se c'è correlazione con lo studio precedente. 
+\\
+\\
+Di seguito riportiamo le tabelle (una per dataset)  su questo studio:
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Dataset               & Algoritmo & \begin{tabular}[c]{@{}c@{}}Rapporto \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tempo \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Dimensione \\ finale\end{tabular} \\ \hline
+Blob\_random          & HEVC      & 1.681                                                & 19.63                                                         & 31917331                                                     \\ \hline
+Blob\_random          & VP9       & 1.032                                               & 42.06s                                                        & 51991103                                                     \\ \hline
+Blob\_random          & AV1       & 1.963                                               & 934.95s                                                       & 27323634                                                     \\ \hline
+Blob\_random        & FFV1      & 1.641                                               & 1.71s                                                         & 32689958                                                     \\ \hline
+Blob\_random          & HUFFYUV   & 0.823                                               & 0.28s                                                         & 65166640                                                     \\ \hline
+Blob\_random          & UTVIDEO   & 1.002                                               & 0.36s                                                         & 53500422                                                     \\ \hline
+\end{tabular}
+\caption{Studio codec 2022 sul dataset \textbf{random} "Blob"}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Dataset               & Algoritmo & \begin{tabular}[c]{@{}c@{}}Rapporto \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tempo \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Dimensione \\ finale\end{tabular} \\ \hline
+Car\_random           & HEVC      & 1.401                                               & 22.08s                                                        & 45307730                                                     \\ \hline
+Car\_random           & VP9       & 1.010                                               & 41.80s                                                        & 62818936                                                     \\ \hline
+Car\_random           & AV1       & 1.319                                               & 2314.73s                                                      & 48134236                                                     \\ \hline
+Car\_random           & FFV1      & 1.755                                               & 1.51s                                                         & 36179160                                                     \\ \hline
+Car\_random           & HUFFYUV   & 0.970                                               & 0.28s                                                         & 65438568                                                     \\ \hline
+Car\_random           & UTVIDEO   & 1.194                                               & 0.37s                                                         & 53141066                                                     \\ \hline
+\end{tabular}
+\caption{Studio codec 2022 sul dataset \textbf{random} "Car"}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Dataset               & Algoritmo & \begin{tabular}[c]{@{}c@{}}Rapporto \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tempo \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Dimensione \\ finale\end{tabular} \\ \hline
+Cobblestone\_random   & HEVC      & 1.387                                                & 20.03s                                                        & 74081960                                                     \\ \hline
+Cobblestone\_random   & VP9       & 0.943                                               & 40.91s                                                        & 108910835                                                    \\ \hline
+Cobblestone\_random   & AV1       & 1.601                                               & 1118.97s                                                      & 64174845                                                     \\ \hline
+Cobblestone\_random   & FFV1      & 1.365                                               & 2.59s                                                         & 75277548                                                     \\ \hline
+Cobblestone\_random   & HUFFYUV   & 1.028                                                & 0.29s                                                         & 99919324                                                     \\ \hline
+Cobblestone\_random   & UTVIDEO   & 1.052                                                & 0.36s                                                         & 97681582                                                     \\ \hline
+\end{tabular}
+\caption{Studio codec 2022 sul dataset \textbf{random} "Cobblestone"}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Dataset               & Algoritmo & \begin{tabular}[c]{@{}c@{}}Rapporto \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tempo \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Dimensione \\ finale\end{tabular} \\ \hline
+Dice\_random          & HEVC      & 0.944                                               & 2.51s                                                         & 3317237                                                      \\ \hline
+Dice\_random        & VP9       & 0.889                                              & 8.05s                                                         & 3520415                                                      \\ \hline
+Dice\_random          & AV1       & 0.976                                               & 97.59s                                                        & 3207578                                                      \\ \hline
+Dice\_random          & FFV1      & 1.446                                                & 0.26s                                                         & 2164950                                                      \\ \hline
+Dice\_random          & HUFFYUV   & 0.289                                               & 0.13s                                                         & 10826588                                                     \\ \hline
+Dice\_random          & UTVIDEO   & 0.469
+                      & 0.12s                                     & 6663838                                                      
+              \\ \hline
+\end{tabular}
+\caption{Studio codec 2022 sul dataset \textbf{random} "Dice"}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Dataset               & Algoritmo & \begin{tabular}[c]{@{}c@{}}Rapporto \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tempo \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Dimensione \\ finale\end{tabular} \\ \hline
+Fish\_random          & HEVC      & 1.934                                               & 2.54s                                                         & 3803198                                                      \\ \hline
+Fish\_random          & VP9       & 1.6107                                               & 6.52s                                                         & 4567987                                                      \\ \hline
+Fish\_random          & AV1       & 1.852                                               & 127.43s                                                       & 3972707                                                      \\ \hline
+Fish\_random          & FFV1      & 1.227                                              & 0.32s                                                         & 5994606                                                      \\ \hline
+Fish\_random         & HUFFYUV   & 0.518                                               & 0.11s                                                         & 14194972                                                     \\ \hline
+Fish\_random          & UTVIDEO   & 0.658                                               & 0.13s                                                         & 11167262                                                     \\ \hline
+\end{tabular}
+\caption{Studio codec 2022 sul dataset \textbf{random} "Fish"}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Dataset               & Algoritmo & \begin{tabular}[c]{@{}c@{}}Rapporto \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tempo \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Dimensione \\ finale\end{tabular} \\ \hline
+Mannequin\_random     & HEVC      & 0.979                                               & 31.77s                                                        & 81604469                                                     \\ \hline
+Mannequin\_random     & VP9       & 0.918                                               & 44.22s                                                        & 87025029                                                     \\ \hline
+Mannequin\_random     & AV1       & 1.164                                                & 1462.18s                                                      & 68689785                                                     \\ \hline
+Mannequin\_random     & FFV1      & 1.561                                               & 1.73s                                                         & 51228310                                                     \\ \hline
+Mannequin\_random     & HUFFYUV   & 0.921                                               & 0.29s                                                         & 86783324                                                     \\ \hline
+Mannequin\_random     & UTVIDEO   & 0.996                                               & 0.34s                                                         & 80218574                                                     \\ \hline
+\end{tabular}
+\caption{Studio codec 2022 sul dataset \textbf{random} "Mannaquin"}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Dataset               & Algoritmo & \begin{tabular}[c]{@{}c@{}}Rapporto \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tempo \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Dimensione \\ finale\end{tabular} \\ \hline
+Messerschmitt\_random & HEVC      & 1.060                                                & 4.16s                                                         & 8355409                                                      \\ \hline
+Messerschmitt\_random & VP9       & 0.846                                               & 15.90s                                                        & 10464728                                                     \\ \hline
+Messerschmitt\_random & AV1       & 1.037                                              & 195.90s                                                       & 8537404                                                      \\ \hline
+Messerschmitt\_random & FFV1      & 1.719                                               & 0.30s                                                         & 5152306                                                      \\ \hline
+Messerschmitt\_random & HUFFYUV   & 0.753                                               & 0.11s                                                         & 11756164                                                     \\ \hline
+Messerschmitt\_random & UTVIDEO   & 1.027                                               & 0.13s                                                         & 8617930                                                      \\ \hline
+\end{tabular}
+\caption{Studio codec 2022 sul dataset \textbf{random} "Massershmitt"}
+\end{table}
+
+\clearpage
+\subsection{Codec 2023 sui dataset 2022}
+Questo studio è stato svolto per testare i codec scelti da noi  sui dataset 2022 per vedere l'andamento dei codec su i dataset scelti dai nostri predecessori. 
+\\
+\\
+Di seguito riportiamo le tabelle (una per dataset)  su questo studio:
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Dataset                      & Algoritmo & \begin{tabular}[c]{@{}c@{}}Rapporto \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tempo \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Dimensione \\ finale\end{tabular} \\ \hline
+ArtGallery2                  & FLV1      & 252.343                                                          & 0.43s                                                         & 353725                                                       \\ \hline
+ArtGallery2                  & CLJR      & 1.27844                                                          & 0.38s                                                         & 69819386                                                     \\ \hline
+ArtGallery2                  & MPEG4     & 328.628                                                          & 0.37s                                                         & 271614                                                       \\ \hline
+ArtGallery2                  & MJPEG     & 32.108                                                           & 0.68s                                                         & 2779974                                                      \\ \hline
+ArtGallery2                  & ProRes    & 2.160                                                            & 2.67s                                                         & 41309465                                                     \\ \hline
+ArtGallery2                  & MagicYUV  & 1.035                                                            & 0.37s                                                         & 86179404                                                     \\ \hline
+ArtGallery2                  & FFVHUFF   & 1.057                                                            & 0.31s                                                         & 84401008                                                     \\ \hline
+ArtGallery2                  & LCL       & 0.755                                                            & 1.42s                                                         & 118074884                                                    \\ \hline
+\end{tabular}
+\caption{Studio codec 2023 sul dataset "ArtGallery"}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Dataset                      & Algoritmo & \begin{tabular}[c]{@{}c@{}}Rapporto \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tempo \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Dimensione \\ finale\end{tabular} \\ \hline
+Dragons                      & FLV1      & 52.111                                                           & 0.14s                                                         & 226438                                                       \\ \hline
+Dragons                      & CLJR      & 0.910                                                            & 0.12s                                                         & 12957430                                                     \\ \hline
+Dragons                      & MPEG4     & 55.658                                                           & 0.12s                                                         & 212008                                                       \\ \hline
+Dragons                      & MJPEG     & 12.455                                                           & 0.18s                                                         & 947362                                                       \\ \hline
+Dragons                      & ProRes    & 1.693                                                            & 0.81s                                                         & 6966989                                                      \\ \hline
+Dragons                      & MagicYUV  & 0.871                                                            & 0.15s                                                         & 13538438                                                     \\ \hline
+Dragons                      & FFVHUFF   & 0.747                                                            & 0.11s                                                         & 15779892                                                     \\ \hline
+Dragons                      & LCL       & 0.861                                                            & 0.25s                                                         & 13689098                                                     \\ \hline
+\end{tabular}
+\caption{Studio codec 2023 sul dataset "Dragons and bunnies"}
+\end{table}
+
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Dataset                      & Algoritmo & \begin{tabular}[c]{@{}c@{}}Rapporto \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tempo \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Dimensione \\ finale\end{tabular} \\ \hline
+OpEx                         & FLV1      & 45.311                                                           & 5.03s                                                         & 1628729                                                      \\ \hline
+OpEx                         & MPEG4     & 61.213                                                           & 4.76s                                                         & 1205634                                                      \\ \hline
+OpEx                         & MJPEG     & 15.666                                                           & 6.12s                                                         & 4710772                                                      \\ \hline
+OpEx                         & ProRes    & 0.990                                                            & 8.32s                                                         & 74538074                                                     \\ \hline
+OpEx                         & MagicYUV  & 0.667                                                            & 5.00s                                                         & 110552114                                                    \\ \hline
+OpEx                         & FFVHUFF   & 0.424                                                            & 5.82s                                                         & 173654640                                                    \\ \hline
+OpEx                         & LCL       & 0.687                                                            & 5.89s                                                         & 107326448                                                    \\ \hline
+\end{tabular}
+\caption{Studio codec 2023 sul dataset "OpEx"}
+\end{table}
+
+
+\clearpage
+\subsection{Codec 2023 sui dataset 2022 (random)}
+Questo studio è stato svolto per testare i codec scelti da noi  sui dataset 2022 con i frames disposti in modo random per vedere l'andamento delle prestazioni sul precedente esperimento. 
+\\
+\\
+Di seguito riportiamo le tabelle (una per dataset)  su questo studio:
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Dataset                      & Algoritmo & \begin{tabular}[c]{@{}c@{}}Rapporto \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tempo \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Dimensione \\ finale\end{tabular} \\ \hline
+ArtGallery2\_random          & FLV1      & 126.103                                                          & 0.47s                                                         & 707833                                                       \\ \hline
+ArtGallery2\_random          & CLJR      & 1.278                                                            & 0.33s                                                         & 69819386                                                     \\ \hline
+ArtGallery2\_random          & MPEG4     & 182.970                                                          & 0.37s                                                         & 487838                                                       \\ \hline
+ArtGallery2\_random          & MJPEG     & 32.126                                                           & 0.54s                                                         & 2778390                                                      \\ \hline
+ArtGallery2\_random          & ProRes    & 2.160                                                            & 2.75s                                                         & 41309465                                                     \\ \hline
+ArtGallery2\_random          & MagicYUV  & 1.035                                                            & 0.36s                                                         & 86179404                                                     \\ \hline
+ArtGallery2\_random          & FFVHUFF   & 1.057                                                            & 0.28s                                                         & 84401008                                                     \\ \hline
+ArtGallery2\_random          & LCL       & 0.755                                                            & 1.44s                                                         & 118074884                                                    \\ \hline
+\end{tabular}
+\caption{Studio codec 2023 sul dataset \textbf{random} "ArtGallery"}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Dataset                      & Algoritmo & \begin{tabular}[c]{@{}c@{}}Rapporto \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tempo \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Dimensione \\ finale\end{tabular} \\ \hline
+Dragons\_random              & FLV1      & 43.079                                                           & 0.16s                                                         & 273912                                                       \\ \hline
+Dragons\_random              & CLJR      & 0.910                                                            & 0.12s                                                         & 12957430                                                     \\ \hline
+Dragons\_random              & MPEG4     & 46.142                                                           & 0.13s                                                         & 255730                                                       \\ \hline
+Dragons\_random              & MJPEG     & 12.458                                                           & 0.19s                                                         & 947132                                                       \\ \hline
+Dragons\_random              & ProRes    & 1.693                                                            & 0.82s                                                         & 6966989                                                      \\ \hline
+Dragons\_random              & MagicYUV  & 0.871                                                            & 0.15s                                                         & 13538266                                                     \\ \hline
+Dragons\_random              & FFVHUFF   & 0.747                                                            & 0.11s                                                         & 15779892                                                     \\ \hline
+Dragons\_random              & LCL       & 0.861                                                            & 0.28s                                                         & 13689098                                                     \\ \hline
+\end{tabular}
+\caption{Studio codec 2023 sul dataset \textbf{random} "Dragons and bunnies"}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Dataset                      & Algoritmo & \begin{tabular}[c]{@{}c@{}}Rapporto \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tempo \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Dimensione \\ finale\end{tabular} \\ \hline
+OpEx\_random                 & FLV1      & 15.548                                                           & 5.16s                                                         & 4746581                                                      \\ \hline
+OpEx\_random                 & MPEG4     & 30.284                                                           & 4.29s                                                         & 2436928                                                      \\ \hline
+OpEx\_random                 & MJPEG     & 14.859                                                           & 5.66s                                                         & 4966664                                                      \\ \hline
+OpEx\_random                 & ProRes    & 0.918                                                            & 9.06s                                                         & 80383530                                                     \\ \hline
+OpEx\_random                 & MagicYUV  & 0.620                                                            & 4.58s                                                         & 118868546                                                    \\ \hline
+OpEx\_random                 & FFVHUFF   & 0.393                                                            & 5.48s                                                         & 187652124                                                    \\ \hline
+OpEx\_random                 & LCL       & 0.654                                                            & 5.76s                                                          & 112813424                                                    \\ \hline
+OpEx\_random                 & CLJR      & Non Funziona                                                        & -                                                         &  -                                                         \\ \hline
+\end{tabular}
+\caption{Studio codec 2023 sul dataset \textbf{random} "OpEx"}
+\end{table}
+
+\clearpage
+\subsection{Codec 2023 sui dataset 2023}
+Questo studio è stato svolto per testare i codec scelti da noi  sui dataset aggiunti da noi (2023)
+\\
+\\
+Di seguito riportiamo le tabelle (una per dataset)  su questo studio:
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Dataset               & Algoritmo & \begin{tabular}[c]{@{}c@{}}Rapporto \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tempo \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Dimensione \\ finale\end{tabular} \\ \hline
+Blob                  & FLV1      & 151.217                                                          & 0.44s                                                          & 354826                                                       \\ \hline
+Blob                  & CLJR      & 0.768                                                            & 0.34s                                                          & 69819390                                                     \\ \hline
+Blob                  & MPEG4     & 192.188                                                          & 0.37s                                                          & 279184                                                       \\ \hline
+Blob                  & MJPEG     & 22.960                                                           & 0.56s                                                          & 2336916                                                      \\ \hline
+Blob                  & ProRes    & 1.336                                                            & 2.35s                                                          & 40166200                                                     \\ \hline
+Blob                  & MagicYUV  & 0.965                                                            & 0.36s                                                          & 55591710                                                     \\ \hline
+Blob                  & FFVHUFF   & 0.823                                                            & 0.25s                                                          & 65166640                                                     \\ \hline
+Blob                  & LCL       & 0.682                                                            & 1.15s                                                          & 78693570                                                     \\ \hline
+\end{tabular}
+\caption{Studio codec 2023 sul dataset "Blob"}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Dataset               & Algoritmo & \begin{tabular}[c]{@{}c@{}}Rapporto \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tempo \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Dimensione \\ finale\end{tabular} \\ \hline
+Car                   & FLV1      & 181.836                                                          & 0.37s                                                          & 349220                                                       \\ \hline
+Car                   & CLJR      & 0.909                                                            & 0.32s                                                          & 69819390                                                     \\ \hline
+Car                   & MPEG4     & 214.747                                                          & 0.30s                                                          & 295700                                                       \\ \hline
+Car                   & MJPEG     & 24.035                                                           & 0.59s                                                          & 2641968                                                      \\ \hline
+Car                   & ProRes    & 1.582                                                            & 2.54s                                                          & 40129240                                                     \\ \hline
+Car                   & MagicYUV  & 1.127                                                            & 0.38s                                                          & 56365060                                                     \\ \hline
+Car                   & FFVHUFF   & 0.970                                                            & 0.33s                                                          & 65438570                                                     \\ \hline
+Car                   & LCL       & 0.897                                                            & 1.93s                                                          & 70786740                                                     \\ \hline
+\end{tabular}
+\caption{Studio codec 2023 sul dataset "Car"}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Dataset               & Algoritmo & \begin{tabular}[c]{@{}c@{}}Rapporto \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tempo \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Dimensione \\ finale\end{tabular} \\ \hline
+Cobblestone           & FLV1      & 182.216                                                          & 0.56s                                                          & 564142                                                       \\ \hline
+Cobblestone           & CLJR      & 1.472                                                            & 0.35s                                                          & 69819390                                                     \\ \hline
+Cobblestone           & MPEG4     & 211.364                                                          & 0.42s                                                          & 486344                                                       \\ \hline
+Cobblestone           & MJPEG     & 23.859                                                           & 0.59s                                                          & 4308462                                                      \\ \hline
+Cobblestone           & ProRes    & 2.503                                                            & 3.96s                                                          & 41075260                                                     \\ \hline
+Cobblestone           & MagicYUV  & 0.994                                                            & 0.37s                                                          & 103389700                                                    \\ \hline
+Cobblestone           & FFVHUFF   & 1.029                                                            & 0.27s                                                          & 99919320                                                     \\ \hline
+Cobblestone           & LCL       & 0.725                                                            & 1.06s                                                          & 141763200                                                    \\ \hline
+\end{tabular}
+\caption{Studio codec 2023 sul dataset "Cobblestone"}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Dataset               & Algoritmo & \begin{tabular}[c]{@{}c@{}}Rapporto \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tempo \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Dimensione \\ finale\end{tabular} \\ \hline
+Dice                  & FLV1      & 15.473                                                           & 0.32s                                                          & 202386                                                       \\ \hline
+Dice                  & CLJR      & 0.251                                                            & 0.11s                                                          & 12459290                                                     \\ \hline
+Dice                  & MPEG4     & 17.873                                                           & 0.12s                                                          & 175208                                                       \\ \hline
+Dice                  & MJPEG     & 4.971                                                            & 0.17s                                                          & 630020                                                       \\ \hline
+Dice                  & ProRes    & 0.583                                                            & 0.59s                                                          & 5370439                                                      \\ \hline
+Dice                  & MagicYUV  & 0.437                                                            & 0.14s                                                          & 7159920                                                      \\ \hline
+Dice                  & FFVHUFF   & 0.289                                                            & 0.10s                                                          & 10826590                                                     \\ \hline
+Dice                  & LCL       & 0.979                                                            & 0.15s                                                          & 3199498                                                      \\ \hline
+\end{tabular}
+\caption{Studio codec 2023 sul dataset "Dice"}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Dataset               & Algoritmo & \begin{tabular}[c]{@{}c@{}}Rapporto \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tempo \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Dimensione \\ finale\end{tabular} \\ \hline
+Fish                  & FLV1      & 38.966                                                           & 0.17s                                                          & 188832                                                       \\ \hline
+Fish                  & CLJR      & 0.591                                                            & 0.12s                                                          & 12459290                                                     \\ \hline
+Fish                  & MPEG4     & 40.741                                                           & 0.13s                                                          & 180606                                                       \\ \hline
+Fish                  & MJPEG     & 8.866                                                            & 0.18s                                                          & 829886                                                       \\ \hline
+Fish                  & ProRes    & 1.558                                                            & 0.80s                                                          & 4721496                                                      \\ \hline
+Fish                  & MagicYUV  & 0.506                                                            & 0.18s                                                          & 14544920                                                     \\ \hline
+Fish                  & FFVHUFF   & 0.518                                                            & 0.13s                                                          & 14194970                                                     \\ \hline
+Fish                  & LCL       & 0.722                                                            & 0.19s                                                          & 10197960                                                     \\ \hline
+\end{tabular}
+\caption{Studio codec 2023 sul dataset "Fish"}
+\end{table}
+
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Dataset               & Algoritmo & \begin{tabular}[c]{@{}c@{}}Rapporto \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tempo \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Dimensione \\ finale\end{tabular} \\ \hline
+Mannequin             & FLV1      & 188.561                                                          & 0.44s                                                         & 424100                                                       \\ \hline
+Mannequin             & CLJR      & 1.145                                                            & 0.35s                                                          & 69819390                                                     \\ \hline
+Mannequin             & MPEG4     & 226.555                                                          & 0.36s                                                          & 352978                                                       \\ \hline
+Mannequin             & MJPEG     & 24.138                                                           & 0.60s                                                          & 3312942                                                      \\ \hline
+Mannequin             & ProRes    & 1.958                                                            & 2.67s                                                          & 40834080                                                     \\ \hline
+Mannequin             & MagicYUV  & 0.972                                                            & 0.37s                                                          & 82240410                                                     \\ \hline
+Mannequin             & FFVHUFF   & 0.921                                                            & 0.29s                                                          & 86783320                                                     \\ \hline
+Mannequin             & LCL       & 0.717                                                            & 1.02s                                                          & 111512600                                                    \\ \hline
+\end{tabular}
+\caption{Studio codec 2023 sul dataset "Mannequin"}
+\end{table}
+
+
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Dataset               & Algoritmo & \begin{tabular}[c]{@{}c@{}}Rapporto \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tempo \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Dimensione \\ finale\end{tabular} \\ \hline
+Messerschmitt         & FLV1      & 29.958                                                           & 0.21s                                                          & 295716                                                       \\ \hline
+Messerschmitt         & CLJR      & 0.711                                                            & 0.12s                                                          & 12459290                                                     \\ \hline
+Messerschmitt         & MPEG4     & 38.265                                                           & 0.13s                                                          & 231522                                                       \\ \hline
+Messerschmitt         & MJPEG     & 12.793                                                           & 0.17s                                                          & 692506                                                       \\ \hline
+Messerschmitt         & ProRes    & 1.175                                                            & 0.57s                                                          & 7539665                                                      \\ \hline
+Messerschmitt         & MagicYUV  & 0.974                                                            & 0.19s                                                          & 9096656                                                      \\ \hline
+Messerschmitt         & FFVHUFF   & 0.754                                                            & 0.14s                                                          & 11756160                                                     \\ \hline
+Messerschmitt         & LCL       & 1.004                                                            & 0.26s                                                          & 8822124                                                      \\ \hline
+\end{tabular}
+\caption{Studio codec 2023 sul dataset "Messerschmitt"}
+\end{table}
+
+\clearpage
+\subsection{Codec 2023 sui dataset 2023 (random)}
+Questo studio è stato svolto per testare i codec scelti da noi  sui aggiunti da noi (2023) con i frames disposti in modo random per vedere l'andamento delle prestazioni sul precedente esperimento. 
+\\
+\\
+Di seguito riportiamo le tabelle (una per dataset)  su questo studio:
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Dataset               & Algoritmo & \begin{tabular}[c]{@{}c@{}}Rapporto \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tempo \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Dimensione \\ finale\end{tabular} \\ \hline
+Blob\_random          & FLV1      & 38.392                                                           & 0.46s                                                          & 1397587                                                      \\ \hline
+Blob\_random          & CLJR      & 0.768                                                            & 0.33s                                                          & 69819390                                                     \\ \hline
+Blob\_random          & MPEG4     & 75.080                                                           & 0.35s                                                          & 714648                                                       \\ \hline
+Blob\_random          & MJPEG     & 22.968s                                                           & 0.52s                                                          & 2336130                                                      \\ \hline
+Blob\_random          & ProRes    & 1.336                                                            & 2.20s                                                          & 40166200                                                     \\ \hline
+Blob\_random          & MagicYUV  & 0.965                                                            & 0.38s                                                          & 55591710                                                     \\ \hline
+Blob\_random          & FFVHUFF   & 0.823                                                            & 0.27s                                                          & 65166640                                                     \\ \hline
+Blob\_random          & LCL       & 0.682                                                            & 1.15s                                                          & 78693570                                                     \\ \hline
+\end{tabular}
+\caption{Studio codec 2023 sul dataset \textbf{random} "Blob"}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Dataset               & Algoritmo & \begin{tabular}[c]{@{}c@{}}Rapporto \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tempo \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Dimensione \\ finale\end{tabular} \\ \hline
+Car\_random           & FLV1      & 63.584                                                           & 16.58s                                                         & 998682                                                       \\ \hline
+Car\_random           & CLJR      & 0.909                                                            & 0.32s                                                          & 69819390                                                     \\ \hline
+Car\_random           & MPEG4     & 94.757                                                           & 0.31s                                                          & 670142                                                       \\ \hline
+Car\_random           & MJPEG     & 24.046                                                           & 0.55s                                                          & 2640814                                                      \\ \hline
+Car\_random           & ProRes    & 1.582                                                            & 2.57s                                                         & 40129240                                                     \\ \hline
+Car\_random           & MagicYUV  & 1.127                                                            & 0.38s                                                          & 56365060                                                     \\ \hline
+Car\_random           & FFVHUFF   & 0.970                                                            & 0.29s                                                          & 65438570                                                     \\ \hline
+Car\_random           & LCL       & 0.897                                                            & 1.83s                                                          & 70786740                                                     \\ \hline
+\end{tabular}
+\caption{Studio codec 2023 sul dataset \textbf{random} "Car"}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Dataset               & Algoritmo & \begin{tabular}[c]{@{}c@{}}Rapporto \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tempo \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Dimensione \\ finale\end{tabular} \\ \hline
+Cobblestone\_random   & FLV1      & 64.334                                                           & 0.49s                                                          & 1597836                                                      \\ \hline
+Cobblestone\_random   & CLJR      & 1.472                                                            & 0.36s                                                          & 69819390                                                     \\ \hline
+Cobblestone\_random   & MPEG4     & 108.435                                                          & 0.35s                                                          & 947992                                                       \\ \hline
+Cobblestone\_random   & MJPEG     & 23.859                                                           & 0.57s                                                          & 4308444                                                      \\ \hline
+Cobblestone\_random   & ProRes    & 2.503                                                            & 3.96s                                                          & 41075260                                                     \\ \hline
+Cobblestone\_random   & MagicYUV  & 0.994                                                            & 0.36s                                                          & 103389700                                                    \\ \hline
+Cobblestone\_random   & FFVHUFF   & 1.029                                                            & 0.28s                                                          & 99919320                                                     \\ \hline
+Cobblestone\_random   & LCL       & 0.725                                                            & 1.09s                                                          & 141763200                                                    \\ \hline
+\end{tabular}
+\caption{Studio codec 2023 sul dataset \textbf{random} "Cobblestone"}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Dataset               & Algoritmo & \begin{tabular}[c]{@{}c@{}}Rapporto \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tempo \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Dimensione \\ finale\end{tabular} \\ \hline
+Dice\_random          & FLV1      & 13.044                                                           & 0.18s                                                          & 240076                                                       \\ \hline
+Dice\_random          & CLJR      & 0.251                                                            & 0.13s                                                          & 12459290                                                     \\ \hline
+Dice\_random          & MPEG4     & 14.843                                                           & 0.16s                                                          & 210984                                                       \\ \hline
+Dice\_random          & MJPEG     & 5.024                                                            & 0.17s                                                         & 623306                                                       \\ \hline
+Dice\_random          & ProRes    & 0.583                                                            & 0.60s                                                          & 5370439                                                      \\ \hline
+Dice\_random          & MagicYUV  & 0.438                                                            & 0.13s                                                          & 7147860                                                      \\ \hline
+Dice\_random          & FFVHUFF   & 0.289                                                            & 0.10s                                                          & 10826590                                                     \\ \hline
+Dice\_random          & LCL       & 0.979                                                            & 0.15s                                                          & 3199498                                                      \\ \hline
+\end{tabular}
+\caption{Studio codec 2023 sul dataset \textbf{random} "Dice"}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Dataset               & Algoritmo & \begin{tabular}[c]{@{}c@{}}Rapporto \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tempo \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Dimensione \\ finale\end{tabular} \\ \hline
+Fish\_random          & FLV1      & 34.613                                                           & 0.15s                                                          & 212580                                                       \\ \hline
+Fish\_random          & CLJR      & 0.591                                                            & 0.12s                                                          & 12459290                                                     \\ \hline
+Fish\_random          & MPEG4     & 35.554                                                           & 0.14s                                                          & 206952                                                       \\ \hline
+Fish\_random          & MJPEG     & 8.867                                                            & 0.19s                                                          & 829778                                                       \\ \hline
+Fish\_random          & ProRes    & 1.558                                                            & 0.77s                                                          & 4721496                                                      \\ \hline
+Fish\_random          & MagicYUV  & 0.506                                                            & 0.15s                                                          & 14549420                                                     \\ \hline
+Fish\_random          & FFVHUFF   & 0.518                                                            & 0.13s                                                          & 14194970                                                     \\ \hline
+Fish\_random          & LCL       & 0.722                                                            & 0.21s                                                          & 10197960                                                     \\ \hline
+\end{tabular}
+\caption{Studio codec 2023 sul dataset \textbf{random} "Fish"}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Dataset               & Algoritmo & \begin{tabular}[c]{@{}c@{}}Rapporto \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tempo \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Dimensione \\ finale\end{tabular} \\ \hline
+Mannequin\_random     & FLV1      & 79.886                                                           & 0.49s                                                          & 1001032                                                      \\ \hline
+Mannequin\_random     & CLJR      & 1.145                                                            & 0.31s                                                          & 69819390                                                     \\ \hline
+Mannequin\_random     & MPEG4     & 107.542                                                          & 0.35s                                                          & 743604                                                       \\ \hline
+Mannequin\_random     & MJPEG     & 24.138                                                           & 0.59s                                                          & 3312976                                                      \\ \hline
+Mannequin\_random     & ProRes    & 1.958                                                            & 2.69s                                                          & 40834080                                                     \\ \hline
+Mannequin\_random     & MagicYUV  & 0.972                                                            & 0.38s                                                         & 82240410                                                     \\ \hline
+Mannequin\_random     & FFVHUFF   & 0.921                                                            & 0.30s                                                          & 86783320                                                     \\ \hline
+Mannequin\_random     & LCL       & 0.717                                                            & 0.99s                                                          & 111512600                                                    \\ \hline
+\end{tabular}
+\caption{Studio codec 2023 sul dataset \textbf{random} "Mannequin"}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Dataset               & Algoritmo & \begin{tabular}[c]{@{}c@{}}Rapporto \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Tempo \\ compressione\end{tabular} & \begin{tabular}[c]{@{}c@{}}Dimensione \\ finale\end{tabular} \\ \hline
+Messerschmitt\_random & FLV1      & 24.308                                                           & 0.22s                                                          & 364455                                                       \\ \hline
+Messerschmitt\_random & CLJR      & 0.711                                                            & 0.13s                                                          & 12459290                                                     \\ \hline
+Messerschmitt\_random & MPEG4     & 29.915                                                           & 0.16s                                                          & 296142                                                       \\ \hline
+Messerschmitt\_random & MJPEG     & 12.910                                                           & 0.20s                                                          & 686216                                                       \\ \hline
+Messerschmitt\_random & ProRes    & 1.175                                                            & 0.58s                                                          & 7539665                                                      \\ \hline
+Messerschmitt\_random & MagicYUV  & 0.974                                                            & 0.15s                                                          & 9096140                                                      \\ \hline
+Messerschmitt\_random & FFVHUFF   & 0.754                                                            & 0.13s                                                          & 11756160                                                     \\ \hline
+Messerschmitt\_random & LCL       & 1.004                                                            & 0.26s                                                         & 8822124                                                      \\ \hline
+\end{tabular}
+\caption{Studio codec 2023 sul dataset \textbf{random} "Messerschmitt"}
+\end{table}
+
+\clearpage
+\section{Decompressione codec 2023 su Dataset 2022}
+Questo studio è stato svolto per testare la decompressione per i codec scelti da noi sui dataset 2022.
+\\
+\\
+Di seguito riportiamo le tabelle (una per dataset) su questo studio:
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+Dataset               & Algoritmo & Average SSIM & Average PSNR \\ \hline
+ArtGallery2           & FLV1      & 0.917        & 33.606       \\ \hline
+ArtGallery2           & CLJR      & 0.846        & 34.976       \\ \hline
+ArtGallery2           & MPEG4     & 0.911        & 33.352       \\ \hline
+ArtGallery2           & MJPEG     & 0.926        & 34.946       \\ \hline
+ArtGallery2           & ProRes    & 0.992        & 48.100       \\ \hline
+ArtGallery2           & MagicYUV  & 1.000        & inf          \\ \hline
+ArtGallery2           & FFVHUFF   & 1.000        & inf          \\ \hline
+ArtGallery2           & LCL       & 1.000        & inf          \\ \hline
+\end{tabular}
+\caption{Studio decompressione codec 2023 sul dataset "Art Gallery"}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+Dataset               & Algoritmo & Average SSIM & Average PSNR
+\\ \hline
+Dragons               & FLV1      & 0.904        & 32.887       \\ \hline
+Dragons               & CLJR      & 0.883        & 35.456       \\ \hline
+Dragons               & MPEG4     & 0.901        & 32.779       \\ \hline
+Dragons               & MJPEG     & 0.902        & 32.880       \\ \hline
+Dragons               & ProRes    & 0.991        & 44.418       \\ \hline
+Dragons               & MagicYUV  & 1.000        & inf          \\ \hline
+Dragons               & FFVHUFF   & 1.000        & inf          \\ \hline
+Dragons               & LCL       & 1.000        & inf          \\ \hline
+\end{tabular}
+\caption{Studio decompressione codec 2023 sul dataset "Dragons and bunnies"}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+Dataset               & Algoritmo & Average SSIM & Average PSNR
+\\ \hline
+OpEx                  & FLV1      & 0.975        & 41.343       \\ \hline
+OpEx                  & MPEG4     & 0.968        & 40.463       \\ \hline
+OpEx                  & MJPEG     & 0.985        & 47.427       \\ \hline
+OpEx                  & ProRes    & 0.999        & 58.536       \\ \hline
+OpEx                  & MagicYUV  & 0.999        & inf          \\ \hline
+OpEx                  & FFVHUFF   & 0.999        & inf          \\ \hline
+OpEx                  & LCL       & 0.999        & inf          \\ \hline
+\end{tabular}
+\caption{Studio decompressione codec 2023 sul dataset "OpEx"}
+\end{table}
+
+\clearpage
+
+\clearpage
+\section{Decompressione codec 2023 su Dataset 2022 (random)}
+Questo studio è stato svolto per testare la decompressione per i codec scelti da noi sui dataset 2022, dispondendo i frames in modo randomico.
+\\
+\\
+Di seguito riportiamo le tabelle (una per dataset) su questo studio:
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+Dataset               & Algoritmo & Average SSIM & Average PSNR
+\\ \hline
+ArtGallery2\_random   & FLV1      & 0.909        & 32.747       \\ \hline
+ArtGallery2\_random   & CLJR      & 0.846        & 34.975       \\ \hline
+ArtGallery2\_random   & MPEG4     & 0.900        & 32.377       \\ \hline
+ArtGallery2\_random   & MJPEG     & 0.926        & 34.942       \\ \hline
+ArtGallery2\_random   & ProRes    & 0.992        & 48.100       \\ \hline
+ArtGallery2\_random   & MagicYUV  & 1.000        & inf          \\ \hline
+ArtGallery2\_random   & FFVHUFF   & 1.000        & inf          \\ \hline
+ArtGallery2\_random   & LCL       & 1.000        & inf          \\ \hline
+\end{tabular}
+\caption{Studio decompressione codec 2023 sul dataset \textbf{random} "Art Gallery"}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+Dataset               & Algoritmo & Average SSIM & Average PSNR
+\\ \hline
+Dragons\_random       & FLV1      & 0.900        & 32.601       \\ \hline
+Dragons\_random       & CLJR      & 0.883        & 35.456       \\ \hline
+Dragons\_random       & MPEG4     & 0.896        & 32.492       \\ \hline
+Dragons\_random       & MJPEG     & 0.902        & 32.876       \\ \hline
+Dragons\_random       & ProRes    & 0.991        & 44.418       \\ \hline
+Dragons\_random       & MagicYUV  & 1.000        & inf          \\ \hline
+Dragons\_random       & FFVHUFF   & 1.000        & inf          \\ \hline
+Dragons\_random       & LCL       & 1.000        & inf          \\ \hline
+\end{tabular}
+\caption{Studio decompressione codec 2023 sul dataset \textbf{random} "Dragons and bunnies"}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+Dataset               & Algoritmo & Average SSIM & Average PSNR
+\\ \hline
+OpEx\_random          & FLV1      & 0.976        & 41.997       \\ \hline
+OpEx\_random          & MPEG4     & 0.964        & 40.285       \\ \hline
+OpEx\_random          & MJPEG     & 0.985        & 47.379       \\ \hline
+OpEx\_random          & ProRes    & 0.999        & 58.789       \\ \hline
+OpEx\_random          & MagicYUV  & 0.999        & inf          \\ \hline
+OpEx\_random          & FFVHUFF   & 0.999        & inf          \\ \hline
+OpEx\_random          & LCL       & 0.999        & inf          \\ \hline
+\end{tabular}
+\caption{Studio decompressione codec 2023 sul dataset \textbf{random} "OpEx"}
+\end{table}
+
+\clearpage
+
+\clearpage
+\section{Decompressione codec 2023 su Dataset 2023}
+Questo studio è stato svolto per testare la decompressione per i codec scelti da noi sui dataset aggiunti da noi.
+\\
+\\
+Di seguito riportiamo le tabelle (una per dataset) su questo studio:
+    
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+Dataset               & Algoritmo & Average SSIM & Average PSNR
+\\ \hline
+Blob                  & FLV1      & 0.902        & 35.263       \\ \hline
+Blob                  & CLJR      & 0.856        & 35.100       \\ \hline
+Blob                  & MPEG4     & 0.893        & 34.818       \\ \hline
+Blob                  & MJPEG     & 0.930        & 37.438       \\ \hline
+Blob                  & ProRes    & 0.999        & 56.568       \\ \hline
+Blob                  & MagicYUV  & 1.000        & inf          \\ \hline
+Blob                  & FFVHUFF   & 1.000        & inf          \\ \hline
+Blob                  & LCL       & 1.000        & inf          \\ \hline
+\end{tabular}
+\caption{Studio decompressione codec 2023 sul dataset  "Blob"}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+Dataset               & Algoritmo & Average SSIM & Average PSNR
+\\ \hline
+Car                   & FLV1      & 0.930        & 33.856       \\ \hline
+Car                   & CLJR      & 0.837        & 34.938       \\ \hline
+Car                   & MPEG4     & 0.924        & 33.562       \\ \hline
+Car                   & MJPEG     & 0.944        & 35.055       \\ \hline
+Car                   & ProRes    & 0.998        & 52.979       \\ \hline
+Car                   & MagicYUV  & 1.000        & inf          \\ \hline
+Car                   & FFVHUFF   & 1.000        & inf          \\ \hline
+Car                   & LCL       & 1.000        & inf          \\ \hline
+\end{tabular}
+\caption{Studio decompressione codec 2023 sul dataset  "Car"}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+Dataset               & Algoritmo & Average SSIM & Average PSNR
+\\ \hline
+Cobblestone           & FLV1      & 0.813        & 28.567       \\ \hline
+Cobblestone           & CLJR      & 0.911        & 34.906       \\ \hline
+Cobblestone           & MPEG4     & 0.809        & 28.486       \\ \hline
+Cobblestone           & MJPEG     & 0.842        & 29.006       \\ \hline
+Cobblestone           & ProRes    & 0.992        & 41.253       \\ \hline
+Cobblestone           & MagicYUV  & 1.000        & inf          \\ \hline
+Cobblestone           & FFVHUFF   & 1.000        & inf          \\ \hline
+Cobblestone           & LCL       & 1.000        & inf          \\ \hline
+\end{tabular}
+\caption{Studio decompressione codec 2023 sul dataset  "Cobblestone"}
+\end{table}
+
+\begin{table}[!ht]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+Dataset               & Algoritmo & Average SSIM & Average PSNR
+\\ \hline
+Dice                  & FLV1      & 0.949        & 34.733       \\ \hline
+Dice                  & CLJR      & 0.815        & 35.248       \\ \hline
+Dice                  & MPEG4     & 0.948        & 34.679       \\ \hline
+Dice                  & MJPEG     & 0.957        & 36.754       \\ \hline
+Dice                  & ProRes    & 0.998        & 52.176       \\ \hline
+Dice                  & MagicYUV  & 1.000        & inf          \\ \hline
+Dice                  & FFVHUFF   & 1.000        & inf          \\ \hline
+Dice                  & LCL       & 1.000        & inf          \\ \hline
+\end{tabular}
+\caption{Studio decompressione codec 2023 sul dataset  "Dice"}
+\end{table}
+
+\begin{table}[!ht]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+Dataset               & Algoritmo & Average SSIM & Average PSNR
+\\ \hline
+Fish                  & FLV1      & 0.960        & 35.214       \\ \hline
+Fish                  & CLJR      & 0.972        & 39.840       \\ \hline
+Fish                  & MPEG4     & 0.959        & 35.133       \\ \hline
+Fish                  & MJPEG     & 0.958        & 35.093       \\ \hline
+Fish                  & ProRes    & 0.996        & 45.356       \\ \hline
+Fish                  & MagicYUV  & 1.000        & inf          \\ \hline
+Fish                  & FFVHUFF   & 1.000        & inf          \\ \hline
+Fish                  & LCL       & 1.000        & inf          \\ \hline
+\end{tabular}
+\caption{Studio decompressione codec 2023 sul dataset  "Fish"}
+\end{table}
+
+\begin{table}[!ht]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+Dataset               & Algoritmo & Average SSIM & Average PSNR
+\\ \hline
+Mannequin             & FLV1      & 0.854        & 30.767       \\ \hline
+Mannequin             & CLJR      & 0.881        & 35.292       \\ \hline
+Mannequin             & MPEG4     & 0.848        & 30.647       \\ \hline
+Mannequin             & MJPEG     & 0.884        & 31.992       \\ \hline
+Mannequin             & ProRes    & 0.996        & 47.907       \\ \hline
+Mannequin             & MagicYUV  & 1.000        & inf          \\ \hline
+Mannequin             & FFVHUFF   & 1.000        & inf          \\ \hline
+Mannequin             & LCL       & 1.000        & inf          \\ \hline
+\end{tabular}
+\caption{Studio decompressione codec 2023 sul dataset  "Mannequin"}
+\end{table}
+
+\begin{table}[ht!]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+Dataset               & Algoritmo & Average SSIM & Average PSNR
+\\ \hline
+Messerschmitt         & FLV1      & 0.853        & 32.642       \\ \hline
+Messerschmitt         & CLJR      & 0.883        & 34.993       \\ \hline
+Messerschmitt         & MPEG4     & 0.852        & 32.597       \\ \hline
+Messerschmitt         & MJPEG     & 0.875        & 33.758       \\ \hline
+Messerschmitt         & ProRes    & 0.996        & 50.284       \\ \hline
+Messerschmitt         & MagicYUV  & 1.000        & inf          \\ \hline
+Messerschmitt         & FFVHUFF   & 1.000        & inf          \\ \hline
+Messerschmitt         & LCL       & 1.000        & inf          \\ \hline
+\end{tabular}
+\caption{Studio decompressione codec 2023 sul dataset  "Messerschmitt"}
+\end{table}
+
+\clearpage
+\section{Decompressione codec 2023 su Dataset 2023 (random)}
+Questo studio è stato svolto per testare la decompressione per i codec scelti da noi sui dataset aggiunti da noi, disponendo i frame in modo randomico.
+\\
+\\
+Di seguito riportiamo le tabelle (una per dataset) su questo studio:
+
+\begin{table}[!ht]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+Dataset               & Algoritmo & Average SSIM & Average PSNR
+\\ \hline
+Blob\_random          & FLV1      & 0.881        & 33.923       \\ \hline
+Blob\_random          & CLJR      & 0.856        & 35.101       \\ \hline
+Blob\_random          & MPEG4     & 0.864        & 33.137       \\ \hline
+Blob\_random          & MJPEG     & 0.930        & 37.432       \\ \hline
+Blob\_random          & ProRes    & 0.999        & 56.568       \\ \hline
+Blob\_random          & MagicYUV  & 1.000        & inf          \\ \hline
+Blob\_random          & FFVHUFF   & 1.000        & inf          \\ \hline
+Blob\_random          & LCL       & 1.000        & inf          \\ \hline
+\end{tabular}
+\caption{Studio decompressione codec 2023 sul dataset \textbf{random} "Blob"}
+\end{table}
+
+\begin{table}[!ht]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+Dataset               & Algoritmo & Average SSIM & Average PSNR
+\\ \hline
+Car\_random           & FLV1      & 0.913        & 32.542       \\ \hline
+Car\_random           & CLJR      & 0.837        & 34.938       \\ \hline
+Car\_random           & MPEG4     & 0.902        & 32.054       \\ \hline
+Car\_random           & MJPEG     & 0.944        & 35.053       \\ \hline
+Car\_random           & ProRes    & 0.998        & 52.979       \\ \hline
+Car\_random           & MagicYUV  & 1.000        & inf          \\ \hline
+Car\_random           & FFVHUFF   & 1.000        & inf          \\ \hline
+Car\_random           & LCL       & 1.000        & inf          \\ \hline
+\end{tabular}
+\caption{Studio decompressione codec 2023 sul dataset \textbf{random} "Car"}
+\end{table}
+
+\begin{table}[!ht]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+Dataset               & Algoritmo & Average SSIM & Average PSNR
+\\ \hline
+Cobblestone\_random   & FLV1      & 0.783        & 27.515       \\ \hline
+Cobblestone\_random   & CLJR      & 0.911        & 34.906       \\ \hline
+Cobblestone\_random   & MPEG4     & 0.775        & 27.295       \\ \hline
+Cobblestone\_random   & MJPEG     & 0.842        & 29.006       \\ \hline
+Cobblestone\_random   & ProRes    & 0.992        & 41.253       \\ \hline
+Cobblestone\_random   & MagicYUV  & 1.000        & inf          \\ \hline
+Cobblestone\_random   & FFVHUFF   & 1.000        & inf          \\ \hline
+Cobblestone\_random   & LCL       & 1.000        & inf          \\ \hline
+\end{tabular}
+\caption{Studio decompressione codec 2023 sul dataset \textbf{random} "Cobblestone"}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+Dataset               & Algoritmo & Average SSIM & Average PSNR
+\\ \hline
+Dice\_random          & FLV1      & 0.947        & 34.549       \\ \hline
+Dice\_random          & CLJR      & 0.815        & 35.248       \\ \hline
+Dice\_random          & MPEG4     & 0.945        & 34.556       \\ \hline
+Dice\_random          & MJPEG     & 0.957        & 36.673       \\ \hline
+Dice\_random          & ProRes    & 0.998        & 52.176       \\ \hline
+Dice\_random          & MagicYUV  & 1.000        & inf          \\ \hline
+Dice\_random          & FFVHUFF   & 1.000        & inf          \\ \hline
+Dice\_random          & LCL       & 1.000        & inf          \\ \hline
+\end{tabular}
+\caption{Studio decompressione codec 2023 sul dataset \textbf{random} "Dice"}
+\end{table}
+
+\begin{table}[!ht]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+Dataset               & Algoritmo & Average SSIM & Average PSNR
+\\ \hline
+Fish\_random          & FLV1      & 0.957        & 34.747       \\ \hline
+Fish\_random          & CLJR      & 0.972        & 39.837       \\ \hline
+Fish\_random          & MPEG4     & 0.956        & 34.619       \\ \hline
+Fish\_random          & MJPEG     & 0.958        & 35.084       \\ \hline
+Fish\_random          & ProRes    & 0.996        & 45.356       \\ \hline
+Fish\_random          & MagicYUV  & 1.000        & inf          \\ \hline
+Fish\_random          & FFVHUFF   & 1.000        & inf          \\ \hline
+Fish\_random          & LCL       & 1.000        & inf          \\ \hline
+\end{tabular}
+\caption{Studio decompressione codec 2023 sul dataset \textbf{random} "Fish"}
+\end{table}
+
+\begin{table}[!ht]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+Dataset               & Algoritmo & Average SSIM & Average PSNR
+\\ \hline
+Mannequin\_random     & FLV1      & 0.827        & 29.560       \\ \hline
+Mannequin\_random     & CLJR      & 0.881        & 35.292       \\ \hline
+Mannequin\_random     & MPEG4     & 0.819        & 29.417       \\ \hline
+Mannequin\_random     & MJPEG     & 0.884        & 31.991       \\ \hline
+Mannequin\_random     & ProRes    & 0.996        & 47.907       \\ \hline
+Mannequin\_random     & MagicYUV  & 1.000        & inf          \\ \hline
+Mannequin\_random     & FFVHUFF   & 1.000        & inf          \\ \hline
+Mannequin\_random     & LCL       & 1.000        & inf          \\ \hline
+\end{tabular}
+\caption{Studio decompressione codec 2023 sul dataset \textbf{random} "Mannequin"}
+\end{table}
+
+\begin{table}[!ht]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+Dataset               & Algoritmo & Average SSIM & Average PSNR
+\\ \hline
+Messerschmitt\_random & FLV1      & 0.837        & 32.097       \\ \hline
+Messerschmitt\_random & CLJR      & 0.883        & 34.993       \\ \hline
+Messerschmitt\_random & MPEG4     & 0.831        & 31.931       \\ \hline
+Messerschmitt\_random & MJPEG     & 0.873        & 33.755       \\ \hline
+Messerschmitt\_random & ProRes    & 0.996        & 50.284       \\ \hline
+Messerschmitt\_random & MagicYUV  & 1.000        & inf          \\ \hline
+Messerschmitt\_random & FFVHUFF   & 1.000        & inf          \\ \hline
+Messerschmitt\_random & LCL       & 1.000        & inf          \\ \hline
+\end{tabular}
+\caption{Studio decompressione codec 2023 sul dataset \textbf{random} "Messerschmitt"}
+\end{table}
+
+\clearpage
+\section{Analisi riassuntiva dei risultati}
+Durante l'ampia fase di testing condotta, abbiamo osservato risultati distinti in termini di rapporto di compressione e decompressione tra vari codec. Inoltre l'introduzione di un indice di similarità come il PSNR  ha contribuito significativamente a migliorare la nostra comprensione dei risultati ottenuti durante la fase di decompressione.
+\\
+\\
+In particolare, è emerso che  i codec \textbf{FLV1} e \textbf{MPEG4} hanno dimostrato di ottenere ottimi risultati nella compressione, presentando un rapporto di compressione superiore rispetto agli altri codec considerati (compressione rate oltre i 250). Nonostante si tratti di codec lossy, mostrano ottime perfomance tra i codec testati e godono di buoni valori di similarità secondo i due incidi usati (PSNR E SSIM), il che li rende molto affidabili in fase di decompressione.
+\\
+\\
+Per quanto riguarda i codec lossless utilizzati non abbiamo riscontrato miglioramenti rispetto ai risultati dei nostri colleghi nel precedente studio. Infatti in tutti gli esperimenti effettuati abbiamo riscontrato bassi valori di compressione.
+\\
+\\
+Un interessante scoperta è stato il codec \textbf{ProRes} emerso dopo la grande quantità di esperimenti condotti mostrando prestazioni tendenti a un codec lossless (ovvero qualità eccellente e discreto rapporto di compressione).
+\\
+Infatti nel contesto della decompressione, è rilevante notare che il codec ProRes, nonostante sia lossy, ha manifestato non solo un notevole valore di SSIM pari a 0,99, indicante una fedeltà estremamente alta nella ricostruzione dell'immagine dopo il processo di decompressione, ma ha anche presentato un indice PSNR costantemente ottimo (sempre superiore a 40 punti). L'alto valore di PSNR conferma ulteriormente la capacità del codec ProRes di mantenere una qualità visiva elevata, anche considerando il processo di compressione e decompressione. Pertanto, il codec  ProRes si rivela un'opzione robusta quando la conservazione della qualità dell'immagine è di primaria importanza nelle applicazioni di compressione video.
+
+
+\clearpage
+\subsection{Analisi sui dataset random}
+Di seguito analizziamo le prestazioni dei vari codec di compressione sui rispettivi dataset randomizzati.
+In generale abbiamo notato che per ogni esperimento c'è un peggioramento importate su alcuni codec mentre altri sembrano soffrire di meno la disposizione dei frames in ordine randomico. 
+Nello specifico i codec che peggiorano la loro performance, sia in termini di velocità di esecuzione e sia in termini di compression rate:
+\begin{itemize}
+    \item HEVC 
+    \item VP9  
+    \item FLV1
+    \item MPEG4
+\end{itemize}
+Per i codec non citati sopra, le prestazioni risultano essere molto vicine a quelle sui dataset originali, anche se, in alcuni casi, di poco peggiori.
+\\
+\\
+Si può quindi affermare che \textbf{c'è effettivamente dipendenza} tra i frame dei vari Light Field. Quindi l'approccio di compressione/decompressione degli stessi, deve tener conto di questa dipendenza tra i frame per ottenere una compressione efficiente senza compromettere la qualità dell'immagine riprodotta. Gli esperimenti condotti sui dataset con frame disposti casualmente hanno evidenziato dei peggioramenti sia in fase di compressione, in termini di tempi e rapporto di compressione, sia in fase di decompressione, in termini di similarità e rapporto  segnale/rumore.  

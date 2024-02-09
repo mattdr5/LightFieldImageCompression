@@ -1,0 +1,77 @@
+\chapter{Implementazione}
+
+\section{Linguaggio, librerie principali e tool usati}
+Per la realizzazione di questo progetto, è stato impiegato il linguaggio di programmazione Python (versione 3.11.6), facendo uso delle seguenti librerie:
+
+\begin{enumerate}
+    \item \textbf{Subprocess (versione 3.8):} La libreria subprocess è stata utilizzata per generare nuovi processi, connettersi alle loro pipe di input/output/errore e ottenere i relativi codici di ritorno;
+    \item \textbf{FFmpeg (versione 6.1):} FFmpeg è una completa suite software nata nel dicembre 2000, specializzata in registrazione, conversione e riproduzione di audio e video. Basata sulla libreria libavcodec per la codifica audio/video, FFmpeg è sviluppata principalmente su Linux, ma può essere compilata ed eseguita su vari sistemi operativi, compreso Microsoft Windows. In particolare, l'uso di FFmpeg in questo contesto è stato orientato alla conversione video da un formato all'altro attraverso uno strumento da riga di comando.
+    \item \textbf{OpenCV (opencv-python==4.8.1.78):} OpenCV è una libreria open-source che fornisce un'ampia varietà di strumenti per la visione artificiale e il machine learning. Nell'implementazione, OpenCV (cv2) è utilizzata per le operazioni di elaborazione delle immagini e manipolazione dei frame video.
+    \item \textbf{CSV (csv):} La libreria csv inclusa in Python che offre funzionalità per la lettura e la scrittura di file CSV (Comma-Separated Values). Nell'implementazione è stata impiegata per la gestione per registrare risultati e statistiche del processo.
+    \item \textbf{Scikit-image (scikit-image==0.22.0):} Scikit-image è una raccolta di algoritmi per il processamento delle immagini basata su Scikit-Learn. Le funzioni \textbf{structural\_similarity (ssim)} e \textbf{peak\_signal\_noise\_ratio (psnr)} fornite da skimage.metrics sono utilizzate per calcolare le metriche di similarità strutturale e rapporto segnale-rumore, rispettivamente.
+\end{enumerate}
+
+\section{Organizzazione del progetto e codice}
+
+\subsection{Moduli python principali}
+\begin{itemize}
+    \item \textit{test\_compression.py:} Contiene funzioni e logica per la compressione video sui dataset presenti nel file utils.py.
+    \item \textit{test\_decompression.py:} Gestisce la decompressione dei video compressi.
+    \item \textit{utils.py:} Contiene funzioni di utilità condivise, nel nostro caso sono presenti i dataset testati, le estensioni corrette dei codec video e le cartelle di output per la compressione e la decompressione.
+    \item \textit{random\_dataset.py:} lo scopo di questo script è randomizzare l'ordine dei file corrispondenti al pattern nella cartella di origine e copiarli in modo ordinato nella cartella di destinazione.
+\end{itemize}
+
+\subsection{Directory principali}
+\begin{itemize}
+    \item \textit{/datasets:} Contiene i dataset di input, in particolare ogni sottocartella fa riferimento ad uno specifico dataset.
+    \item \textit{/compressione\_test:} Salva i risultati della compressione in una cartella contenente una sottocartella per ogni dataset. Ognuna di queste sottocartelle contiene a seconda dei codec usati il video compresso corrispondente. La seguente cartella in fase di compressione è creata in automatico.
+    \item \textit{/decompression\_test:} Salva i risultati della decompressione in una cartella contenente una sottocartella per ogni dataset: Ognuna di queste contiene a seconda dei codec usati un'altra sottocartella all'interno della quale sono salvate le immagini decompresse. La cartella in fase di decompressione è creata in automatico.
+    \item \textit{/ffmpeg:} Nel caso di un sistema Windows, questa cartella è di fondamentale importanza in quanto contiene l'eseguibile di ffmpeg.
+
+\end{itemize}
+
+\section{Metodologie esperimento}
+L'esperimento è stato automatizzato per semplificare il processo, trasformandolo in un processo di \textit{benchmarking automatico} sia durante la fase di compressione che durante quella di decompressione. 
+Di conseguenza, il programma eseguirà automaticamente i test con vari codec e sui vari dataset prensenti nel file python \textit{utils.py}, senza richiedere un'interazione continua da parte dell'utente. Questo approccio è particolarmente utile per condurre test di benchmark o valutare le prestazioni di diversi algoritmi in modo efficiente.
+Per lanciare il test di compressione è possibile usare il comando \textit{python test\_compression.py} all'interno della cartella, mentre per testare la decompressione \textit{python test\_decompression.py}.
+
+\section{Fase di compressione}
+
+In fase di compressione sono state utilizzate diverse funzioni le quali firme seguono il pattern comp\_\{codec\_scelto\} e implementano il processo di compressione video mediante l'utilizzo di un codec specificato tramite FFmpeg. Il procedimento può essere riassunto in termini generici:
+
+\begin{enumerate}
+    \item \textbf{Parametri di Input:}
+    \begin{itemize}
+        \item input\_path: Percorso del file video originale;
+        \item output\_path: Percorso in cui verrà salvato il file video compresso.
+    \end{itemize}
+    \item \textbf{Calcolo delle dimensioni:} Viene calcolata la dimensione totale del file originale attraverso la somma delle dimensioni di tutti i file presenti nella stessa cartella del file originale.
+    \item \textbf{Utilizzo di FFmpeg per la compressione:} Utilizzando la libreria subprocess, viene eseguito FFmpeg dalla riga di comando. Il comando FFmpeg include specifiche come il tasso di frame di input, il codec video da utilizzare, insieme ai percorsi del file di input e di output;
+    \item \textbf{Calcolo del tempo di compressione:} Il tempo di inizio viene registrato prima della chiamata FFmpeg, e il tempo di fine viene registrato dopo il completamento della compressione. La durata totale del processo di compressione viene calcolata sottraendo il tempo di inizio da quello di fine.
+    \item \textbf{Calcolo del rapporto di compressione:} Utilizzando una funzione ausiliaria, vengono ottenute la dimensione del file compresso e il rapporto di compressione $\frac{dimensione\;originale}{dimensione \;compressa}$;
+    \item \textbf{Output:} Ogni funzione di questo tipo restituisce la dimensione iniziale, la dimensione finale, il rapporto di compressione e il tempo impiegato per la compressione. Inoltre nella cartella di output sarà possibile visualizzare il video ottenuto dalla compressione.
+\end{enumerate}
+ Questo approccio è flessibile e può essere adattato per eseguire test con diversi codec, contribuendo così alla valutazione delle prestazioni dei codec nel contesto dell'esperimento.
+
+\section{Fase di decompressione}
+In fase di decompressione di un particolare video, il procedimento generale è questo:
+
+\begin{enumerate}
+    \item \textbf{Ciclo di decompressione}: Questa è la fase più importante e principale della decompressione. Il codice itera attraverso ogni frame del video compresso usando la libreria av. Durante l'iterazione, i frame vengono decodificati e salvati come immagini in una nuova directory, corrispondente al nome del dataset;
+    \item \textbf{Creazione della struttura di output:} Viene creata una nuova directory per l'output della decompressione per ogni dataset. All'interno di ciascuna directory, vengono create sotto-directory per ogni algoritmo di compressione utilizzato.
+    \item \textbf{Applicazione di metriche di qualità:} Per ogni coppia di immagini decompresse (originale e compressa), vengono calcolate metriche di qualità quali SSIM e PSNR. Le metriche vengono calcolate tra ogni frame dell'immagine originale e del risultato della decompressione;
+    \item \textbf{Raccolta e salvataggio dei risultati:} I risultati delle metriche vengono raccolti e salvati in una struttura dati, che include informazioni come il nome del dataset, l'algoritmo di compressione utilizzato, e le medie delle metriche SSIM e PSNR (poiché vi è un confronto 1:1 tra immagine originale e immagine decompressa). I risultati vengono inoltre salvati in un file CSV per un'ulteriore analisi o documentazione.
+
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
