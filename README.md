@@ -16,11 +16,14 @@ I risultati ottenuti includono metriche di qualità della compressione, tempi di
 Siete invitati a contribuire a questo progetto aprendo issue, inviando pull request o fornendo feedback sulla valutazione comparativa degli algoritmi di compressione video per Light Field. Le vostre contribuzioni sono preziose per migliorare la comprensione e l'efficacia di tali algoritmi.
 
 ## Requisiti
-Assicurati di avere Python installato sul tuo sistema (Versione usata - 3.11.6).
-Assicurati di avere le librerie necessarie installate eseguendo il comando seguente:
+1. Assicurati di avere Python installato sul tuo sistema (Versione usata - 3.11.6).
+2. Assicurati di avere le librerie necessarie installate eseguendo il comando seguente:
 ```sh
 pip install -r requirements.txt
 ```
+3. Installare ffmpeg :
+- Per Windows: scaricare ffmpeg dal sito ufficiale e inserire la cartella ffmpeg contenente gli eseguibili nella root del progetto
+- Per macOS/Linux: scaricare il pacchetto e installarlo.
 
 ## Avvio dell'Esperimento
 
