@@ -151,10 +151,6 @@ def run_video_compression(algo, input_path, output_extension, output_path):
 
 def main():
 
-    #CODEC
-    #algorithms = ["CLJR", "ProRes"]
-
-
     output_dir = compression_dir
 
     risultati = []
