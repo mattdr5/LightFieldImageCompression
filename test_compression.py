@@ -152,7 +152,7 @@ def run_video_compression(algo, input_path, output_extension, output_path):
 def main():
 
     #CODEC
-    algorithms = ["HEVC", "HEVC-VS", "AV1", "AV1-VS", "FFV1", "HUFFYUV", "UTVIDEO", "VP9", "VP9-VS", "MagicYUV", "FLV1", "MPEG4", "CLJR", "ProRes", "MJPEG", "FFVHUFF", "LCL"]
+    #algorithms = ["CLJR", "ProRes"]
 
 
     output_dir = compression_dir

@@ -2,6 +2,8 @@ import os
 import platform
 import subprocess
 import time
+from dataset_options import DATASET_OPTIONS
+import re
 
 def calcola_rapporto_compressione(input_path, output_path):
     """
@@ -30,6 +32,15 @@ def calcola_rapporto_compressione(input_path, output_path):
     return size_before, size_after, size_before / size_after if size_after != 0 else 0
 
 def comp_MPEG4(input_path, output_path):          #Support only Lossy compression
+    dataset = None
+
+# Cerca il nome del dataset nel file dataset_options.py
+    for dataset_name, options in DATASET_OPTIONS.items():
+    # Utilizza un'espressione regolare per cercare il nome del dataset nel percorso del file di input
+        if re.search(rf'\b{re.escape(dataset_name.lower())}\b', input_path.lower()):
+            dataset = dataset_name.lower()
+            break
+
     # Set the input and output file names
     input_file = input_path
     output_file = output_path
@@ -40,11 +51,23 @@ def comp_MPEG4(input_path, output_path):          #Support only Lossy compressio
     else:
         ffmpeg_executable = "ffmpeg"
 
+
      # Registra il tempo di inizio
     start_time = time.time()
 
+    # Get the dataset-specific options for FLV1 from the DATASET_OPTIONS dictionary
+    dataset_options = DATASET_OPTIONS.get(dataset, {}).get('MPEG4', [])
+
+    print("STAMPA MPEG")
+    print(dataset_options)
+
     # Call ffmpeg to compress the video with MPEG-4 Part 2 codec (libxvid)
-    subprocess.run([ffmpeg_executable, "-framerate", "120","-i", input_file, "-c:v", "mpeg4", output_file])
+
+    subprocess.run([ffmpeg_executable, "-framerate", "120", "-i", input_file, "-c:v", "mpeg4"] + dataset_options + [output_file])
+
+    
+    #subprocess.run([ffmpeg_executable, "-framerate", "120", "-i", input_file, "-c:v", "mpeg4", "-qmin", "5", "-qmax", "7", output_file])
+    #subprocess.run([ffmpeg_executable, "-framerate", "120","-i", input_file, "-c:v", "mpeg4", "-b:v", "5M", output_file])
 
     # Registra il tempo di fine
     end_time = time.time()

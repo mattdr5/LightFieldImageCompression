@@ -2,6 +2,8 @@ import os
 import subprocess
 import platform
 import time
+from dataset_options import DATASET_OPTIONS
+import re
 
 def calcola_rapporto_compressione(input_path, output_path):
     # Calcola la dimensione del file originale
@@ -19,6 +21,14 @@ def calcola_rapporto_compressione(input_path, output_path):
     return size_before, size_after, size_before / size_after if size_after != 0 else 0
 
 def comp_ProRes(input_path, output_path):        #Support only Lossy compression
+    dataset = None
+
+# Cerca il nome del dataset nel file dataset_options.py
+    for dataset_name, options in DATASET_OPTIONS.items():
+    # Utilizza un'espressione regolare per cercare il nome del dataset nel percorso del file di input
+        if re.search(rf'\b{re.escape(dataset_name.lower())}\b', input_path.lower()):
+            dataset = dataset_name.lower()
+            break
 
     input_file = input_path
     output_file = output_path
@@ -33,8 +43,15 @@ def comp_ProRes(input_path, output_path):        #Support only Lossy compression
     # Record start time
     start_time = time.time()
 
+    # Get the dataset-specific options for FLV1 from the DATASET_OPTIONS dictionary
+    dataset_options = DATASET_OPTIONS.get(dataset, {}).get('ProRes', [])
+
     # Call ffmpeg to compress the video with ProRes codec
-    subprocess.run([ffmpeg_executable, "-framerate", "120","-i", input_file, "-c:v", "prores_ks", "-profile:v", "3", output_file])
+
+    subprocess.run([ffmpeg_executable, "-framerate", "120", "-i", input_file, "-c:v", "prores_ks", "-profile:v", "1"] + dataset_options + [output_file])
+    #subprocess.run([ffmpeg_executable, "-framerate", "120", "-i", input_file, "-c:v", "prores_ks",  "-profile:v", "1", "-q:v", "60", output_file])
+
+    # più aumento q:v, più diminuisce l'SSIM
 
     # Record end time
     end_time = time.time()

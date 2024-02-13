@@ -2,6 +2,8 @@ import os
 import subprocess
 import platform  # Import the platform module to check the operating system
 import time
+from dataset_options import DATASET_OPTIONS
+import re
 
 def calcola_rapporto_compressione(input_path, output_path):
     """
@@ -31,6 +33,15 @@ def calcola_rapporto_compressione(input_path, output_path):
 
 
 def comp_MJPEG(input_path,output_path):         #Support only Lossy compression
+    dataset = None
+
+# Cerca il nome del dataset nel file dataset_options.py
+    for dataset_name, options in DATASET_OPTIONS.items():
+    # Utilizza un'espressione regolare per cercare il nome del dataset nel percorso del file di input
+        if re.search(rf'\b{re.escape(dataset_name.lower())}\b', input_path.lower()):
+            dataset = dataset_name.lower()
+            break
+
     # Set the input and output file names
     input_file = input_path
     output_file = output_path
@@ -45,8 +56,15 @@ def comp_MJPEG(input_path,output_path):         #Support only Lossy compression
    # Registra il tempo di inizio
     start_time = time.time()
 
+    # Get the dataset-specific options for FLV1 from the DATASET_OPTIONS dictionary
+    dataset_options = DATASET_OPTIONS.get(dataset, {}).get('MJPEG', [])
+
     # Call ffmpeg to compress the video
-    subprocess.run([ffmpeg_executable,"-framerate", "120","-i", input_file,"-c:v", "mjpeg", output_file])
+
+    subprocess.run([ffmpeg_executable, "-framerate", "120", "-i", input_file, "-c:v", "mjpeg"] + dataset_options + [output_file])
+    
+
+    #subprocess.run([ffmpeg_executable,"-framerate", "120","-i", input_file,"-c:v", "mjpeg", "-qmin", "7", "-qmax", "10", output_file])
 
     # Registra il tempo di fine
     end_time = time.time()
