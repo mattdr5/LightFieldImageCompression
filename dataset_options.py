@@ -128,6 +128,12 @@ DATASET_OPTIONS = {
     #    'ProRes': ["-q:v", "64"],
     #    'MPEG4': ["-q:v", "16"],
     #},
+    #'cobblestone': {       # VERSIONE SSIM 0,95, PSNR uguali     
+    #    'FLV1': ["-q:v", "6"],
+    #    'MJPEG': ["-q:v", "7"],
+    #    'ProRes': ["-q:v", "17"],
+    #    'MPEG4': ["-q:v", "6"],
+    #}
 
     # Altri dataset con le relative opzioni
 }
