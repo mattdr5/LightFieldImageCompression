@@ -58,16 +58,8 @@ def comp_MPEG4(input_path, output_path):          #Support only Lossy compressio
     # Get the dataset-specific options for FLV1 from the DATASET_OPTIONS dictionary
     dataset_options = DATASET_OPTIONS.get(dataset, {}).get('MPEG4', [])
 
-    print("STAMPA MPEG")
-    print(dataset_options)
-
     # Call ffmpeg to compress the video with MPEG-4 Part 2 codec (libxvid)
-
     subprocess.run([ffmpeg_executable, "-framerate", "120", "-i", input_file, "-c:v", "mpeg4"] + dataset_options + [output_file])
-
-    
-    #subprocess.run([ffmpeg_executable, "-framerate", "120", "-i", input_file, "-c:v", "mpeg4", "-qmin", "5", "-qmax", "7", output_file])
-    #subprocess.run([ffmpeg_executable, "-framerate", "120","-i", input_file, "-c:v", "mpeg4", "-b:v", "5M", output_file])
 
     # Registra il tempo di fine
     end_time = time.time()

@@ -64,8 +64,6 @@ def comp_MJPEG(input_path,output_path):         #Support only Lossy compression
     subprocess.run([ffmpeg_executable, "-framerate", "120", "-i", input_file, "-c:v", "mjpeg"] + dataset_options + [output_file])
     
 
-    #subprocess.run([ffmpeg_executable,"-framerate", "120","-i", input_file,"-c:v", "mjpeg", "-qmin", "7", "-qmax", "10", output_file])
-
     # Registra il tempo di fine
     end_time = time.time()
     

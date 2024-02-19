@@ -49,9 +49,6 @@ def comp_ProRes(input_path, output_path):        #Support only Lossy compression
     # Call ffmpeg to compress the video with ProRes codec
 
     subprocess.run([ffmpeg_executable, "-framerate", "120", "-i", input_file, "-c:v", "prores_ks", "-profile:v", "1"] + dataset_options + [output_file])
-    #subprocess.run([ffmpeg_executable, "-framerate", "120", "-i", input_file, "-c:v", "prores_ks",  "-profile:v", "1", "-q:v", "60", output_file])
-
-    # più aumento q:v, più diminuisce l'SSIM
 
     # Record end time
     end_time = time.time()
