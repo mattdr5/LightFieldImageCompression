@@ -250,5 +250,52 @@ DATASET_OPTIONS = {
     #   'MJPEG': ["-q:v", "12"],
     #   'MPEG4': ["-q:v", "6"],
     #}
-
+    #'car': {          #VERSIONE SSIM 0,90
+    #    'FLV1': ["-q:v", "70"],
+    #    'MPEG4': ["-q:v", "29"],
+    #},
+    #'car': {          #VERSIONE SSIM #0,95
+    #    'FLV1': ["-q:v", "14"],
+    #    'MPEG4': ["-q:v", "12"],
+    #},
+    #'car_random': {         #VERSIONE SSIM  0,90
+    #    'FLV1': ["-q:v", "45"],
+    #    'MPEG4': ["-q:v", "26"],
+    #},
+    #'car_random': {          #VERSIONE SSIM  0,95
+    #    'FLV1': ["-q:v", "13"],
+    #    'MPEG4': ["-q:v", "11"],
+    #},
+    #'dice': {         #VERSIONE SSIM #0,90
+    #    'FLV1': ["-q:v", "190"],
+    #    'MPEG4': ["-q:v", "130"],
+    #},
+    #'dice': {         #VERSIONE SSIM #0,95
+    #    'FLV1': ["-q:v", "13"],
+    #    'MPEG4': ["-q:v", "12"],
+    #},
+    #'dice_random': {     #VERSIONE SSIM   #0,90
+    #    'FLV1': ["-q:v", "190"],
+    #    'MPEG4': ["-q:v", "130"],
+    #},
+    #'dice_random': {     #VERSIONE SSIM   #0,95
+    #    'FLV1': ["-q:v", "13"],
+    #    'MPEG4': ["-q:v", "12"],
+    #},
+    #'fish': {          #VERSIONE SSIM #0.90 
+    #    'FLV1': ["-q:v", "350"],
+    #    'MPEG4': ["-q:v", "300"],
+    #},
+    #'fish': {          #VERSIONE SSIM #0.95 
+    #    'FLV1': ["-q:v", "16"],
+    #    'MPEG4': ["-q:v", "16"],
+    #},
+    #'fish_random': {         #VERSIONE SSIM  #0.90
+    #    'FLV1': ["-q:v", "350"],
+    #    'MPEG4': ["-q:v", "300"],
+    #},
+    #'fish_random': {         #VERSIONE SSIM  #0.95
+    #    'FLV1': ["-q:v", "16"],
+    #    'MPEG4': ["-q:v", "16"],
+    #},
 }
