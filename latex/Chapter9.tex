@@ -1,13 +1,11 @@
 \chapter{Conclusione e Sviluppi futuri}
-La conclusione dello studio evidenzia l'importanza cruciale della scelta del dataset e del codec nella compressione dei light field images, con rilevanti impatti sulle prestazioni complessive. L'analisi ha mostrato variazioni significative nell'efficacia della compressione in base al dataset utilizzato, con l'ordine dei frame che può influenzare la qualità e le performance, infine, la decisione tra codec lossy e lossless è fondamentale.
+La conclusione dello studio enfatizza l'importanza fondamentale della scelta accurata del dataset e del codec nell'ambito della compressione delle immagini light field, poiché tali decisioni influenzano in modo significativo le prestazioni complessive. L'analisi condotta ha evidenziato variazioni sostanziali nell'efficacia della compressione in relazione ai diversi dataset impiegati, con anche l'ordine dei frame che può influire sulla qualità e sulle prestazioni generali. Inoltre, si sottolinea come la scelta tra codec lossy e lossless giochi un ruolo cruciale.
+
+Da un altro punto di vista, si è riscontrato che codec come MPEG4 e FLV1 sono stati capaci di bilanciare in maniera ottimale tutte le variabili coinvolte nella compressione, offrendo eccellenti rapporti di compressione unitamente a una qualità visiva e una fedeltà strutturale notevoli. Questi codec si distinguono per la loro efficienza nello spazio di archiviazione, mantenendo allo stesso tempo una qualità dell'immagine elevata.
+
+Questi risultati evidenziano la complessità delle decisioni nel campo della compressione video, poiché diversi codec possono eccellere in modi diversi.
+
+Nel corso degli esperimenti condotti, è fondamentale notare che è stato stabilito un valore di similarità utilizzando l'indice SSIM per ciascun dataset. Questo indice valuta le differenze nell'intensità, nella struttura e nella luminanza tra due immagini, offrendo una misurazione affidabile della loro somiglianza. Attraverso questo approccio, è stato possibile determinare che, in termini di rapporto di compressione e qualità dell'immagine, i codec migliori sono risultati essere MPEG4, seguito da FLV1. L'inclusione del PSNR ha ulteriormente confermato l'affidabilità dell'indice SSIM, consentendo un confronto coerente dei risultati in termini di qualità.
 \\
 \\
-Il codec Prores ha dimostrato di avere un interessante equilibrio tra il rapporto di compressione, la perdita di informazioni e la qualità visiva. Nonostante il suo rapporto di compressione potrebbe non essere ottimo rispetto ad alcuni codec altamente efficienti in termini di riduzione delle dimensioni, il ProRes compensa questo aspetto con eccellenti indici SSIM e PSNR, nonostante la sua natura lossy.
-\\
-D'altra parte, codec come MPEG4 e FLV1 dimostrano un equilibrio ben calibrato in tutte le fasi, presentando ottimi rapporti di compressione insieme a qualità visiva e fedeltà strutturale notevoli. Questi codec si distinguono per essere efficienti in termini di spazio di archiviazione senza compromettere eccessivamente la qualità dell'immagine, nostante la loro natura lossy.
-\\
-\\
-Questi esempi evidenziano la complessità delle scelte nel campo della compressione video, poiché diversi codec possono eccellere in modi differenti.
-\\
-\\
-Per lo sviluppo futuro, potrebbe essere interessante esplorare ottimizzazioni specifiche per determinati dataset e valutare l'evoluzione di nuovi approcci o codec che possano offrire prestazioni superiori. Un'altra direzione potenziale potrebbe essere quella di esaminare nuove metodologie nell'ambito dei Light Field, poiché l'adattamento continuo delle tecniche di compressione alle immagini light field rimane un ambito di ricerca promettente.
+Per futuri sviluppi, potrebbe essere interessante esplorare ottimizzazioni specifiche per determinati dataset, tenendo conto della disposizione dei frame, poiché questo può avere un impatto cruciale sulle prestazioni complessive della compressione. Inoltre, valutare l'evoluzione di nuovi approcci o codec potrebbe offrire prestazioni superiori, considerando l'adattamento continuo delle tecniche di compressione alle immagini light field come un ambito di ricerca promettente.

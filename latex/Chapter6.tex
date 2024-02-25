@@ -64,8 +64,13 @@ In fase di decompressione di un particolare video, il procedimento generale è q
 
 \end{enumerate}
 
+\section{Studio codec Lossy a parità di SSIM}
 
+Il file dataset\_options.py contiene un dizionario chiamato DATASET\_OPTIONS, che definisce le impostazioni di compressione per ciascun dataset considerato durante gli esperimenti condotti. Ogni chiave del dizionario rappresenta un dataset specifico, mentre i valori associati a ciascuna chiave sono sotto-dizionari che specificano le opzioni di compressione per i diversi codec lossy utilizzati.
 
+Per ogni dataset, sono elencati i codec FLV1, MJPEG, ProRes e MPEG4, insieme ai rispettivi valori del parametro \textit{-q:v}\cite{ffmpeg} di ffmpeg utilizzati per regolare la qualità della compressione. Questi valori di qualità sono stati scelti in base ai risultati degli esperimenti condotti, tenendo conto dell'effetto sul rapporto di compressione e sulla qualità dell'immagine, valutata principalmente attraverso l'indice SSIM.
+
+È importante notare che l'aumento del valore del parametro -q:v tende a diminuire l'indice SSIM, il che indica una riduzione della qualità dell'immagine a fronte di una maggiore compressione. Questo aspetto è stato preso in considerazione durante la selezione delle opzioni di compressione al fine di mantenere un indice SSIM stabile per ciascun dataset, consentendo così un confronto accurato delle prestazioni dei codec lossy.
 
 
 
